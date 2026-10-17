@@ -4,10 +4,10 @@ import {Game,DEFAULTS,AI_NAMES,clamp,maxPower} from './engine.js';
 import {Renderer} from './render.js';
 const $=id=>document.getElementById(id),canvas=$('screen');
 const resources=await Promise.all(['weapons.json','tiny-font.json','litt-font.json','euro-font.json'].map(async f=>{const r=await fetch('./assets/'+f);if(!r.ok)throw Error(f);return r.json();})).catch(e=>{$('loading').textContent='Не удалось загрузить ресурсы. Обновите страницу.';throw e;});
-const bitmap=new Uint8Array(await (await fetch('./assets/font8.bin')).arrayBuffer());
+const [bitmap,title]=await Promise.all(['font8.bin','title-indexed.bin'].map(async file=>{const r=await fetch('./assets/'+file);if(!r.ok)throw Error(file);return new Uint8Array(await r.arrayBuffer());}));
 const [catalog,tiny,litt,euro]=resources;
 export const app={screen:'splash',options:{...DEFAULTS},game:null,selection:0,editPlayer:0,shopPlayer:0,statsPlayer:0,cart:[],roster:Array.from({length:10},(_,i)=>({name:i===0?'Player 1':i===1?'Mr. Stupid':`Player ${i+1}`,ai:i===0?-1:i===1?0:-1,team:i%2})),shopItems:shopItems(catalog),shopStock(it){return shopStock(this.game.players[this.shopPlayer],it);},shopVisible(){return visibleShopItems(this.game.players[this.shopPlayer],this.shopItems);},cartCost(){return cartCost(this.cart,this.shopItems);}};
-const renderer=new Renderer(canvas,{tiny,litt,euro},bitmap);
+const renderer=new Renderer(canvas,{tiny,litt,euro},bitmap,title);
 const speaker=new PCSpeaker();
 let oldTime=0,lastControlKey='',messageUntil=0,previousScreen='battle',pendingConfirm=null,held=null;
 function notice(text,seconds=3){$('status').textContent=text;messageUntil=performance.now()+seconds*1000;}

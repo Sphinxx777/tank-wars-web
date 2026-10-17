@@ -18,3 +18,17 @@ test('all 20 shipped masks equal binary extraction, including H/V and frame',()=
 import {createHash} from 'node:crypto';
 import {renderShopFixture} from '../tools/verify-shop.mjs';
 test('shop renderer matches full DOS QA200K reference frame (64000 pixels)',()=>{assert.equal(createHash('sha256').update(renderShopFixture()).digest('hex'),'d863b72ff5ca85ba65bbac314c2c437763845717e117ed603ea29fc473c56dd4');});
+
+import {titleFrame} from '../dist/title.js';
+const titleSource=fs.readFileSync(new URL('../dist/assets/title-indexed.bin',import.meta.url));
+test('title phase zero matches all 64000 pixels of the DOS capture',()=>{
+ assert.equal(createHash('sha256').update(titleFrame(titleSource,0)).digest('hex'),'62a292b756459a5ce105af63d65c077bb7a677817ebd3f72b5ba96dbe5511e6e');
+});
+test('title palette cycles all twenty phases while keeping scenery and letter borders fixed',()=>{
+ const first=titleFrame(titleSource,0),frames=new Set();
+ for(let phase=0;phase<20;phase++){
+  const frame=titleFrame(titleSource,phase);frames.add(createHash('sha256').update(frame).digest('hex'));
+  for(let i=0;i<64000;i++)if(titleSource[i]<135||titleSource[i]>154)assert.deepEqual(frame.subarray(i*4,i*4+4),first.subarray(i*4,i*4+4));
+ }
+ assert.equal(frames.size,20);assert.deepEqual(titleFrame(titleSource,20),first);
+});

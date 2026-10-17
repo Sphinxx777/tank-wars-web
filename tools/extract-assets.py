@@ -4,7 +4,7 @@ Usage: python3 tools/extract-assets.py /path/to/tankwars [--bios-font /path/FONT
 """
 import argparse, binascii, hashlib, json, struct, zlib
 from pathlib import Path
-parser=argparse.ArgumentParser();parser.add_argument('source',type=Path);parser.add_argument('--bios-font',type=Path);args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('source',type=Path);parser.add_argument('--bios-font',type=Path);parser.add_argument('--titles-only',action='store_true');args=parser.parse_args()
 root=Path(__file__).resolve().parents[1];out=root/'dist/assets';out.mkdir(parents=True,exist_ok=True)
 exe=(args.source/'BOMB.EXE').read_bytes()
 expected='659ace6b9a97c30191a8f65cf25f22322c087166909e9fa1d522e529adbafd9d'
@@ -18,10 +18,17 @@ for i,raw in enumerate([a,b],1):
  assert len(raw)==64768
  pal=[round(x*255/63) for x in raw[64000:]]
  png(f'title-{i}.png',bytes(c for k in raw[:64000] for c in pal[k*3:k*3+3]))
-rgb=bytearray()
-for i in range(64000):
- raw=b if b[i] else a;k=raw[i];rgb.extend(round(n*255/63) for n in raw[64000+k*3:64003+k*3])
-png('title.png',rgb)
+# OVR 0x369..0x456 overlays selected BOMB2 indices. The resident copy
+# helper (EXE 0x5e20) ignores the allocated source offset of 8 bytes.
+indices=bytearray(a[:64000])
+for i in range(8,64000):
+ k=b[i-8]
+ if 16<=k<=20 or 115<=k<=124 or 135<=k<=164 or 175<=k<=184:indices[i]=k
+palette=b[64000:]
+(out/'title-indexed.bin').write_bytes(indices+palette)
+png('title.png',bytes(round(palette[k*3+c]*255/63) for k in indices for c in range(3)))
+if args.titles_only:
+ print('Verified original hash and extracted indexed title assets.');raise SystemExit(0)
 # Parse each original CHR glyph, then check the research export against the bytes.
 for name in ['tiny','litt','euro']:
  source=root/f'research/{name}-font-extracted.json';font=json.loads(source.read_text());header=int(font['headerOffset'],16)

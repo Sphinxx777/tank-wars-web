@@ -1,7 +1,8 @@
+import {titleFrame,TITLE_STEP_SECONDS,TITLE_COLORS} from './title.js';
 import weaponIcons from './assets/weapon-icons.js';
 import {W,H,TOP,LEFT,RIGHT,BOTTOM,WALLS,COLORS,AI_NAMES} from './engine.js';
 export class Renderer {
-  constructor(canvas,fonts,bitmap){this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:false});this.fonts=fonts;this.bitmap=bitmap;this.hits=[];this.time=0;this.buttons=[];this.ctx.imageSmoothingEnabled=false;this.back=document.createElement('canvas');this.back.width=W;this.back.height=H;this.bc=this.back.getContext('2d');this.titleA=new Image();this.titleA.src='./assets/title.png';this.titleB=new Image();this.titleB.src='./assets/title-2.png';}
+  constructor(canvas,fonts,bitmap,title){this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:false});this.fonts=fonts;this.bitmap=bitmap;this.hits=[];this.time=0;this.buttons=[];this.ctx.imageSmoothingEnabled=false;this.back=document.createElement('canvas');this.back.width=W;this.back.height=H;this.bc=this.back.getContext('2d');this.title=title;this.titlePixels=this.ctx.createImageData(W,H);this.titlePhase=-1;}
   rect(x,y,w,h,c){this.ctx.fillStyle=c;this.ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h));}
   line(x0,y0,x1,y1,c){x0=Math.round(x0);y0=Math.round(y0);x1=Math.round(x1);y1=Math.round(y1);let dx=Math.abs(x1-x0),sx=x0<x1?1:-1,dy=-Math.abs(y1-y0),sy=y0<y1?1:-1,err=dx+dy;this.ctx.fillStyle=c;for(let n=0;n<2000;n++){this.ctx.fillRect(x0,y0,1,1);if(x0===x1&&y0===y1)break;const e=err*2;if(e>=dy){err+=dy;x0+=sx;}if(e<=dx){err+=dx;y0+=sy;}}}
   box(x,y,w,h,fill='#aaa',inset=false){this.rect(x,y,w,h,fill);const hi=inset?'#555':'#fff',lo=inset?'#fff':'#555';this.line(x,y,x+w-1,y,hi);this.line(x,y,x,y+h-1,hi);this.line(x+w-1,y+1,x+w-1,y+h-1,lo);this.line(x+1,y+h-1,x+w-1,y+h-1,lo);}
@@ -23,7 +24,7 @@ export class Renderer {
     this.bc.putImageData(im,0,0);this.ctx.drawImage(this.back,0,0);if(!menu&&kind===1&&palette?.length)for(const [x,y,i] of stars){const c=palette[(i+Math.trunc(time*4))%palette.length];this.rect(x,y,1,1,`rgb(${c.join(",")})`);}
   }
   heading(){this.box(8,4,304,40);this.text('TANK WARS  3.2',160,10,'#ffff55','euro',0.57,'center');this.text('TANK WARS  3.2',159,9,'#ff5555','euro',0.57,'center');}
-  splash(){if(this.titleA.complete)this.ctx.drawImage(this.titleA,0,0);this.box(83,164,154,17,'#111');this.text('PRESS ENTER TO CONTINUE',160,169,'#ffff55','tiny',1,'center');this.hit(0,0,320,200,'menu','Продолжить');}
+  splash(){this.titleStart??=this.time;const phase=Math.floor((this.time-this.titleStart)/TITLE_STEP_SECONDS)%TITLE_COLORS;if(phase!==this.titlePhase){titleFrame(this.title,phase,this.titlePixels.data);this.titlePhase=phase;}this.ctx.putImageData(this.titlePixels,0,0);this.box(83,164,154,17,'#111');this.text('PRESS ENTER TO CONTINUE',160,169,'#ffff55','tiny',1,'center');this.hit(0,0,320,200,'menu','Продолжить');}
   menu(app){this.background(1,this.time,true);this.heading();this.box(116,61,88,18);this.text('Main Menu',160,66,'#0000aa','bios',1,'center');this.box(116,83,88,107);
     const labels=['Sound Options','Game Options',`Players: ${app.options.players}`,`Games: ${app.options.rounds}`,'START'];
     labels.forEach((l,i)=>this.button(l,120,89+i*20,80,14,['sound','options','playersCount','roundsCount','roster'][i],{color:i===4?'#ff55ff':'#55ff55',fill:'#750080',selected:app.selection===i}));
