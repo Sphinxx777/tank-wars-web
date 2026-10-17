@@ -9,6 +9,8 @@ export const COLORS = ['#ff0000','#00ff00','#5555ff','#ffff00','#ff00ff','#00fff
 export const DEFAULTS = {players:2,rounds:10,crumble:50,walls:5,wind:2,background:9,tanksFall:true,computerBuy:true,trail:true,visible:true,sound:true,flySound:false,teams:false,paletteSpeed:3,mirvSpread:0,mirvDetonation:0};
 // BOMB.CFG fall delay: 5 ms per pixel (OVR 0x1ac9e).
 export const FALL_STEP_SECONDS = .005;
+// OVR 0x1b4b1..0x1b4e3 clamps power to 10 * MEN; BOMB.DOC says 100 in error.
+export const maxPower = p => 10*p.men;
 export const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
 export class Random {
   constructor(seed=Date.now()){this.state=seed>>>0;}
@@ -98,7 +100,7 @@ export class Game {
   get current(){return this.players[this.active];}
   get alive(){return this.players.filter(p=>p.alive);}
   enemies(p){return this.players.filter(t=>t.alive&&t.id!==p.id&&(!this.options.teams||t.team!==p.team));}
-  setPower(v){if(this.phase!=='aim')return;this.audio(controlSound(v<this.current.power?'powerDown':'powerUp'));this.current.power=Math.round(clamp(v,0,this.current.men*100));}
+  setPower(v){if(this.phase!=='aim')return;this.audio(controlSound(v<this.current.power?'powerDown':'powerUp'));this.current.power=Math.round(clamp(v,0,maxPower(this.current)));}
   setAngle(v,flip=false){if(this.phase!=='aim')return;const delta=(v-this.current.angle)*(this.current.angle>90?-1:1);this.audio(controlSound(flip?'flip':delta>0?'angleUp':'angleDown'));this.current.angle=(Math.round(v)+181)%181;}
   cycleWeapon(dir=1){if(this.phase!=='aim')return;const p=this.current;for(let i=0;i<18;i++){p.weapon=(p.weapon+dir+18)%18;if(p.ammo[p.weapon]!==0)break;}}
   armGuidance(index){const p=this.current;if(this.phase!=='aim'||p.guidance[index]<=0)return false;p.armed^=1<<index;p.target=this.enemies(p)[0]?.id??null;return true;}
@@ -121,7 +123,7 @@ export class Game {
     if((kind==='blast'||kind==='death')&&p.defense[0]>0){const absorbed=Math.min(damage,p.defense[0]);p.defense[0]-=absorbed;damage-=absorbed;}
     if(kind==='fall'&&p.defense[1]>0){const absorbed=Math.min(damage,p.defense[1]);p.defense[1]-=absorbed;damage-=absorbed;}
     if(kind!=='fall'&&damage>0&&p.defense[2]>0&&this.rng.next()<Math.min(1,damage/40))p.defense[2]--;
-    const dealt=Math.min(p.men,Math.trunc(damage));p.men=Math.max(0,p.men-dealt);p.power=Math.min(p.power,p.men*100);
+    const dealt=Math.min(p.men,Math.trunc(damage));p.men=Math.max(0,p.men-dealt);p.power=Math.min(p.power,maxPower(p));
     const source=this.players[owner],enemy=source&&source.team!==p.team;
     if(enemy&&dealt&&kind!=='fall'&&kind!=='laser'&&kind!=='death'){source.score+=dealt*10;source.money+=dealt*10;if(!this.turnHit){source.hits++;this.turnHit=true;}}
     if(p.men===0){p.alive=false;if(source){const bonus=enemy?1500:-1000;source.score+=bonus;source.money+=bonus;if(enemy)source.kills++;}this.deathQueue.push({...p,owner});this.emit('kill',{player:p.id});}
@@ -292,7 +294,7 @@ export class Game {
       target=chooseEnemy();const dx=target.x-p.x,dy=target.y-p.y,direction=dx>0?1:-1;
       for(let trial=0;trial<41;trial++){const angle=this.rng.int(90),c=cosDeg(angle),s=sinDeg(angle),t=s/c,X=Math.trunc(dx-8*c*direction),Y=Math.trunc(dy+8*s)-1;
         const vx=Math.sqrt(Math.abs(.05*X*X/(Math.abs(X)*t+Y))),power=Math.trunc(Math.hypot(50*t*vx,50*vx));p.angle=orient(angle,direction);p.power=power;
-        if(Number.isFinite(power)&&!(t<Math.abs(Y/X)&&Y<0)&&power<=10*p.men)break;
+        if(Number.isFinite(power)&&!(t<Math.abs(Y/X)&&Y<0)&&power<=maxPower(p))break;
       }
     }
     if(ai===6){
@@ -302,12 +304,12 @@ export class Game {
         const X=Math.trunc(X0-8*cos),Y=-(Math.trunc(Y0+8*sin)-1),den=acc*sin-grav*cos;
         if(Math.abs(sin)<1e-12||Math.abs(cos)<1e-12||Math.abs(den)<1e-12)continue;
         const t2=(X*sin-Y*cos)/den;if(t2<=0)continue;const power=Math.trunc(50*(X-acc*t2)/(Math.sqrt(t2)*cos));
-        if(power>=0&&power<=10*p.men){p.angle=theta;p.power=power;break;}
+        if(power>=0&&power<=maxPower(p)){p.angle=theta;p.power=power;break;}
       }
     }
     p.target=target.id;
     for(let i=0;i<18&&(!p.ammo[p.weapon]||(p.weapon===5&&p.ammo[5]<100));i++)p.weapon=p.weapon<=0?12:p.weapon-1;
-    p.power=clamp(Number.isFinite(p.power)?p.power:0,0,10*p.men);if(p.weapon===5)p.power=Math.min(p.power,p.ammo[5]);
+    p.power=clamp(Number.isFinite(p.power)?p.power:0,0,maxPower(p));if(p.weapon===5)p.power=Math.min(p.power,p.ammo[5]);
     p.angle=clamp(Math.trunc(p.angle),0,180);
   }
   buy(player,index,count=1,kind='weapon',catalog=null){
@@ -317,5 +319,5 @@ export class Game {
   }
   computerShop(){if(!this.options.computerBuy)return;for(const p of this.players.filter(p=>p.ai>=0)){for(let n=0;n<6;n++){const id=[1,2,3,4,6,7,8][this.rng.int(7)];this.buy(p.id,id);}}}
   serialize(){return JSON.stringify({version:1,options:this.options,players:this.players,round:this.round,phase:this.phase,active:this.active,order:this.order,wind:this.wind,wall:this.wall,background:this.background,groundColor:this.groundColor,stars:this.stars,palette:this.palette,shopPreparedRound:this.shopPreparedRound,rng:this.rng.state,terrain:Array.from(this.terrain.data),turns:this.turns});}
-  static restore(json,weapons){const s=JSON.parse(json);if(s.version!==1||!Array.isArray(s.terrain)||s.terrain.length!==W*H||!Array.isArray(s.players)||s.players.length<2||s.players.length>10||!['aim','score'].includes(s.phase))throw Error('Invalid save');const g=new Game(weapons,s.options,s.rng);for(const k of ['players','round','phase','active','order','wind','wall','background','groundColor','turns','stars','palette','shopPreparedRound'])g[k]=s[k];g.terrain.data=Uint8Array.from(s.terrain);g.terrain.version++;g.aiTimer=1;return g;}
+  static restore(json,weapons){const s=JSON.parse(json);if(s.version!==1||!Array.isArray(s.terrain)||s.terrain.length!==W*H||!Array.isArray(s.players)||s.players.length<2||s.players.length>10||!['aim','score'].includes(s.phase))throw Error('Invalid save');const g=new Game(weapons,s.options,s.rng);for(const k of ['players','round','phase','active','order','wind','wall','background','groundColor','turns','stars','palette','shopPreparedRound'])g[k]=s[k];for(const p of g.players)p.power=clamp(p.power,0,maxPower(p));g.terrain.data=Uint8Array.from(s.terrain);g.terrain.version++;g.aiTimer=1;return g;}
 }

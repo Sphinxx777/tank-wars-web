@@ -63,7 +63,7 @@ OVR **0x839–0x914** initializes a player record, with zero-filled memory befor
 
 Each round setup sets power = **200** at OVR **0x1d154**, men = **100** through the helper at **0x1d181–0x1d193**. The last tank faces left (-1) at 0x1d16b; others face right (+1) at 0x1d17b. Elevation is 75 or 90 depending on a preceding membership test; constants at 0x1d136 and 0x1d146. That exact selection condition is not decoded here.
 
-BOMB.DOC lines 230–290: max power = `100 * men`; arrows up/down change power by1; PageUp/PageDown by100; left/right alter gun angle; I reverses direction without changing elevation; Space/Return fire; Tab/Shift-Tab cycle weapons; H/V activate guidance; numeric keys inspect players. Terrain drawn first, tanks fall into position, one random player starts, then turns advance left-to-right (DOC 216–227).
+BOMB.DOC lines 230–290 incorrectly states max power = `100 * men`. The executable clamps it to **`10 * men`** (1000 at 100 MEN): OVR **0x1b4b1–0x1b4e3** multiplies record+0x21 MEN by immediate 0x000a, compares record+0x1b POWER and caps it; **0x1b4e7–0x1b500** clamps the lower bound to zero. Documented controls: arrows up/down change power by1; PageUp/PageDown by100; left/right alter gun angle; I reverses direction without changing elevation; Space/Return fire; Tab/Shift-Tab cycle weapons; H/V activate guidance; numeric keys inspect players. Terrain drawn first, tanks fall into position, one random player starts, then turns advance left-to-right (DOC 216–227).
 
 ## Projectile integration (reverse-derived)
 

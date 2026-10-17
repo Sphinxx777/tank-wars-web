@@ -1,6 +1,6 @@
 import {shopItems,shopStock,visibleShopItems,cartCost,reserve} from './shop.js';
 import {PCSpeaker} from './sound.js';
-import {Game,DEFAULTS,AI_NAMES,clamp} from './engine.js';
+import {Game,DEFAULTS,AI_NAMES,clamp,maxPower} from './engine.js';
 import {Renderer} from './render.js';
 const $=id=>document.getElementById(id),canvas=$('screen');
 const resources=await Promise.all(['weapons.json','tiny-font.json','litt-font.json','euro-font.json'].map(async f=>{const r=await fetch('./assets/'+f);if(!r.ok)throw Error(f);return r.json();})).catch(e=>{$('loading').textContent='Не удалось загрузить ресурсы. Обновите страницу.';throw e;});
@@ -109,7 +109,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&app.screen
 for(const [id,k] of [['shop-prev','ArrowUp'],['shop-next','ArrowDown'],['shop-plus','+'],['shop-minus','-'],['shop-buy','Enter'],['shop-done','d']])$(id).addEventListener('click',()=>{key(k);canvas.focus({preventScroll:true});});
 function controls(){$('shop-controls').hidden=app.screen!=='shop';const battle=app.screen==='battle',g=app.game,p=g?.current;$('battle-controls').hidden=!battle;$('pause').disabled=!g;$('save').disabled=!g||!['aim','score'].includes(g.phase);if(!battle){if(performance.now()>messageUntil)$('status').textContent=({splash:'Enter или щелчок по экрану — продолжить',menu:'Стрелки — выбор и настройка. Enter — открыть.',roster:'Выберите людей или компьютеры, затем START.',options:'↑ ↓ — пункт меню · ← → — значение · Enter — готово',sound:'↑ ↓ — пункт меню · ← → — значение · Enter — готово',score:'Результаты раунда. OK — продолжить, SAVE — сохранить.',shop:'↑ ↓ ← → — выбор · + / пробел / ПКМ — добавить · − / ЛКМ — убрать · Enter — купить · D — готово',pause:'Игра на паузе.',ai:'Выберите компьютерного противника.',mirv:'Настройте разлёт и детонацию MIRV.',boss:'Пробел — вернуться в игру.'})[app.screen]||'';return;}
   const allowed=canAim();for(const id of ['angle','power','weapon','fire'])$(id).disabled=!allowed;
-  $('angle').value=p.angle;$('angle-value').textContent=Math.min(p.angle,180-p.angle)+'° '+(p.angle>90?'←':'→');$('power').max=p.men*100;$('power').value=p.power;$('power-value').textContent=p.power;
+  $('angle').value=p.angle;$('angle-value').textContent=Math.min(p.angle,180-p.angle)+'° '+(p.angle>90?'←':'→');$('power').max=maxPower(p);$('power').value=p.power;$('power-value').textContent=p.power;
   const signature=p.id+':'+p.ammo.join(',')+':'+p.weapon;if(signature!==lastControlKey){lastControlKey=signature;$('weapon').replaceChildren(...catalog.weapons.filter((w,i)=>p.ammo[i]!==0).map(w=>{const o=document.createElement('option');o.value=w.id;o.textContent=w.shortName+' · '+p.ammo[w.id];o.selected=w.id===p.weapon;return o;}));}
   if(performance.now()>messageUntil)$('status').textContent=g.falling?'Танки опускаются на землю…':g.phase==='flight'?'Снаряд в полёте…':p.ai>=0?p.name+' выбирает выстрел…':'Ход: '+p.name+' · '+(p.armed>0?'Выберите цель щелчком по танку.':'Угол, мощность — и пробел.');
 }
