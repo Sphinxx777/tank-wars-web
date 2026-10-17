@@ -7,6 +7,8 @@ export const AI_NAMES = ['Mr. Stupid','Lobber','Rifleman','Windless Wit','Lob & 
 export const WALLS = ['Non Existent','Sticky','Elastic','Accelerating','Warping','Random'];
 export const COLORS = ['#ff0000','#00ff00','#5555ff','#ffff00','#ff00ff','#00ffff','#ffffff','#ffaa00','#aa55ff','#aaaaaa'];
 export const DEFAULTS = {players:2,rounds:10,crumble:50,walls:5,wind:2,background:9,tanksFall:true,computerBuy:true,trail:true,visible:true,sound:true,flySound:false,teams:false,paletteSpeed:3,mirvSpread:0,mirvDetonation:0};
+// BOMB.CFG fall delay: 5 ms per pixel (OVR 0x1ac9e).
+export const FALL_STEP_SECONDS = .005;
 export const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
 export class Random {
   constructor(seed=Date.now()){this.state=seed>>>0;}
@@ -72,7 +74,7 @@ export class Game {
     this.round=0;this.nextRound();
   }
   nextRound(){
-    this.round++;this.turns=0;this.audioWait=0;this.blockSimulation=0;this.pendingLaser=null;this.deathQueue=[];this.deathAnimation=null;this.deathVisual=null;this.shots=[];this.explosions=[];this.trails=[];this.terrain.generate(this.rng,this.players.length);
+    this.round++;this.turns=0;this.falling=null;this.terrainResolved=false;this.audioWait=0;this.blockSimulation=0;this.pendingLaser=null;this.deathQueue=[];this.deathAnimation=null;this.deathVisual=null;this.shots=[];this.explosions=[];this.trails=[];this.terrain.generate(this.rng,this.players.length);
     this.wall=this.options.walls===5?this.rng.int(5):this.options.walls;
     const level=this.options.wind===5?this.rng.int(5):this.options.wind;
     const range=[0,20,100,300,4000][level];
@@ -90,6 +92,8 @@ export class Game {
       for(let x=p.x-3;x<=p.x+3;x++)for(let y=p.y+1;y<=BOTTOM;y++)this.terrain.set(x,y,1);
     });
     this.terrain.version++;this.order=order.map(p=>p.id);this.active=this.order[this.rng.int(this.order.length)];this.phase='aim';this.aiTimer=0.8;this.emit('round');
+    const queue=order.map(p=>({player:p.id,target:p.y,damage:0}));for(const p of order)p.y=Math.min(32,p.y);
+    if(queue.some(f=>this.players[f.player].y<f.target)){this.falling={queue,elapsed:0,intro:true};this.phase='flight';}
   }
   get current(){return this.players[this.active];}
   get alive(){return this.players.filter(p=>p.alive);}
@@ -106,7 +110,7 @@ export class Game {
     if(id===7)shot.guidance=0;
     else for(let i=0;i<2;i++)if(p.armed&(1<<i))p.guidance[i]--;
     p.armed=0;
-    p.shots++;this.turns++;this.trails=[];this.phase='flight';this.shots=[];this.explosions=[];this.mirvEndpoints=[];this.turnHit=false;
+    p.shots++;this.turns++;this.terrainResolved=false;this.trails=[];this.phase='flight';this.shots=[];this.explosions=[];this.mirvEndpoints=[];this.turnHit=false;
     if(this.rng.next()<.2)this.hurt(p,1,p.id);
     this.audio(id===5?laserCharge():launchSound(),true);
     if(id===5){const energy=Math.min(Math.max(100,p.power),p.ammo[id]);p.ammo[id]-=energy;this.pendingLaser={shot,energy};}else{if(p.ammo[id]>0)p.ammo[id]--;this.shots.push(shot);}
@@ -171,6 +175,7 @@ export class Game {
     return null;
   }
   update(dt){
+    if(this.falling){this.updateFalling(dt);return;}
     this.audioWait=Math.max(0,(this.audioWait||0)-dt);if(this.blockSimulation>0){this.blockSimulation=Math.max(0,this.blockSimulation-dt);return;}
     if(this.pendingLaser){const {shot,energy}=this.pendingLaser;this.pendingLaser=null;this.laser(shot,energy);return;}
     if(this.phase==='aim'&&this.current?.ai>=0){this.aiTimer-=dt;if(this.aiTimer<=0){this.aimAI(this.current);this.fire();}return;}
@@ -208,11 +213,24 @@ export class Game {
       if(e.age<e.duration+.08)this.explosions.push(e);
     }
     if(this.delay>0){this.delay-=dt;return;}
-    if(!this.shots.length&&!this.explosions.length&&!this.reaction){if(this.audioWait>0)return;if(this.deathAnimation||this.deathQueue.length){this.deathAnimation??=deathEffect(this,this.deathQueue.shift(),tankPixel);if(this.deathAnimation.next().done){this.deathAnimation=null;this.deathVisual=null;}return;}this.resolveTerrain();if(!this.explosions.length&&!this.deathQueue.length)this.finishTurn();}
+    if(!this.shots.length&&!this.explosions.length&&!this.reaction){if(this.audioWait>0)return;if(this.deathAnimation||this.deathQueue.length){this.terrainResolved=false;this.deathAnimation??=deathEffect(this,this.deathQueue.shift(),tankPixel);if(this.deathAnimation.next().done){this.deathAnimation=null;this.deathVisual=null;}return;}if(!this.terrainResolved){this.resolveTerrain();this.terrainResolved=true;}if(!this.falling&&!this.explosions.length&&!this.deathQueue.length)this.finishTurn();}
   }
   resolveTerrain(){
     if(this.forceCrumble||this.rng.next()*100<this.options.crumble)this.terrain.crumble(this.players);this.forceCrumble=false;
-    if(this.options.tanksFall)for(const p of this.players){if(!p.alive)continue;const old=p.y;const ground=Math.min(...[-2,-1,0,1,2].map(dx=>this.terrain.surface(p.x+dx,p.y+1)));p.y=Math.min(BOTTOM,ground-1);if(p.y>old){let damage=0;for(let y=old;y<p.y;y++)damage+=this.rng.int(3)+1;this.hurt(p,damage,this.active,'fall');}}
+    const queue=[];
+    if(this.options.tanksFall)for(const p of this.players){if(!p.alive)continue;const ground=Math.min(...[-2,-1,0,1,2].map(dx=>this.terrain.surface(p.x+dx,p.y+1))),target=Math.min(BOTTOM,ground-1);if(target>p.y)queue.push({player:p.id,target,damage:0});}
+    if(queue.length)this.falling={queue,elapsed:0,intro:false};
+  }
+  updateFalling(dt){
+    const fall=this.falling;fall.elapsed+=dt;
+    while(fall.queue.length){const item=fall.queue[0],p=this.players[item.player];
+      if(!p.alive){fall.queue.shift();continue;}
+      if(p.y>=item.target){if(!fall.intro)this.hurt(p,item.damage,this.active,'fall');fall.queue.shift();continue;}
+      if(fall.elapsed+1e-12<FALL_STEP_SECONDS)break;
+      fall.elapsed-=FALL_STEP_SECONDS;p.y++;
+      if(!fall.intro)item.damage+=this.rng.int(3)+1;
+    }
+    if(!fall.queue.length){this.falling=null;if(fall.intro)this.phase='aim';}
   }
   finishTurn(){
     if(this.alive.length<=1||(this.options.teams&&new Set(this.alive.map(p=>p.team)).size<=1)){

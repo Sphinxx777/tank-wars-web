@@ -111,7 +111,7 @@ function controls(){$('shop-controls').hidden=app.screen!=='shop';const battle=a
   const allowed=canAim();for(const id of ['angle','power','weapon','fire'])$(id).disabled=!allowed;
   $('angle').value=p.angle;$('angle-value').textContent=Math.min(p.angle,180-p.angle)+'° '+(p.angle>90?'←':'→');$('power').max=p.men*100;$('power').value=p.power;$('power-value').textContent=p.power;
   const signature=p.id+':'+p.ammo.join(',')+':'+p.weapon;if(signature!==lastControlKey){lastControlKey=signature;$('weapon').replaceChildren(...catalog.weapons.filter((w,i)=>p.ammo[i]!==0).map(w=>{const o=document.createElement('option');o.value=w.id;o.textContent=w.shortName+' · '+p.ammo[w.id];o.selected=w.id===p.weapon;return o;}));}
-  if(performance.now()>messageUntil)$('status').textContent=g.phase==='flight'?'Снаряд в полёте…':p.ai>=0?p.name+' выбирает выстрел…':'Ход: '+p.name+' · '+(p.armed>0?'Выберите цель щелчком по танку.':'Угол, мощность — и пробел.');
+  if(performance.now()>messageUntil)$('status').textContent=g.falling?'Танки опускаются на землю…':g.phase==='flight'?'Снаряд в полёте…':p.ai>=0?p.name+' выбирает выстрел…':'Ход: '+p.name+' · '+(p.armed>0?'Выберите цель щелчком по танку.':'Угол, мощность — и пробел.');
 }
 let hitSignature='';
 function syncHits(){
@@ -123,7 +123,7 @@ function syncHits(){
 let lastDraw=0;
 function frame(t){const dt=Math.min(.05,(t-oldTime)/1000||.016);oldTime=t;if(held&&t-held.since>300&&t-held.last>65){key(held.key);held.last=t;}
   if(app.screen==='battle'&&app.game){app.game.update(dt);for(const event of app.game.events.splice(0)){if(event.type==='speaker'&&app.options.sound)speaker.play(event.sequence);if(event.type==='roundEnd'){screen('score');save();}}}
-  if(t-lastDraw>1000/30){renderer.render(app,t/1000);syncHits();controls();lastDraw=t;}requestAnimationFrame(frame);
+  if((app.screen==='battle'&&app.game?.falling)||t-lastDraw>1000/30){renderer.render(app,t/1000);syncHits();controls();lastDraw=t;}requestAnimationFrame(frame);
 }
 // Unlock from the first real gesture, before any delayed animation callback.
 for(const event of ['pointerdown','keydown'])document.addEventListener(event,()=>{if(app.options.sound)speaker.unlock();},{capture:true});
