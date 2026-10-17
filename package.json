@@ -1,0 +1,1 @@
+{"name":"tank-wars-native","version":"0.1.0","private":true,"type":"module","scripts":{"start":"python3 -m http.server 8786 --bind 127.0.0.1 --directory dist","test":"node --test tests/*.test.mjs"}}

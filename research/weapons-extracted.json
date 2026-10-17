@@ -1,0 +1,234 @@
+{
+  "source": "BOMB.EXE",
+  "sha256": "659ace6b9a97c30191a8f65cf25f22322c087166909e9fa1d522e529adbafd9d",
+  "notes": "Prices and quantities read from typed constant arrays. -1 price / 0 quantity is a non-purchasable sentinel. Radii from BOMB.OVR switch; null means not identified or inapplicable. MIRV radius is bomblet radius.",
+  "weapons": [
+    {
+      "id": 0,
+      "name": "Lead Ball",
+      "shortName": "Lead Ball",
+      "price": -1,
+      "quantity": 0,
+      "radius": null,
+      "nameOffset": "0x16c6c",
+      "priceOffset": "0x1906c",
+      "quantityOffset": "0x190b4"
+    },
+    {
+      "id": 1,
+      "name": "Incinerator",
+      "shortName": "Incinerator",
+      "price": 3000,
+      "quantity": 100,
+      "radius": 10,
+      "nameOffset": "0x16d6c",
+      "priceOffset": "0x19070",
+      "quantityOffset": "0x190b6"
+    },
+    {
+      "id": 2,
+      "name": "Mark II Incinerator",
+      "shortName": "Mark II Incin.",
+      "price": 4000,
+      "quantity": 10,
+      "radius": 15,
+      "nameOffset": "0x16e6c",
+      "priceOffset": "0x19074",
+      "quantityOffset": "0x190b8"
+    },
+    {
+      "id": 3,
+      "name": "20 Kiloton Nuke",
+      "shortName": "20 Kilo Nuke",
+      "price": 7000,
+      "quantity": 2,
+      "radius": 30,
+      "nameOffset": "0x16f6c",
+      "priceOffset": "0x19078",
+      "quantityOffset": "0x190ba"
+    },
+    {
+      "id": 4,
+      "name": "5 Megaton Nuke",
+      "shortName": "5 Meg Nuke",
+      "price": 10000,
+      "quantity": 1,
+      "radius": 60,
+      "nameOffset": "0x1706c",
+      "priceOffset": "0x1907c",
+      "quantityOffset": "0x190bc"
+    },
+    {
+      "id": 5,
+      "name": "Laser Blaster",
+      "shortName": "Laser",
+      "price": 10000,
+      "quantity": 1000,
+      "radius": null,
+      "nameOffset": "0x1716c",
+      "priceOffset": "0x19080",
+      "quantityOffset": "0x190be"
+    },
+    {
+      "id": 6,
+      "name": "Chain Reaction Inducer 4/D",
+      "shortName": "CRI 4/D",
+      "price": 5000,
+      "quantity": 5,
+      "radius": null,
+      "nameOffset": "0x1726c",
+      "priceOffset": "0x19084",
+      "quantityOffset": "0x190c0"
+    },
+    {
+      "id": 7,
+      "name": "MIRV (5 Mark IIs inside)",
+      "shortName": "MIRV",
+      "price": 8500,
+      "quantity": 3,
+      "radius": 15,
+      "nameOffset": "0x1736c",
+      "priceOffset": "0x19088",
+      "quantityOffset": "0x190c2"
+    },
+    {
+      "id": 8,
+      "name": "Chain Reaction Inducer 8/D",
+      "shortName": "CRI 8/D",
+      "price": 10000,
+      "quantity": 3,
+      "radius": null,
+      "nameOffset": "0x1746c",
+      "priceOffset": "0x1908c",
+      "quantityOffset": "0x190c4"
+    },
+    {
+      "id": 9,
+      "name": "Chain Reaction Inducer 20/ND",
+      "shortName": "CRI 20/ND",
+      "price": 10000,
+      "quantity": 3,
+      "radius": null,
+      "nameOffset": "0x1756c",
+      "priceOffset": "0x19090",
+      "quantityOffset": "0x190c6"
+    },
+    {
+      "id": 10,
+      "name": "Chain Reaction Inducer 20/D",
+      "shortName": "CRI 20/D",
+      "price": 15000,
+      "quantity": 1,
+      "radius": null,
+      "nameOffset": "0x1766c",
+      "priceOffset": "0x19094",
+      "quantityOffset": "0x190c8"
+    },
+    {
+      "id": 11,
+      "name": "Hand Grenade",
+      "shortName": "Hand Grenade",
+      "price": -1,
+      "quantity": 0,
+      "radius": 2,
+      "nameOffset": "0x1776c",
+      "priceOffset": "0x19098",
+      "quantityOffset": "0x190ca"
+    },
+    {
+      "id": 12,
+      "name": "Sonic Blaster",
+      "shortName": "Sonic Blaster",
+      "price": 4500,
+      "quantity": 10,
+      "radius": null,
+      "nameOffset": "0x1786c",
+      "priceOffset": "0x1909c",
+      "quantityOffset": "0x190cc"
+    },
+    {
+      "id": 13,
+      "name": "Ball o Dirt",
+      "shortName": "Ball 'O' Dirt",
+      "price": 4000,
+      "quantity": 10,
+      "radius": 10,
+      "nameOffset": "0x1796c",
+      "priceOffset": "0x190a0",
+      "quantityOffset": "0x190ce"
+    },
+    {
+      "id": 14,
+      "name": "Ball o Dirt Mark II",
+      "shortName": "Mark II Dirt",
+      "price": 6000,
+      "quantity": 7,
+      "radius": 15,
+      "nameOffset": "0x17a6c",
+      "priceOffset": "0x190a4",
+      "quantityOffset": "0x190d0"
+    },
+    {
+      "id": 15,
+      "name": "Ball o Compresed Dirt",
+      "shortName": "Pressured Dirt",
+      "price": 8000,
+      "quantity": 3,
+      "radius": 30,
+      "nameOffset": "0x17b6c",
+      "priceOffset": "0x190a8",
+      "quantityOffset": "0x190d2"
+    },
+    {
+      "id": 16,
+      "name": "Ball o Super-Compressed Dirt",
+      "shortName": "High Pres. Dirt",
+      "price": 10000,
+      "quantity": 1,
+      "radius": 60,
+      "nameOffset": "0x17c6c",
+      "priceOffset": "0x190ac",
+      "quantityOffset": "0x190d4"
+    },
+    {
+      "id": 17,
+      "name": "Explosive Dirt",
+      "shortName": "Xplosive Dirt",
+      "price": 4500,
+      "quantity": 10,
+      "radius": null,
+      "nameOffset": "0x17d6c",
+      "priceOffset": "0x190b0",
+      "quantityOffset": "0x190d6"
+    }
+  ],
+  "guidance": [
+    {
+      "name": "Herb's Guidance System",
+      "price": 20000,
+      "quantity": 5
+    },
+    {
+      "name": "Vick's Guidance System",
+      "price": 20000,
+      "quantity": 5
+    }
+  ],
+  "defenses": [
+    {
+      "name": "Energy Absorbtion Shield",
+      "price": 20000,
+      "quantity": 1000
+    },
+    {
+      "name": "Inertia Dampener",
+      "price": 10000,
+      "quantity": 100
+    },
+    {
+      "name": "Repulser",
+      "price": 15000,
+      "quantity": 1
+    }
+  ]
+}

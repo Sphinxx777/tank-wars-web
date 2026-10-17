@@ -1,0 +1,211 @@
+{
+  "provenance": "Static decoding with instruction offsets in advanced-weapons.md; no dynamic equivalence claim.",
+  "cri": {
+    "walkersByWeaponId": {
+      "6": 4,
+      "8": 8,
+      "9": 20,
+      "10": 20
+    },
+    "diagonalWeaponIds": [
+      6,
+      8,
+      10
+    ],
+    "terrainPixel": 2,
+    "directions": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        -1
+      ]
+    ],
+    "directTankDamage": "1+randomInt(weaponId*6)",
+    "algorithm": "sequential random neighbor walk deleting dirt; exhausted heads clone first surviving head; ends when all heads are exhausted"
+  },
+  "crumble": {
+    "trigger": "random()*100<=crumblePercent",
+    "airColorRanges": [
+      [
+        0,
+        0
+      ],
+      [
+        30,
+        99
+      ]
+    ],
+    "dirtColor": 2,
+    "algorithm": "bottom-up pixel drop with active list to full rest",
+    "sonicAlwaysTriggers": true
+  },
+  "mirv": {
+    "count": 5,
+    "splitTrigger": "vy>0",
+    "radius": 15,
+    "randomVelocityOffsetRange": [
+      -3,
+      3
+    ],
+    "horizontalOffsets": [
+      [
+        -3.5,
+        0
+      ],
+      [
+        -1.75,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1.75,
+        0
+      ],
+      [
+        3.5,
+        0
+      ]
+    ],
+    "verticalOffsets": [
+      [
+        0,
+        -3.5
+      ],
+      [
+        0,
+        -1.75
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1.75
+      ],
+      [
+        0,
+        3.5
+      ]
+    ],
+    "plusOffsets": [
+      [
+        1.75,
+        0
+      ],
+      [
+        -1.75,
+        0
+      ],
+      [
+        0,
+        -1.75
+      ],
+      [
+        0,
+        1.75
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "xOffsets": [
+      [
+        1.75,
+        1.75
+      ],
+      [
+        -1.75,
+        -1.75
+      ],
+      [
+        1.75,
+        -1.75
+      ],
+      [
+        -1.75,
+        1.75
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "subdivision": "max(1,ceil(configuredSubdivisions/aliveChildren))"
+  },
+  "guidance": {
+    "hMask": 1,
+    "vMask": 2,
+    "hVerticalRangeExclusiveInclusive": [
+      0,
+      4
+    ],
+    "hVxMultiplier": 1.01,
+    "hVxFallback": 0.1,
+    "vHorizontalTolerance": 2,
+    "vPositionStep": 0.5
+  },
+  "repulser": {
+    "range": 40,
+    "forceMagnitude": "-600/(dx*dx+dy*dy)/subdivisions",
+    "destroyChanceOnExplosionOverflow": "min(1,overflowDamage/40)",
+    "consumedPerDeflection": false
+  },
+  "laser": {
+    "muzzleDistance": 7,
+    "stepLength": 1,
+    "initialInternalFuel": "10*power",
+    "stepFuelCost": 10,
+    "extraTankHitFuelCost": 10,
+    "damagePerTankHitStep": 3,
+    "dirtDeletionSamplesPerStep": 15,
+    "sampleBackwardDistance": [
+      0,
+      19
+    ]
+  },
+  "backgrounds": [
+    "None",
+    "Stars",
+    "Bars",
+    "Circles",
+    "Spread",
+    "Sky",
+    "Static",
+    "Rectangle",
+    "Asterisk",
+    "RND",
+    "USER"
+  ]
+}
