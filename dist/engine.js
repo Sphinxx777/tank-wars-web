@@ -1,3 +1,4 @@
+import {SoundSequence,CPU_WRITE_MS,launchSound,controlSound,blastSound,sonicSound,laserCharge,criDirectSound,lightningSound} from './sound.js';
 import {deathEffect} from './death.js';
 import {sinDeg,cosDeg} from './trig.js';
 // Tank Wars 3.2 native simulation. Binary-derived values are documented in research/.
@@ -64,13 +65,14 @@ export class Game {
     this.weapons=weapons;this.options={...DEFAULTS,...options};this.rng=new Random(seed);this.terrain=new Terrain();this.players=[];this.round=0;this.phase='menu';this.events=[];this.shots=[];this.explosions=[];this.trails=[];this.turns=0;this.active=0;this.deathQueue=[];
   }
   emit(type,data={}){this.events.push({type,...data});}
+  audio(sequence,block=false){if(!this.options.sound)return;this.emit('speaker',{sequence});this.audioWait=(this.audioWait||0)+sequence.ms/1000;if(block)this.blockSimulation=(this.blockSimulation||0)+sequence.ms/1000;}
   start(roster){
     this.players=roster.map((p,i)=>({id:i,name:p.name||`Player ${i+1}`,ai:p.ai??-1,team:this.options.teams?(p.team??i%2):i,color:COLORS[i],men:100,power:300,angle:45,weapon:1,ammo:Array(18).fill(0),guidance:[0,0],defense:[0,0,0],score:0,money:0,wins:0,kills:0,shots:0,hits:0,alive:true,x:0,y:0,lob:[],...p}));
     for(const p of this.players){p.ammo[0]=100;p.ammo[1]=3*this.options.rounds;p.ammo[11]=Math.min(10*this.options.rounds,999);}
     this.round=0;this.nextRound();
   }
   nextRound(){
-    this.round++;this.turns=0;this.deathQueue=[];this.deathAnimation=null;this.deathVisual=null;this.shots=[];this.explosions=[];this.trails=[];this.terrain.generate(this.rng,this.players.length);
+    this.round++;this.turns=0;this.audioWait=0;this.blockSimulation=0;this.pendingLaser=null;this.deathQueue=[];this.deathAnimation=null;this.deathVisual=null;this.shots=[];this.explosions=[];this.trails=[];this.terrain.generate(this.rng,this.players.length);
     this.wall=this.options.walls===5?this.rng.int(5):this.options.walls;
     const level=this.options.wind===5?this.rng.int(5):this.options.wind;
     const range=[0,20,100,300,4000][level];
@@ -92,8 +94,8 @@ export class Game {
   get current(){return this.players[this.active];}
   get alive(){return this.players.filter(p=>p.alive);}
   enemies(p){return this.players.filter(t=>t.alive&&t.id!==p.id&&(!this.options.teams||t.team!==p.team));}
-  setPower(v){if(this.phase==='aim')this.current.power=Math.round(clamp(v,0,this.current.men*100));}
-  setAngle(v){if(this.phase==='aim')this.current.angle=(Math.round(v)+181)%181;}
+  setPower(v){if(this.phase!=='aim')return;this.audio(controlSound(v<this.current.power?'powerDown':'powerUp'));this.current.power=Math.round(clamp(v,0,this.current.men*100));}
+  setAngle(v,flip=false){if(this.phase!=='aim')return;const delta=(v-this.current.angle)*(this.current.angle>90?-1:1);this.audio(controlSound(flip?'flip':delta>0?'angleUp':'angleDown'));this.current.angle=(Math.round(v)+181)%181;}
   cycleWeapon(dir=1){if(this.phase!=='aim')return;const p=this.current;for(let i=0;i<18;i++){p.weapon=(p.weapon+dir+18)%18;if(p.ammo[p.weapon]!==0)break;}}
   armGuidance(index){const p=this.current;if(this.phase!=='aim'||p.guidance[index]<=0)return false;p.armed^=1<<index;p.target=this.enemies(p)[0]?.id??null;return true;}
   fire(){
@@ -106,8 +108,9 @@ export class Game {
     p.armed=0;
     p.shots++;this.turns++;this.trails=[];this.phase='flight';this.shots=[];this.explosions=[];this.mirvEndpoints=[];this.turnHit=false;
     if(this.rng.next()<.2)this.hurt(p,1,p.id);
-    if(id===5){const energy=Math.min(Math.max(100,p.power),p.ammo[id]);p.ammo[id]-=energy;this.laser(shot,energy);}else{if(p.ammo[id]>0)p.ammo[id]--;this.shots.push(shot);}
-    this.emit('fire');return true;
+    this.audio(id===5?laserCharge():launchSound(),true);
+    if(id===5){const energy=Math.min(Math.max(100,p.power),p.ammo[id]);p.ammo[id]-=energy;this.pendingLaser={shot,energy};}else{if(p.ammo[id]>0)p.ammo[id]--;this.shots.push(shot);}
+    this.emit('fire',{weapon:id});return true;
   }
   hurt(p,damage,owner,kind='blast'){
     if(!p.alive||damage<=0)return;
@@ -119,32 +122,35 @@ export class Game {
     if(enemy&&dealt&&kind!=='fall'&&kind!=='laser'&&kind!=='death'){source.score+=dealt*10;source.money+=dealt*10;if(!this.turnHit){source.hits++;this.turnHit=true;}}
     if(p.men===0){p.alive=false;if(source){const bonus=enemy?1500:-1000;source.score+=bonus;source.money+=bonus;if(enemy)source.kills++;}this.deathQueue.push({...p,owner});this.emit('kill',{player:p.id});}
   }
-  explode(x,y,r,owner,kind='blast'){this.explosions.push({x,y,r:0,max:r,owner,kind,age:0,applied:false});this.emit('explosion',{radius:r});}
+  explode(x,y,r,owner,kind='blast',mirv=false){let sequence;if(kind==='sonic')sequence=sonicSound(this.rng,this.options.sound);else if(kind!=='dirt'&&this.options.sound)sequence=blastSound(r,this.rng,mirv?1:8);if(sequence)this.audio(sequence);this.explosions.push({x,y,r:0,max:r,owner,kind,age:0,duration:Math.max(.15,sequence?.ms/1000||r/55),applied:false});this.emit('explosion',{radius:r,kind});}
   impact(s){
     const {weapon:id,x,y,owner}=s;const direct=this.players.find(p=>p.alive&&(p.id===s.hitTank||tankPixel(p,Math.trunc(x),Math.trunc(y))));
     if(id===0){if(direct)this.hurt(direct,5,owner);return;}
     if(id>=13&&id<=16){this.explode(x,y,this.weapons[id].radius,owner,'dirt');return;}
-    if(id===17){const n=300+this.rng.int(100),layers=3+this.rng.int(8);for(let j=1;j<=layers;j++){for(let i=0;i<n;i++){const h=this.rng.int(20*j),dx=Math.trunc(this.rng.int(h+1)-h/2),xx=Math.trunc(x)+dx,yy=Math.trunc(y)+2-h;this.terrain.set(xx,yy,1);}}this.terrain.version++;this.forceCrumble=this.rng.next()*100<2*this.options.crumble;return;}
+    if(id===17){const tones=new SoundSequence(),n=300+this.rng.int(100),layers=3+this.rng.int(8),points=[];
+      for(let j=1;j<=layers;j++)for(let i=0;i<n;i++){const h=this.rng.int(20*j),dx=Math.trunc(this.rng.int(h+1)-h/2);points.push([Math.trunc(x)+dx,Math.trunc(y)+2-h,j]);}
+      for(const [xx,yy,j] of points){this.terrain.set(xx,yy,1);if(this.options.sound)tones.tone(100*j+this.rng.int(200),CPU_WRITE_MS);}this.audio(tones.stop());this.terrain.version++;this.forceCrumble=this.rng.next()*100<2*this.options.crumble;return;}
+
     if(id===18){this.terrain.circle(x,y,2,1);return;}
     if(id===12){this.forceCrumble=true;this.explode(x,y,30,owner,'sonic');return;}
     if([6,8,9,10].includes(id)){
-      if(direct){this.hurt(direct,1+this.rng.int(id*6),owner);return;}
+      if(direct){this.hurt(direct,1+this.rng.int(id*6),owner);this.audio(criDirectSound());return;}
       const count={6:4,8:8,9:20,10:20}[id],sx=Math.trunc(x);let sy=Math.trunc(y);
       while(sy<BOTTOM&&![[0,-1],[1,0],[0,1],[-1,0]].some(([dx,dy])=>this.terrain.solid(sx+dx,sy+dy)))sy++;
       this.reaction={heads:Array.from({length:count},()=>({x:sx,y:sy})),owner,diagonals:id!==9};return;
     }
-    this.explode(x,y,this.weapons[id]?.radius??10,owner);
+    this.explode(x,y,this.weapons[id]?.radius??10,owner,'blast',s.mirvChild);
     if(direct)this.hurt(direct,200,owner);
   }
   laser(s,energy){
-    const tank=this.players[s.owner],a=tank.angle*Math.PI/180,p={x:tank.x+Math.cos(a)*7,y:tank.y-Math.sin(a)*7,vx:Math.cos(a),vy:-Math.sin(a)};const path=[];let remaining=10*energy;
+    const tank=this.players[s.owner],a=tank.angle*Math.PI/180,p={x:tank.x+Math.cos(a)*7,y:tank.y-Math.sin(a)*7,vx:Math.cos(a),vy:-Math.sin(a)};const path=[],tones=new SoundSequence();let remaining=10*energy;
     for(let i=0;i<20000&&remaining>0;i++){p.x+=p.vx;p.y+=p.vy;const speed=Math.hypot(p.vx,p.vy);wallBounce(p,this.wall);const newspeed=Math.hypot(p.vx,p.vy);p.vx*=speed/newspeed;p.vy*=speed/newspeed;path.push([p.x,p.y]);remaining-=10;
       if(p.x<LEFT||p.x>RIGHT||p.y<TOP||p.y>BOTTOM)break;
       const hit=this.players.find(t=>t.alive&&Math.hypot(t.x-p.x,t.y-p.y)<3);
       if(hit){remaining-=10;this.hurt(hit,3,s.owner,'laser');p.x-=p.vx;p.y-=p.vy;}
-      if(this.terrain.solid(p.x,p.y)){for(let j=0;j<15;j++){const x=Math.trunc(p.x-this.rng.int(20)*p.vx),y=Math.trunc(p.y-this.rng.int(20)*p.vy);if(!this.players.some(t=>t.alive&&Math.abs(t.x-x)<=4&&Math.abs(t.y-y)<=2))this.terrain.set(x,y,0);}this.terrain.version++;}
+      if(this.terrain.solid(p.x,p.y)){for(let j=0;j<15;j++){const x=Math.trunc(p.x-this.rng.int(20)*p.vx),y=Math.trunc(p.y-this.rng.int(20)*p.vy);if(!this.players.some(t=>t.alive&&Math.abs(t.x-x)<=4&&Math.abs(t.y-y)<=2))this.terrain.set(x,y,0);if(this.options.sound)tones.tone(500+this.rng.int((500*(j+1))&65535),CPU_WRITE_MS);}this.terrain.version++;}tones.wait(5);if(this.options.sound)tones.tone(100+this.rng.int((12*remaining)&65535));
     }
-    this.trails.push({path,color:'#ff5555',laser:true});this.delay=0.4;
+    this.audio(tones.stop(),true);this.trails.push({path,color:'#ff5555',laser:true});this.delay=0.4;
   }
   stepShot(s,dt,preview=false){
     s.substep=((s.substep??0)+1)%10;integrate(s,this.wind,dt);wallBounce(s,this.wall);
@@ -165,6 +171,8 @@ export class Game {
     return null;
   }
   update(dt){
+    this.audioWait=Math.max(0,(this.audioWait||0)-dt);if(this.blockSimulation>0){this.blockSimulation=Math.max(0,this.blockSimulation-dt);return;}
+    if(this.pendingLaser){const {shot,energy}=this.pendingLaser;this.pendingLaser=null;this.laser(shot,energy);return;}
     if(this.phase==='aim'&&this.current?.ai>=0){this.aiTimer-=dt;if(this.aiTimer<=0){this.aimAI(this.current);this.fire();}return;}
     if(this.phase!=='flight')return;
     const iterations=Math.min(60,Math.max(1,Math.round(dt*600)));
@@ -181,25 +189,26 @@ export class Game {
             this.shots.push({...s,vx:s.vx+dx,vy:s.vy+dy,weapon:2,mirvChild:true,guidance:0,trail:[]});
           }this.trails.push({path:s.trail,color:'#888'});
         }
-        else if(event){if(!s.mirvChild)this.players[s.owner].lob.push({x:s.x,y:s.y,power:s.power,angle:this.players[s.owner].angle});this.trails.push({path:s.trail,color:COLORS[s.owner]});if(event==='hit'){if(s.mirvChild&&this.options.mirvDetonation===1)this.mirvEndpoints.push(s);else if(!s.mirvChild||this.options.mirvDetonation!==2)this.impact(s);}}
+        else if(event){if(!s.mirvChild)this.players[s.owner].lob.push({x:s.x,y:s.y,power:s.power,angle:this.players[s.owner].angle});this.trails.push({path:s.trail,color:COLORS[s.owner]});if(this.options.flySound)this.audio(new SoundSequence().stop());if(s.y<-5000){const tones=new SoundSequence();for(const [f,ms] of [[1525,15],[4674,5],[222,10],[121,14]])tones.tone(f,ms);this.audio(tones.stop());}if(event==='hit'){if(s.mirvChild&&this.options.mirvDetonation===1)this.mirvEndpoints.push(s);else if(!s.mirvChild||this.options.mirvDetonation!==2)this.impact(s);}}
         else this.shots.push(s);
       }
     }
     if(!this.shots.length&&this.mirvEndpoints?.length){for(const s of this.mirvEndpoints)this.impact(s);this.mirvEndpoints=[];}
-    if(this.reaction){const r=this.reaction,dirs=r.diagonals?[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]]:[[0,-1],[1,0],[0,1],[-1,0]];
+    if(this.shots.length&&this.options.flySound){const tones=new SoundSequence();tones.tone(600-2*Math.trunc(this.shots.at(-1).y));this.audio(tones);}
+    if(this.reaction){const tones=new SoundSequence(),r=this.reaction,dirs=r.diagonals?[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]]:[[0,-1],[1,0],[0,1],[-1,0]];
       for(let step=0;step<50&&this.reaction;step++){
-        for(const h of r.heads){if(!h.x)continue;const choices=dirs.filter(([dx,dy])=>this.terrain.solid(h.x+dx,h.y+dy)&&!this.players.some(p=>p.alive&&Math.abs(p.x-h.x-dx)<=4&&Math.abs(p.y-h.y-dy)<=2));if(choices.length){const [dx,dy]=choices[this.rng.int(choices.length)];h.x+=dx;h.y+=dy;this.terrain.set(h.x,h.y,0);}else h.x=0;}
+        for(const h of r.heads){if(!h.x)continue;const choices=dirs.filter(([dx,dy])=>this.terrain.solid(h.x+dx,h.y+dy)&&!this.players.some(p=>p.alive&&Math.abs(p.x-h.x-dx)<=4&&Math.abs(p.y-h.y-dy)<=2));if(choices.length){const [dx,dy]=choices[this.rng.int(choices.length)];h.x+=dx;h.y+=dy;if(this.options.sound)tones.tone(1+this.rng.int(500),CPU_WRITE_MS);this.terrain.set(h.x,h.y,0);}else h.x=0;}
         const live=r.heads.find(h=>h.x!==0);if(!live){this.reaction=null;break;}for(const h of r.heads)if(!h.x){h.x=live.x;h.y=live.y;}
-      }this.terrain.version++;
+      }this.terrain.version++;if(!this.reaction)tones.stop();this.audio(tones);
     }
     const effects=this.explosions;this.explosions=[];
-    for(const e of effects){e.age+=dt;e.r=Math.min(e.max,e.r+dt*55);
+    for(const e of effects){e.age+=dt;e.r=Math.min(e.max,e.r+dt*e.max/Math.max(.04,e.duration*.15));
       if(!e.applied&&e.r>=e.max){e.applied=true;if(e.kind==='dirt'){for(const dx of [-1,0,1])this.terrain.circle(e.x+dx,e.y,e.max,1);}
         else if(e.kind!=='sonic'){this.terrain.circle(e.x,e.y,e.max,0);for(const p of this.players){const d=Math.hypot(p.x-e.x,p.y-e.y);if(p.alive)this.hurt(p,blastDamage(d,e.max),e.owner,e.kind==='death'?'death':'blast');}}}
-      if(e.age<e.max/55+0.18)this.explosions.push(e);
+      if(e.age<e.duration+.08)this.explosions.push(e);
     }
     if(this.delay>0){this.delay-=dt;return;}
-    if(!this.shots.length&&!this.explosions.length&&!this.reaction){if(this.deathAnimation||this.deathQueue.length){this.deathAnimation??=deathEffect(this,this.deathQueue.shift(),tankPixel);if(this.deathAnimation.next().done){this.deathAnimation=null;this.deathVisual=null;}return;}this.resolveTerrain();if(!this.explosions.length&&!this.deathQueue.length)this.finishTurn();}
+    if(!this.shots.length&&!this.explosions.length&&!this.reaction){if(this.audioWait>0)return;if(this.deathAnimation||this.deathQueue.length){this.deathAnimation??=deathEffect(this,this.deathQueue.shift(),tankPixel);if(this.deathAnimation.next().done){this.deathAnimation=null;this.deathVisual=null;}return;}this.resolveTerrain();if(!this.explosions.length&&!this.deathQueue.length)this.finishTurn();}
   }
   resolveTerrain(){
     if(this.forceCrumble||this.rng.next()*100<this.options.crumble)this.terrain.crumble(this.players);this.forceCrumble=false;
@@ -210,7 +219,7 @@ export class Game {
       const winningTeam=this.alive[0]?.team;const winners=this.players.filter(p=>p.team===winningTeam);for(const p of winners){if(p.alive)p.wins++;const bonus=Math.trunc(1000*this.players.length/winners.length);p.score+=bonus;p.money+=bonus;}this.phase='score';this.emit('roundEnd');return;
     }
     // Original has anti-stalemate lightning; threshold remains an approximation.
-    if(this.turns>80&&this.turns%4===0){const t=this.alive[this.rng.int(this.alive.length)];this.hurt(t,25,this.active);if(this.deathQueue.length){this.phase='flight';return;}}
+    if(this.turns>80&&this.turns%4===0){const t=this.alive[this.rng.int(this.alive.length)];this.audio(lightningSound(this.rng,this.options.sound),true);this.hurt(t,25,this.active);if(this.deathQueue.length){this.phase='flight';return;}}
     const start=this.order.indexOf(this.active);for(let i=1;i<=this.order.length;i++){const id=this.order[(start+i)%this.order.length];if(this.players[id].alive){this.active=id;break;}}
     if(this.current.ammo[this.current.weapon]===0)this.cycleAvailable();this.phase='aim';this.aiTimer=0.8;this.emit('turn');
   }

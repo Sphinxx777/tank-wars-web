@@ -113,7 +113,7 @@ function deathCloud(dead, variant) {
     const direction=1+R(8);
     const points=makeCloud(dead,count,direction);
     for(let layer=0;layer<5;layer++) for(let k=0;k<count;k++) {
-      if(sound) R(500*(layer+1));       //pitch +100
+      if(sound) R(500*(layer+1));       //Sound(100+R(...)), then immediate NoSound; see sound-effects.md
       const p=points[layer][k];
       pointContact(p);
       if(variant===0) {
@@ -186,7 +186,7 @@ function death0(dead) {
     } while(!p.stopped);
     landingExcavation(p);             //defined below, consumes RNG
   }
-  centerExcavationAndFade(dead);
+  centerExcavationAndFade(dead,0);
   redrawAliveTanks();
   restoreAllPixelsWhoseCurrentColorEquals(dead.index+19,BG);
   restoreAllPixelsWhoseCurrentColorIsBetween(130,159,BG);
@@ -221,7 +221,7 @@ function death2(dead) {
     if(!hadActive) break;
   }
   for(const p of particles) landingExcavation(p);
-  centerExcavationAndFade(dead);
+  centerExcavationAndFade(dead,2);
   redrawAliveTanks();
   restoreAllPixelsWhoseCurrentColorEquals(dead.index+19,BG);
   restoreAllPixelsWhoseCurrentColorIsBetween(130,154,BG);
@@ -276,7 +276,7 @@ There are three initial palette phases with one flash each, then101 flashes (loo
 After landing excavations and before final radius30 restoration, center expanding/fading graphics consume:
 
 ```js
-function centerExcavationAndFade(dead) {
+function centerExcavationAndFade(dead,deathCase) {
   //15 iterations; each draws radii odd and even with five flashes each.
   for(let pair=0;pair<15;pair++) {
     const oddRadius=2*pair+1;
@@ -286,8 +286,8 @@ function centerExcavationAndFade(dead) {
     }
   }
   //15 palette-fade iterations; each has three unconditional random RGB calls.
-  for(let i=0;i<15;i++) {
-    if(sound) R(200);
+  for(let a=4;a>=0;a--) for(let b=4-a;b>=0;b--) {
+    if(sound) R(deathCase===0 ? 600+100*b : 200);
     R(63); R(63); R(63);
   }
   for(let r=30;r>=0;r--) {
@@ -310,3 +310,5 @@ Confirmed from caller/helper instructions: the raw damage helper OVR0x1f123 acce
 Case6 has a distinct scratch-record detail: OVR0x18b9b–0x18bb2 copies the dying player's entire0x74-byte record into player0 at DS0x402e; 0x18c28–0x18c47 calls the ordinary explosion with source index0. The radial damage loop OVR0x19732–0x19767 awards10*actualMenLost into the record identified by its source argument, after comparing that record's team with the victim's. Thus case6 uses the dead tank's copied team but awards those damage points only to scratch player0. The effect returns without copying this score back. Neither the real dead player nor the current shooter receives these per-man points; later kill bonuses still go to the current shooter as above.
 
 The death-resolution pass marks a tank no longer alive before invoking its death effect (0x158a6–0x158af), then applies that tank's kill accounting after the effect returns. It scans players in ascending index, repeats the pass while deaths/falls/crumbling caused a change (0x15aa9–0x15ab0), and does not recursively dispatch a death effect immediately on every particle hit.
+
+Audio hooks and explicit delays are now fully enumerated in sound-effects.md. In particular case0 and case2 use different final fade Random ranges, and cases1/3 immediately call NoSound after each point Sound. Their RNG-only pseudocode above preserves calls but is not a duration model.

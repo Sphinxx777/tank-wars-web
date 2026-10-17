@@ -1,26 +1,28 @@
+import {shopItems,shopStock,visibleShopItems,cartCost,reserve} from './shop.js';
+import {PCSpeaker} from './sound.js';
 import {Game,DEFAULTS,AI_NAMES,clamp} from './engine.js';
 import {Renderer} from './render.js';
 const $=id=>document.getElementById(id),canvas=$('screen');
 const resources=await Promise.all(['weapons.json','tiny-font.json','litt-font.json','euro-font.json'].map(async f=>{const r=await fetch('./assets/'+f);if(!r.ok)throw Error(f);return r.json();})).catch(e=>{$('loading').textContent='Не удалось загрузить ресурсы. Обновите страницу.';throw e;});
 const bitmap=new Uint8Array(await (await fetch('./assets/font8.bin')).arrayBuffer());
 const [catalog,tiny,litt,euro]=resources;
-const app={screen:'splash',options:{...DEFAULTS},game:null,selection:0,editPlayer:0,shopPlayer:0,statsPlayer:0,cart:[],roster:Array.from({length:10},(_,i)=>({name:i===0?'Player 1':i===1?'Mr. Stupid':`Player ${i+1}`,ai:i===0?-1:i===1?0:-1,team:i%2})),shopItems:[...catalog.weapons.map((w,i)=>({...w,kind:'weapon',index:i})).filter(w=>w.price>0),...catalog.guidance.map((w,i)=>({...w,kind:'guidance',index:i})),...catalog.defenses.map((w,i)=>({...w,kind:'defense',index:i}))],cartCost(){return this.cart.reduce((s,n,i)=>s+n*this.shopItems[i].price,0);}};
+export const app={screen:'splash',options:{...DEFAULTS},game:null,selection:0,editPlayer:0,shopPlayer:0,statsPlayer:0,cart:[],roster:Array.from({length:10},(_,i)=>({name:i===0?'Player 1':i===1?'Mr. Stupid':`Player ${i+1}`,ai:i===0?-1:i===1?0:-1,team:i%2})),shopItems:shopItems(catalog),shopStock(it){return shopStock(this.game.players[this.shopPlayer],it);},shopVisible(){return visibleShopItems(this.game.players[this.shopPlayer],this.shopItems);},cartCost(){return cartCost(this.cart,this.shopItems);}};
 const renderer=new Renderer(canvas,{tiny,litt,euro},bitmap);
-let audio=null,oldTime=0,lastControlKey='',messageUntil=0,previousScreen='battle',pendingConfirm=null,held=null;
+const speaker=new PCSpeaker();
+let oldTime=0,lastControlKey='',messageUntil=0,previousScreen='battle',pendingConfirm=null,held=null;
 function notice(text,seconds=3){$('status').textContent=text;messageUntil=performance.now()+seconds*1000;}
-function sound(kind,radius=10){if(!app.options.sound)return;try{audio??=new AudioContext();if(audio.state==='suspended')audio.resume();const osc=audio.createOscillator(),gain=audio.createGain();osc.connect(gain);gain.connect(audio.destination);osc.type='square';const now=audio.currentTime,duration=kind==='fire'?0.08:0.12+radius/180;osc.frequency.setValueAtTime(kind==='fire'?650:220,now);osc.frequency.exponentialRampToValueAtTime(kind==='fire'?120:35,now+duration);gain.gain.setValueAtTime(.025,now);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);osc.start();osc.stop(now+duration);}catch{}}
-function screen(s){app.screen=s;if(s==='options'||s==='sound')app.optionIndex=0;lastControlKey='';canvas.focus({preventScroll:true});}
+function screen(s){if(s!=='battle')speaker.stop();app.screen=s;if(s==='options'||s==='sound')app.optionIndex=0;lastControlKey='';canvas.focus({preventScroll:true});}
 function confirmAction(message,action){pendingConfirm=action;$('confirm-text').textContent=message;$('confirm-dialog').showModal();}
 $('confirm-dialog').addEventListener('close',()=>{if($('confirm-dialog').returnValue==='ok')pendingConfirm?.();pendingConfirm=null;canvas.focus({preventScroll:true});});
-function newGame(quick=false){const opts=quick?{...app.options,players:2,rounds:5,wind:1,walls:0,background:0,computerBuy:false}:app.options;app.game=new Game(catalog.weapons,opts);app.game.start(quick?[{name:'Player 1',ai:-1,team:0},{name:'Mr. Stupid',ai:0,team:1}]:app.roster.slice(0,opts.players));screen('battle');}
+function newGame(quick=false){speaker.stop();const opts=quick?{...app.options,players:2,rounds:5,wind:1,walls:0,background:0,computerBuy:false}:app.options;app.game=new Game(catalog.weapons,opts);app.game.start(quick?[{name:'Player 1',ai:-1,team:0},{name:'Mr. Stupid',ai:0,team:1}]:app.roster.slice(0,opts.players));screen('battle');}
 function save(){if(!app.game||!['aim','score'].includes(app.game.phase)){notice('Сохранение доступно между выстрелами и после раунда.');return;}try{localStorage.setItem('tank-wars-save-v1',app.game.serialize());notice('Партия сохранена в этом браузере.');}catch{notice('Браузер не разрешил сохранить партию.',5);}}
 function load(){try{const data=localStorage.getItem('tank-wars-save-v1');if(!data){notice('Сохранённой партии пока нет.');return;}app.game=Game.restore(data,catalog.weapons);app.options={...app.game.options};updateSound();screen(app.game.phase==='score'?'score':'battle');notice('Партия загружена.');}catch{notice('Не удалось прочитать сохранение.');}}
-function beginShop(){if(app.game.round>=app.game.options.rounds){screen('menu');notice('Партия завершена. Можно начать новую.');return;}if(app.game.shopPreparedRound!==app.game.round){app.game.computerShop();app.game.shopPreparedRound=app.game.round;}app.shopQueue=app.game.players.filter(p=>p.ai<0).map(p=>p.id);nextShop();}
-function nextShop(){app.cart=[];const next=app.shopQueue.shift();if(next===undefined){app.game.nextRound();screen('battle');}else{app.shopPlayer=next;screen('shop');}}
-function purchase(){const p=app.game.players[app.shopPlayer],cost=app.cartCost();if(cost===0){app.cart=[];return true;}if(cost>p.money){notice('Недостаточно очков.');return false;}app.cart.forEach((n,i)=>{if(!n)return;const it=app.shopItems[i];app.game.buy(p.id,it.index,n,it.kind,it.kind==='guidance'?catalog.guidance:catalog.defenses);});app.cart=[];notice('Оружие куплено.');return true;}
+export function beginShop(){if(app.game.round>=app.game.options.rounds){screen('menu');notice('Партия завершена. Можно начать новую.');return;}if(app.game.shopPreparedRound!==app.game.round){app.game.computerShop();app.game.shopPreparedRound=app.game.round;}app.shopQueue=app.game.players.filter(p=>p.ai<0&&p.money>=Math.min(...app.shopItems.map(it=>it.price))).map(p=>p.id);nextShop();}
+function nextShop(){app.cart=[];app.shopSelection=0;const next=app.shopQueue.shift();if(next===undefined){app.game.nextRound();screen('battle');}else{app.shopPlayer=next;screen('shop');}}
+function purchase(){const p=app.game.players[app.shopPlayer],cost=app.cartCost();if(cost===0){app.cart=[];return true;}if(cost>p.money){notice('Недостаточно очков.');return false;}app.cart.forEach((n,i)=>{if(!n)return;const it=app.shopItems[i];app.game.buy(p.id,it.index,n,it.kind,it.kind==='guidance'?catalog.guidance:catalog.defenses);});app.cart=[];app.shopSelection=Math.min(app.shopSelection||0,Math.max(0,app.shopVisible().length-1));notice('Оружие куплено.');return true;}
 function option(key,dir=1){const limits={crumble:[0,100,25],walls:[0,5,1],wind:[0,5,1],background:[0,9,1],paletteSpeed:[0,10,1]};if(typeof app.options[key]==='boolean')app.options[key]=!app.options[key];else{const [min,max,step]=limits[key];let v=app.options[key]+step*dir;if(v>max)v=min;if(v<min)v=max;app.options[key]=v;}updateSound();}
-function updateSound(){$('sound').textContent='Звук: '+(app.options.sound?'вкл':'выкл');$('sound').setAttribute('aria-pressed',String(app.options.sound));if(app.game)app.game.options.sound=app.options.sound;}
-function action(action,dir=1){const [name,arg]=action.split(':'),n=Number(arg);switch(name){
+function updateSound(){if(!app.options.sound)speaker.stop();$('sound').textContent='Звук: '+(app.options.sound?'вкл':'выкл');$('sound').setAttribute('aria-pressed',String(app.options.sound));if(app.game)app.game.options.sound=app.options.sound;}
+function action(actionId,dir=1){const [name,arg]=actionId.split(':'),n=Number(arg);switch(name){
   case 'menu':screen('menu');break;
   case 'confirmMenu':confirmAction('Вернуться в меню? Несохранённый бой останется доступен по кнопке «Пауза».',()=>screen('menu'));break;
   case 'sound':case 'options':case 'roster':screen(name);break;
@@ -37,15 +39,16 @@ function action(action,dir=1){const [name,arg]=action.split(':'),n=Number(arg);s
   case 'weapon':if(!canAim())break;if(n<18&&app.game.current.ammo[n]!==0)app.game.current.weapon=n;else if(n>=18)app.game.armGuidance(n-18);break;
   case 'angle':if(canAim())app.game.setAngle(app.game.current.angle+dir);break;
   case 'power':if(canAim())app.game.setPower(app.game.current.power+dir*100);break;
-  case 'reverse':if(canAim())app.game.setAngle(180-app.game.current.angle);break;
+  case 'reverse':if(canAim())app.game.setAngle(180-app.game.current.angle,true);break;
   case 'tank':if(canAim()&&app.game.current.armed>0&&n!==app.game.active)app.game.current.target=n;else {previousScreen=app.screen;app.statsPlayer=n;screen('stats');}break;
   case 'stats':previousScreen='score';app.statsPlayer=n;screen('stats');break;
   case 'save':save();break;
   case 'load':if(app.game&&app.screen==='battle')confirmAction('Загрузить сохранённую партию вместо текущей?',load);else load();break;
   case 'shop':beginShop();break;
   case 'addRounds':app.game.options.rounds+=5;notice('Добавлено 5 раундов.');break;
-  case 'cartPlus':{const it=app.shopItems[n];if(app.cartCost()+it.price>app.game.players[app.shopPlayer].money){notice('Недостаточно очков.');break;}app.cart[n]=(app.cart[n]||0)+1;break;}
-  case 'cartMinus':app.cart[n]=Math.max(0,(app.cart[n]||0)-1);break;
+  case 'shopCard':app.shopSelection=app.shopVisible().indexOf(n);action((dir<0?'cartPlus:':'cartMinus:')+n);break;
+  case 'cartPlus':if(!reserve(app.cart,app.shopItems,app.game.players[app.shopPlayer],n))notice('Не хватает денег или уже выбрано 9 комплектов.');break;
+  case 'cartMinus':reserve(app.cart,app.shopItems,app.game.players[app.shopPlayer],n,-1);break;
   case 'purchase':purchase();break;
   case 'shopDone':if(purchase())nextShop();break;
   case 'mirvSpread':app.game.options.mirvSpread=(app.game.options.mirvSpread+1)%5;break;
@@ -71,7 +74,7 @@ function key(k,shift=false,ctrl=false){
   if(ctrl&&k.toLowerCase()==='s'){app.options.sound=!app.options.sound;updateSound();return;}
   if(ctrl&&k.toLowerCase()==='p'){pause();return;}
   if(ctrl&&k.toLowerCase()==='q'){action('confirmMenu');return;}
-  if(k==='Escape'){if(['pause','stats','mirv'].includes(app.screen))action('resume');else if(app.screen==='battle')pause();else if(app.screen==='ai')screen('roster');else if(app.screen!=='score'&&app.screen!=='shop')screen('menu');return;}
+  if(k==='Escape'){if(['pause','stats','mirv'].includes(app.screen))action('resume');else if(app.screen==='battle')pause();else if(app.screen==='ai')screen('roster');else if(app.screen==='shop')action('shopDone');else if(app.screen!=='score'&&app.screen!=='shop')screen('menu');return;}
   if(app.screen==='splash'){screen('menu');return;}
   if(app.screen==='menu'){
     if(k==='ArrowDown')app.selection=(app.selection+1)%5;if(k==='ArrowUp')app.selection=(app.selection+4)%5;
@@ -87,7 +90,7 @@ function key(k,shift=false,ctrl=false){
   if(app.screen==='roster'&&(k==='Enter'||k===' ')){newGame();return;}
   if(app.screen==='mirv'&&(k==='Enter'||k===' ')){action('mirvFire');return;}
   if(app.screen==='score'&&(k==='Enter'||k===' ')){beginShop();return;}
-  if(app.screen==='shop'){if(k.toLowerCase()==='d'||k==='Enter')action('shopDone');if(k.toLowerCase()==='p')purchase();return;}
+  if(app.screen==='shop'){const visible=app.shopVisible(),move={ArrowUp:-1,ArrowDown:1,ArrowLeft:-9,ArrowRight:9}[k];if(move){const next=(app.shopSelection||0)+move;if(next>=0&&next<visible.length)app.shopSelection=next;}const i=visible[app.shopSelection||0];if(i!==undefined){if([' ','+','='].includes(k))action('cartPlus:'+i);if(k==='-')action('cartMinus:'+i);}if(k.toLowerCase()==='d')action('shopDone');if(k.toLowerCase()==='p'||k==='Enter')purchase();return;}
   if(app.screen!=='battle')return;
   if(/^[0-9]$/.test(k)){const id=(Number(k)+9)%10;if(app.game.players[id])action('tank:'+id);return;}
   if(ctrl&&k.toLowerCase()==='r'){app.game.background=1+app.game.rng.int(9);return;}
@@ -96,14 +99,15 @@ function key(k,shift=false,ctrl=false){
   if(k==='ArrowLeft')g.setAngle(p.angle+1);if(k==='ArrowRight')g.setAngle(p.angle-1);
   if(k==='ArrowUp')g.setPower(p.power+1);if(k==='ArrowDown')g.setPower(p.power-1);
   if(k==='PageUp')g.setPower(p.power+100);if(k==='PageDown')g.setPower(p.power-100);
-  if(k==='i'||k==='I')g.setAngle(180-p.angle);if(k==='Tab')g.cycleWeapon(shift?-1:1);
+  if(k==='i'||k==='I')g.setAngle(180-p.angle,true);if(k==='Tab')g.cycleWeapon(shift?-1:1);
   if(k==='h'||k==='H')g.armGuidance(0);if(k==='v'||k==='V')g.armGuidance(1);
   if(k===' '||k==='Enter')fire();
 }
 window.addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||['INPUT','SELECT','TEXTAREA','BUTTON'].includes(e.target.tagName))return;if([' ','Enter','Escape','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','PageUp','PageDown','F10'].includes(e.key)||(e.key==='Tab'&&app.screen==='battle')||(e.ctrlKey&&['s','p','q','r','m'].includes(e.key.toLowerCase())))e.preventDefault();key(e.key,e.shiftKey,e.ctrlKey);});
 window.addEventListener('blur',()=>{held=null;});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&app.screen==='battle')pause();});
-function controls(){const battle=app.screen==='battle',g=app.game,p=g?.current;$('battle-controls').hidden=!battle;$('pause').disabled=!g;$('save').disabled=!g||!['aim','score'].includes(g.phase);if(!battle){if(performance.now()>messageUntil)$('status').textContent=({splash:'Enter или щелчок по экрану — продолжить',menu:'Стрелки — выбор и настройка. Enter — открыть.',roster:'Выберите людей или компьютеры, затем START.',options:'↑ ↓ — пункт меню · ← → — значение · Enter — готово',sound:'↑ ↓ — пункт меню · ← → — значение · Enter — готово',score:'Результаты раунда. OK — продолжить, SAVE — сохранить.',shop:'Выберите покупки кнопками + и −. Done — следующий раунд.',pause:'Игра на паузе.',ai:'Выберите компьютерного противника.',mirv:'Настройте разлёт и детонацию MIRV.',boss:'Пробел — вернуться в игру.'})[app.screen]||'';return;}
+for(const [id,k] of [['shop-prev','ArrowUp'],['shop-next','ArrowDown'],['shop-plus','+'],['shop-minus','-'],['shop-buy','Enter'],['shop-done','d']])$(id).addEventListener('click',()=>{key(k);canvas.focus({preventScroll:true});});
+function controls(){$('shop-controls').hidden=app.screen!=='shop';const battle=app.screen==='battle',g=app.game,p=g?.current;$('battle-controls').hidden=!battle;$('pause').disabled=!g;$('save').disabled=!g||!['aim','score'].includes(g.phase);if(!battle){if(performance.now()>messageUntil)$('status').textContent=({splash:'Enter или щелчок по экрану — продолжить',menu:'Стрелки — выбор и настройка. Enter — открыть.',roster:'Выберите людей или компьютеры, затем START.',options:'↑ ↓ — пункт меню · ← → — значение · Enter — готово',sound:'↑ ↓ — пункт меню · ← → — значение · Enter — готово',score:'Результаты раунда. OK — продолжить, SAVE — сохранить.',shop:'↑ ↓ ← → — выбор · + / пробел / ПКМ — добавить · − / ЛКМ — убрать · Enter — купить · D — готово',pause:'Игра на паузе.',ai:'Выберите компьютерного противника.',mirv:'Настройте разлёт и детонацию MIRV.',boss:'Пробел — вернуться в игру.'})[app.screen]||'';return;}
   const allowed=canAim();for(const id of ['angle','power','weapon','fire'])$(id).disabled=!allowed;
   $('angle').value=p.angle;$('angle-value').textContent=Math.min(p.angle,180-p.angle)+'° '+(p.angle>90?'←':'→');$('power').max=p.men*100;$('power').value=p.power;$('power-value').textContent=p.power;
   const signature=p.id+':'+p.ammo.join(',')+':'+p.weapon;if(signature!==lastControlKey){lastControlKey=signature;$('weapon').replaceChildren(...catalog.weapons.filter((w,i)=>p.ammo[i]!==0).map(w=>{const o=document.createElement('option');o.value=w.id;o.textContent=w.shortName+' · '+p.ammo[w.id];o.selected=w.id===p.weapon;return o;}));}
@@ -114,11 +118,13 @@ function syncHits(){
   const layer=$('hit-layer'),hits=renderer.hits;
   layer.style.left=canvas.offsetLeft+'px';layer.style.top=canvas.offsetTop+'px';layer.style.width=canvas.clientWidth+'px';layer.style.height=canvas.clientHeight+'px';
   const signature=app.screen+'|'+hits.map(h=>[h.action,h.label,h.x,h.y,h.w,h.h].join(':')).join('|');if(signature===hitSignature)return;hitSignature=signature;
-  layer.replaceChildren(...hits.map(h=>{const b=document.createElement('button');b.setAttribute('aria-label',h.label||h.action);b.style.cssText=`left:${h.x/3.2}%;top:${h.y/2}%;width:${h.w/3.2}%;height:${h.h/2}%;`;b.addEventListener('click',()=>action(h.action));b.addEventListener('contextmenu',e=>{e.preventDefault();action(h.action,-1);});return b;}));
+  layer.replaceChildren(...hits.map(h=>{const b=document.createElement('button');b.setAttribute('aria-label',h.label||h.action);b.style.cssText=`left:${h.x/3.2}%;top:${h.y/2}%;width:${h.w/3.2}%;height:${h.h/2}%;`;b.addEventListener('click',e=>{if(e.button===0)action(h.action);});b.addEventListener('pointerdown',e=>{if(e.button===2){e.preventDefault();action(h.action,-1);}});b.addEventListener('contextmenu',e=>e.preventDefault());return b;}));
 }
 let lastDraw=0;
 function frame(t){const dt=Math.min(.05,(t-oldTime)/1000||.016);oldTime=t;if(held&&t-held.since>300&&t-held.last>65){key(held.key);held.last=t;}
-  if(app.screen==='battle'&&app.game){app.game.update(dt);for(const event of app.game.events.splice(0)){if(event.type==='fire'||event.type==='explosion')sound(event.type,event.radius);if(event.type==='roundEnd'){screen('score');save();}}}
+  if(app.screen==='battle'&&app.game){app.game.update(dt);for(const event of app.game.events.splice(0)){if(event.type==='speaker'&&app.options.sound)speaker.play(event.sequence);if(event.type==='roundEnd'){screen('score');save();}}}
   if(t-lastDraw>1000/30){renderer.render(app,t/1000);syncHits();controls();lastDraw=t;}requestAnimationFrame(frame);
 }
+// Unlock from the first real gesture, before any delayed animation callback.
+for(const event of ['pointerdown','keydown'])document.addEventListener(event,()=>{if(app.options.sound)speaker.unlock();},{capture:true});
 $('loading').remove();requestAnimationFrame(frame);canvas.focus({preventScroll:true});

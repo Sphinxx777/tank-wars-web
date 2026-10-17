@@ -206,29 +206,34 @@
     {
       "name": "Herb's Guidance System",
       "price": 20000,
-      "quantity": 5
+      "quantity": 5,
+      "shortName": "Herb's Guide"
     },
     {
       "name": "Vick's Guidance System",
       "price": 20000,
-      "quantity": 5
+      "quantity": 5,
+      "shortName": "Vick's Guide"
     }
   ],
   "defenses": [
     {
       "name": "Energy Absorbtion Shield",
       "price": 20000,
-      "quantity": 1000
+      "quantity": 1000,
+      "shortName": "Energy Shield"
     },
     {
       "name": "Inertia Dampener",
       "price": 10000,
-      "quantity": 100
+      "quantity": 100,
+      "shortName": "Inertia Damp."
     },
     {
       "name": "Repulser",
       "price": 15000,
-      "quantity": 1
+      "quantity": 1,
+      "shortName": "Repulser"
     }
   ]
 }

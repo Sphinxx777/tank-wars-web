@@ -1,0 +1,181 @@
+{
+  "headerLength": 30,
+  "globals": [
+    {
+      "offset": 30,
+      "ds": "0x47d8",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 32,
+      "ds": "0x47da",
+      "size": 2,
+      "value": 2
+    },
+    {
+      "offset": 34,
+      "ds": "0x47e2",
+      "size": 2,
+      "value": 1
+    },
+    {
+      "offset": 36,
+      "ds": "0x47e4",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 38,
+      "ds": "0x47e6",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 40,
+      "ds": "0x47e8",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 42,
+      "ds": "0x47ea",
+      "size": 2,
+      "value": 1
+    },
+    {
+      "offset": 44,
+      "ds": "0x47ec",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 46,
+      "ds": "0x47ee",
+      "size": 1,
+      "value": 0
+    },
+    {
+      "offset": 47,
+      "ds": "0x4812",
+      "size": 1,
+      "value": 1
+    },
+    {
+      "offset": 48,
+      "ds": "0x4814",
+      "size": 1,
+      "value": 0
+    },
+    {
+      "offset": 49,
+      "ds": "0x4815",
+      "size": 1,
+      "value": 0
+    },
+    {
+      "offset": 50,
+      "ds": "0xe8a2",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 52,
+      "ds": "0xe8a4",
+      "size": 2,
+      "value": 75
+    },
+    {
+      "offset": 54,
+      "ds": "0xe8a6",
+      "size": 2,
+      "value": 10
+    },
+    {
+      "offset": 56,
+      "ds": "0xe8a8",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 58,
+      "ds": "0xe8aa",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 60,
+      "ds": "0xe8ac",
+      "size": 2,
+      "value": 0
+    },
+    {
+      "offset": 62,
+      "ds": "0xe8ae",
+      "size": 2,
+      "value": 511
+    },
+    {
+      "offset": 64,
+      "ds": "0xe8b2",
+      "size": 1,
+      "value": 0
+    },
+    {
+      "offset": 65,
+      "ds": "0xe8b3",
+      "size": 1,
+      "value": 1
+    },
+    {
+      "offset": 66,
+      "ds": "0xe8b4",
+      "size": 1,
+      "value": 0
+    },
+    {
+      "offset": 67,
+      "ds": "0xe8b5",
+      "size": 1,
+      "value": 1
+    },
+    {
+      "offset": 68,
+      "ds": "0xe8b8",
+      "size": 1,
+      "value": 1
+    },
+    {
+      "offset": 69,
+      "ds": "0xe8ba",
+      "size": 1,
+      "value": 0
+    },
+    {
+      "offset": 70,
+      "ds": "0xe8bc",
+      "size": 1,
+      "value": 0
+    }
+  ],
+  "players": [
+    {
+      "player": 1,
+      "recordOffset": 71,
+      "recordSize": 116,
+      "cashOffset": 90,
+      "inputTypeOffset": 187
+    },
+    {
+      "player": 2,
+      "recordOffset": 189,
+      "recordSize": 116,
+      "cashOffset": 208,
+      "inputTypeOffset": 305
+    }
+  ],
+  "statisticsOffset": 307,
+  "size": 890,
+  "sha256": "960a16433c9f2f0b335f8d0dae5ac18195896960e99ae359c98c26d7de1e9780",
+  "dynamicValidation": "validated: DOS loads score, then shop; full shop raster matches 64000/64000 pixels"
+}

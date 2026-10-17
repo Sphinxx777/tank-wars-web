@@ -1,3 +1,4 @@
+import weaponIcons from './assets/weapon-icons.js';
 import {W,H,TOP,LEFT,RIGHT,BOTTOM,WALLS,COLORS,AI_NAMES} from './engine.js';
 export class Renderer {
   constructor(canvas,fonts,bitmap){this.canvas=canvas;this.ctx=canvas.getContext('2d',{alpha:false});this.fonts=fonts;this.bitmap=bitmap;this.hits=[];this.time=0;this.buttons=[];this.ctx.imageSmoothingEnabled=false;this.back=document.createElement('canvas');this.back.width=W;this.back.height=H;this.bc=this.back.getContext('2d');this.titleA=new Image();this.titleA.src='./assets/title.png';this.titleB=new Image();this.titleB.src='./assets/title-2.png';}
@@ -45,17 +46,24 @@ export class Renderer {
     const rows=['000111000','011111110','011111110','111010111','111111111'];for(let r=0;r<rows.length;r++)for(let k=0;k<9;k++)if(rows[r][k]==='1')this.rect(x-4+k,y-4+r,1,1,c);
     const a=p.angle*Math.PI/180;this.line(x,y,x+Math.trunc(Math.cos(a)*8),y-Math.trunc(Math.sin(a)*8),c);
     if(p.defense[0])this.circle(x,y-1,8,'#55ffff');if(p.defense[2])this.circle(x,y-1,12,'#ff55ff');}
-  icon(id,x,y,c){
-    if(id===0)this.rect(x+7,y+5,1,1,c);else if(id<=4){const r=[0,1,2,3,4][id];this.circle(x+7,y+5,r,c,id>1);}
-    else if(id===5){this.line(x+3,y+8,x+11,y+1,c);this.rect(x+2,y+7,2,2,c);}
-    else if([6,8,9,10].includes(id)){for(let j=0;j<(id===6?4:id===8?8:20);j++)this.rect(x+3+(j%5)*2,y+1+Math.floor(j/5)*2,1,1,c);}
-    else if(id===7){for(let j=-2;j<=2;j++)this.line(x+7,y+2,x+7+j*2,y+8,c);}
-    else if(id===11){this.rect(x+6,y+3,4,5,c);this.line(x+8,y+3,x+10,y+1,c);}
-    else if(id===12){this.line(x+4,y+2,x+10,y+8,c);this.line(x+10,y+2,x+4,y+8,c);}
-    else if(id===13||id===14)this.circle(x+7,y+5,3,c,id===14);
-    else if(id<=17){this.rect(x+6,y+4,3,3,c);for(let j=0;j<4;j++){const a=j*Math.PI/2;this.line(x+7+Math.cos(a)*3,y+5+Math.sin(a)*3,x+7+Math.cos(a)*6,y+5+Math.sin(a)*5,c);}}
-    else this.text(id===18?'H':'V',x+3,y+1,c,'bios');
+  icon(id,x,y,c){for(let row=0;row<10;row++)for(let col=0;col<15;col++)if(weaponIcons[id][row][col]==='1')this.rect(x+col,y+row,1,1,c);}
+  bevel(x1,y1,x2,y2,fill='#aaa',hi='#fff',lo='#555'){
+    this.rect(x1,y1,x2-x1+1,y2-y1+1,fill);
+    for(let n=1;n<=2;n++){this.line(x2+n,y1-n,x2+n,y2+n,lo);this.line(x1-n,y2+n,x2+n,y2+n,lo);this.line(x1-n,y1-n,x1-n,y2+n,hi);this.line(x1-n,y1-n,x2+n,y1-n,hi);}
   }
+  // BGI driver EXE 0x82bc: half-major error, tested against the DOS frame.
+  bgiLine(x0,y0,x1,y1,color){const dx=Math.abs(x1-x0),dy=Math.abs(y1-y0),horizontal=dx>dy,major=horizontal?dx:dy,minor=horizontal?dy:dx,sx=x1>x0?1:-1,sy=y1>y0?1:-1;let error=major>>1;
+    this.rect(x0,y0,1,1,color);for(let n=0;n<major;n++){if(horizontal)x0+=sx;else y0+=sy;error+=minor;if(error>=major){if(horizontal)y0+=sy;else x0+=sx;error-=major;}this.rect(x0,y0,1,1,color);}
+  }
+  bgiText(str,x,y,color,font='litt',scale=1,horizontal='left',vertical='top'){
+    const f=this.fonts[font],height=Math.trunc((f.ascender-f.descender)*scale),width=Math.trunc(this.textWidth(str,font,scale));
+    if(horizontal==='center')x-=Math.floor(width/2)-1;else if(horizontal==='right')x-=width;
+    const baseline=y+(vertical==='top'?height:vertical==='center'?Math.floor(height/2):0);
+    for(const c of String(str)){const g=f.glyphs[c]||f.glyphs[c.toUpperCase()];if(!g){x+=Math.trunc(4*scale);continue;}let px=0,py=0;
+      for(const [cmd,gx,gy] of g.commands){const nx=x+Math.trunc(gx*scale),ny=baseline-Math.trunc(gy*scale);if(cmd==='line')this.bgiLine(nx,ny,px,py,color);px=nx;py=ny;}x+=Math.trunc(g.width*scale);
+    }
+  }
+  shopBackground(speed=3){const phase=Math.floor(this.time*18.2065/Math.max(1,speed))%30;for(let y=0;y<200;y++){const v=Math.round((30+(y+phase)%30)*255/63);this.rect(0,y,320,1,`rgb(${v},0,${v})`);}}
   battle(app){const g=app.game,p=g.current;this.background(g.background,this.time/(1+g.options.paletteSpeed),false,g.palette,g.stars);
     const ground=['#00aa00','#aa5500','#aaaa00','#0088aa','#aa00aa'][g.groundColor];this.ctx.fillStyle=ground;for(let y=TOP;y<=BOTTOM;y++){let start=-1;for(let x=LEFT;x<=RIGHT+1;x++){const solid=x<=RIGHT&&g.terrain.data[y*W+x];if(solid&&start<0)start=x;if(!solid&&start>=0){this.ctx.fillRect(start,y,x-start,1);start=-1;}}}
     for(const trail of g.trails){if(g.options.trail||trail.laser)for(const [x,y] of trail.path)if(x>LEFT&&x<RIGHT&&y>TOP&&y<BOTTOM)this.rect(x,y,1,1,trail.color||'#888');}
@@ -69,7 +77,7 @@ export class Renderer {
     this.text('Angle:',8,0,'#aa00aa','bios');this.text(Math.min(p.angle,180-p.angle),56,0,'#ffff55','bios');this.text('Power:',8,10,'#aa00aa','bios');this.text(p.power,56,10,'#ffff55','bios');
     this.text(p.name.slice(0,12),160,0,p.color,'bios',1,'center');this.text('Wind: '+Math.abs(g.wind)+(g.wind<0?' <':' >'),160,10,'#5555ff','bios',1,'center');
     this.text('Direction('+ (p.angle>90?'<':'>') +')',215,0,'#aa00aa','bios');this.text('Men:',215,10,'#aa00aa','bios');this.text(p.men,247,10,'#ffff55','bios');
-    for(let i=0;i<20;i++){const x=10+i*15,loaded=i<18?p.weapon===i:Boolean(p.armed&(1<<(i-18))),have=i<18?p.ammo[i]!==0:p.guidance[i-18]>0,c=have?(loaded?'#ff3333':'#fff'):'#000';this.rect(x,18,15,10,'#291b20');this.line(x,18,x+14,18,c);this.line(x,18,x,27,c);this.line(x+14,18,x+14,27,c);this.icon(i,x,18,c);this.hit(x,18,15,10,'weapon:'+i,i<18?g.weapons[i].name:i===18?'Herb guidance':'Vick guidance');}
+    for(let i=0;i<20;i++){const x=10+i*15,loaded=i<18?p.weapon===i:Boolean(p.armed&(1<<(i-18))),have=i<18?p.ammo[i]!==0:p.guidance[i-18]>0,c=have?(loaded?'#ff0000':'#fff'):'#000';this.rect(x,18,15,10,'#291b20');this.icon(i,x,18,c);this.hit(x,18,15,10,'weapon:'+i,i<18?g.weapons[i].name:i===18?'Herb guidance':'Vick guidance');}
     for(let j=0;j<3;j++){const c=j===1?'#610061':'#ff55ff';this.line(8+j,28+j,312-j,28+j,c);this.line(8+j,28+j,8+j,192-j,c);this.line(312-j,28+j,312-j,192-j,c);this.line(8+j,192-j,312-j,192-j,c);}
     this.text(g.weapons[p.weapon].shortName+' '+p.ammo[p.weapon],12,194,'#ddd','tiny');this.text('ROUND '+g.round+'/'+g.options.rounds,308,194,'#ddd','tiny',1,'right');
     this.hit(8,0,90,9,'angle','Угол');this.hit(8,10,90,8,'power','Мощность');this.hit(215,0,95,9,'reverse','Развернуть ствол');for(const t of g.players)if(t.alive)this.hit(t.x-5,t.y-10,11,15,'tank:'+t.id,t.name);
@@ -79,10 +87,25 @@ export class Renderer {
     [...g.players].sort((a,b)=>b.score-a.score).forEach((p,i)=>{const y=65+i*9;this.text(p.name,31,y,p.color,'litt');this.text(p.score,202,y,'#000','tiny',1,'right');this.text(p.wins,239,y,'#000','tiny',1,'right');this.text(p.kills,278,y,'#000','tiny',1,'right');this.hit(28,y,260,9,'stats:'+p.id,p.name);});
     this.button('OK',43,167,60,14,'shop',{color:'#000'});this.button('ADD',130,167,60,14,'addRounds',{color:'#000'});this.button('SAVE',217,167,60,14,'save',{color:'#000'});
   }
-  shop(app){this.background(1,this.time,true);const p=app.game.players[app.shopPlayer],items=app.shopItems;this.box(10,5,300,190);this.text(p.name+' - Equipment',160,10,p.color,'bios',1,'center');this.text('Money: '+p.money,20,24,'#000');this.text('Selected: '+app.cartCost(),300,24,'#000','litt',1,'right');
-    this.text('WEAPON / EQUIPMENT',18,38,'#000','tiny');this.text('QTY',185,38,'#000','tiny');this.text('PRICE',218,38,'#000','tiny');this.text('BUY',278,38,'#000','tiny');
-    items.forEach((it,i)=>{const y=48+i*6;this.text(it.name.slice(0,33),18,y,p.money>=it.price?'#000':'#555','tiny');this.text(it.quantity,202,y,'#000','tiny',1,'right');this.text(it.price,249,y,'#000','tiny',1,'right');this.text('- '+(app.cart[i]||0)+' +',280,y,'#000','tiny',1,'center');this.hit(259,y-1,13,6,'cartMinus:'+i,'Убрать '+it.name);this.hit(276,y-1,27,6,'cartPlus:'+i,'Купить '+it.name);});
-    this.button('Purchase',70,178,80,13,'purchase',{color:'#000'});this.button('Done',175,178,70,13,'shopDone',{color:'#000'});
+  shop(app){
+    this.shopBackground(app.options.paletteSpeed);const p=app.game.players[app.shopPlayer],items=app.shopItems,unallocated=p.money-app.cartCost();
+    this.bevel(5,5,314,35);this.bgiText(p.name,160,3,p.color,'euro',.5,'center');
+    this.bevel(10,16,59,24);this.bgiText('Purchase',11,14,'#555');this.hit(10,16,50,9,'purchase','Purchase');
+    this.bevel(284,16,310,24);this.bgiText('Done',285,14,'#555');this.hit(284,16,27,9,'shopDone','Done');
+    this.bgiText('YOU HAVE UNALLOCATED:',11,0,'#aa5500','tiny');this.bgiText('YOU CURRENTLY HAVE:',309,0,'#ffff55','tiny',1,'right');
+    this.bgiText(unallocated+' DOLLARS',11,21,'#aa5500','tiny');this.bgiText(p.money+' DOLLARS',309,21,'#ffff55','tiny',1,'right');
+    const visible=app.shopVisible();
+    visible.forEach((i,j)=>{const it=items[i],x=5+Math.floor(j/9)*104,y=40+(j%9)*18,canBuy=unallocated>=it.price,stock=app.shopStock(it);
+      this.bevel(x,y,x+99,y+13);this.bgiText(it.shortName,x+42,y+3,it.kind==='weapon'?'#a00':it.kind==='guidance'?'#55ff55':'#5555ff','litt',1,'center','center');
+      const percent=it.kind==='defense'&&it.index<2,quantity=percent?'100%':it.quantity;
+      this.bgiText(quantity+' FOR '+it.price,x+2,y+13,'#000','tiny',1,'left','bottom');
+      if(stock>0)this.bgiText(percent?Math.min(100,Math.trunc(stock/(it.index===0?10:1)))+'%':stock,x+86,y+13,'#ffff55','tiny',1,'right','bottom');
+      const lamp=canBuy?'#f00':'#000';this.rect(x+58,y+11,3,1,lamp);this.rect(x+59,y+10,1,3,lamp);
+      this.bevel(x+90,y+3,x+96,y+10,'#aaa','#555','#fff');
+      if(j===(app.shopSelection||0)){const c=canBuy?'#55ffff':'#000';this.line(x+90,y+3,x+96,y+3,c);this.line(x+90,y+3,x+90,y+10,c);this.line(x+96,y+3,x+96,y+10,c);this.line(x+90,y+10,x+96,y+10,c);}
+      if(app.cart[i]>0)this.bgiText(app.cart[i],x+93,y+4,'#aa5500','tiny',1,'center','center');
+      this.hit(x,y,100,14,'shopCard:'+i,it.shortName+' — '+it.quantity+' за '+it.price);
+    });
   }
   mirv(app){this.battle(app);this.box(70,55,180,103);this.text('MIRV SETUP',160,64,'#0000aa','bios',1,'center');this.text('Spread',82,83,'#000');this.button(['Random','Horizontal','Vertical','+4 Way','X4 Way'][app.game.options.mirvSpread],137,79,100,15,'mirvSpread',{color:'#800000'});this.text('Detonate',82,106,'#000');this.button(['Impact','Simultaneous','None'][app.game.options.mirvDetonation],137,102,100,15,'mirvDetonation',{color:'#800000'});this.button('FIRE',122,133,76,16,'mirvFire',{color:'#800000'});}
   pause(app){this.battle(app);this.box(55,55,210,95);this.text('GAME PAUSED',160,64,'#0000aa','bios',1,'center');this.text('Round '+app.game.round+' / '+app.game.options.rounds,160,80,'#000','litt',1,'center');this.button('Continue',75,99,75,16,'resume',{color:'#000'});this.button('Save',170,99,75,16,'save',{color:'#000'});this.button('Main Menu',110,124,100,16,'confirmMenu',{color:'#000'});}

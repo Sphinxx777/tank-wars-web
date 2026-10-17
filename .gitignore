@@ -4,3 +4,5 @@ research/screenshots/
 node_modules/
 .DS_Store
 *.tar.gz
+
+research/capture/
