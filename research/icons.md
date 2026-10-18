@@ -58,6 +58,6 @@ The entire icon including its border uses one palette index, `100+id`. OVR `0x10
 - selected weapon: `(63,0,0)` → red `#ff0000`; call `0x10d7b`, overriding the availability color.
 - H/V available and unarmed: white; unavailable: black; armed: red. Calls `0x10da5`, `0x10db8`, `0x10df8`, `0x10e0b`, `0x10e4e`, `0x10e74`.
 
-On keyboard weapon selection, OVR `0x1afd2..0x1b02d` crossfades old red to white and new white to red in VGA channel steps3,6,...,63. This is a palette transition rather than changing shape. The original final selected color is pure red, not `#ff3333`.
+On keyboard weapon selection, OVR `0x1afd2..0x1b02d` crossfades old red to white and new white to red in VGA channel steps3,7,...,63. This is a palette transition rather than changing shape. The original final selected color is pure red, not `#ff3333`.
 
 No complete game equivalence is inferred from this result: this pass establishes only the 20 toolbar silhouettes, their clipping, positions, font glyphs and palette states.

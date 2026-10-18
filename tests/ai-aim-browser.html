@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Computer aiming verification</title>
+  <style>
+    body {
+      background: #15121a;
+      color: #eee;
+      font: 16px system-ui;
+      margin: 20px;
+    }
+    canvas {
+      width: 720px;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+      image-rendering: pixelated;
+    }
+    button {
+      padding: 10px;
+      margin: 5px;
+    }
+  </style>
+  <h1>Computer: weapon → direction → power → aim → fire</h1>
+  <canvas width="320" height="200"></canvas>
+  <p id="status">Loading…</p>
+  <button id="weapon">Show weapon selection</button>
+  <button id="power">Show power adjustment</button>
+  <button id="angle">Show turret aiming</button>
+  <button id="play">Play full sequence</button>
+  <script type="module">
+    import { Game } from '../dist/engine.js';
+    import { Renderer } from '../dist/render.js';
+    import { loadGameAssets } from '../dist/assets-loader.js';
+    const { catalog, fonts, bitmap, title } = await loadGameAssets();
+    const renderer = new Renderer(document.querySelector('canvas'), fonts, bitmap, title);
+    let game,
+      run = 0;
+    function scene() {
+      const g = new Game(
+        catalog.weapons,
+        { sound: false, wind: 0, walls: 0, crumble: 0, background: 0 },
+        47,
+      );
+      g.start([
+        { name: 'Rifleman', ai: 2 },
+        { name: 'Player', ai: -1 },
+      ]);
+      while (g.falling) g.update(1 / 60);
+      g.terrain.data.fill(0);
+      for (let x = 11; x <= 309; x++) for (let y = 101; y <= 189; y++) g.terrain.set(x, y, 1);
+      g.players.forEach((p, i) => {
+        p.x = i ? 50 : 250;
+        p.y = 100;
+        p.angle = 45;
+        p.power = 200;
+        p.weapon = 1;
+        p.ammo[2] = 10;
+        p.ammo[4] = 5;
+      });
+      g.order = [1, 0];
+      g.active = 0;
+      g.phase = 'aim';
+      g.aiTimer = 0;
+      return g;
+    }
+    function draw() {
+      renderer.render({ screen: 'battle', options: game.options, game }, 0);
+      const p = game.current;
+      document.querySelector('#status').textContent =
+        (p.shots ? 'Fired' : 'Aiming') +
+        ' · ' +
+        catalog.weapons[p.weapon].name +
+        ' · Power ' +
+        p.power +
+        ' · Angle ' +
+        p.angle +
+        '° · Shots ' +
+        p.shots +
+        ' · Nukes remaining ' +
+        p.ammo[4];
+    }
+    function show(seconds) {
+      run++;
+      game = scene();
+      for (let i = 0; i < Math.round(seconds * 1000); i++) game.update(0.001);
+      draw();
+    }
+    document.querySelector('#weapon').onclick = () => show(0.05);
+    document.querySelector('#power').onclick = () => show(0.4);
+    document.querySelector('#angle').onclick = () => show(0.9);
+    document.querySelector('#play').onclick = () => {
+      const token = ++run;
+      game = scene();
+      let previous;
+      function frame(time) {
+        if (token !== run) return;
+        if (previous) game.update(Math.min(0.05, (time - previous) / 1000));
+        previous = time;
+        draw();
+        if (game.phase === 'aim') requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    };
+    show(0.05);
+  </script>
+</html>

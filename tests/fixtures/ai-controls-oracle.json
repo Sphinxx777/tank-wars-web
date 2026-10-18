@@ -1,0 +1,3278 @@
+[
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 1,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 60,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 2,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 60,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 1,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 2,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 120,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 150,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 6,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 150,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 30,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 199,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 199,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 300,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 301
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 300,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 301,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 301,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 390,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 391
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 390,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 391,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 391,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 399,
+      "weapon": 1
+    },
+    "command": 3,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 399,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "command": 5,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 401,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 401,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 409,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 409,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 410,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 410,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 499,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 409
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 499,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 500,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 500,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 601,
+      "weapon": 1
+    },
+    "command": 4,
+    "powerBeforeHandler": 499
+  },
+  {
+    "player": {
+      "angle": 90,
+      "power": 400,
+      "weapon": 1
+    },
+    "plan": {
+      "angle": 90,
+      "power": 601,
+      "weapon": 4
+    },
+    "command": 8,
+    "powerBeforeHandler": 400
+  }
+]

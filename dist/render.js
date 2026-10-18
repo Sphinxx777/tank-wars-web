@@ -1,3 +1,4 @@
+import { aiIconColor } from './ai-controls.js';
 import { runtimeCos, runtimeSin } from './runtime-trig.js';
 import {
   menuLayout,
@@ -449,15 +450,16 @@ export class Renderer {
       1,
       'center',
     );
-    this.text('Direction(' + (p.angle > 90 ? '\x1b' : '\x1a') + ')', 216, 0, '#aa00aa', 'bios');
-    this.text(p.angle > 90 ? '\x1b' : '\x1a', 296, 0, '#ffff55', 'bios');
+    const facingLeft = g.aiAim?.owner === p.id ? g.aiAim.direction < 0 : p.angle > 90;
+    this.text('Direction(' + (facingLeft ? '\x1b' : '\x1a') + ')', 216, 0, '#aa00aa', 'bios');
+    this.text(facingLeft ? '\x1b' : '\x1a', 296, 0, '#ffff55', 'bios');
     this.text('Men:', 216, 10, '#aa00aa', 'bios');
     this.text(p.men, 248, 10, '#ffff55', 'bios');
     for (let i = 0; i < 20; i++) {
       const x = 10 + i * 15,
         loaded = i < 18 ? p.weapon === i : Boolean(p.armed & (1 << (i - 18))),
         have = i < 18 ? p.ammo[i] !== 0 : p.guidance[i - 18] > 0,
-        c = have ? (loaded ? '#ff0000' : '#fff') : '#000';
+        c = aiIconColor(g.aiWeaponTransition, i) ?? (have ? (loaded ? '#ff0000' : '#fff') : '#000');
       this.rect(x, 18, 15, 10, SCREEN_COLOR);
       this.icon(i, x, 18, c);
       this.hit(

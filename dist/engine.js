@@ -1,3 +1,4 @@
+import { updateAIAim } from './ai-controls.js';
 import { runtimeCos, runtimeSin } from './runtime-trig.js';
 import { chooseShoppingStrategy, computerCart, shopItems } from './shop.js';
 import { lightningEffect, lightningDue } from './lightning.js';
@@ -400,6 +401,8 @@ export class Game {
     this.active = this.order[this.rng.int(this.order.length)];
     this.phase = 'aim';
     this.aiTimer = 0.8;
+    this.aiAim = null;
+    this.aiWeaponTransition = null;
     this.emit('round');
     const queue = order.map((p) => ({ player: p.id, started: false, damage: 0 }));
     this.falling = { queue, elapsed: 0, intro: true };
@@ -775,11 +778,7 @@ export class Game {
       return;
     }
     if (this.phase === 'aim' && this.current?.ai >= 0) {
-      this.aiTimer -= dt;
-      if (this.aiTimer <= 0) {
-        this.aimAI(this.current);
-        this.fire();
-      }
+      updateAIAim(this, dt);
       return;
     }
     if (this.phase !== 'flight') return;
@@ -1168,6 +1167,8 @@ export class Game {
     if (this.current.ammo[this.current.weapon] === 0) this.cycleAvailable();
     this.phase = 'aim';
     this.aiTimer = 0.8;
+    this.aiAim = null;
+    this.aiWeaponTransition = null;
     this.emit('turn');
   }
   cycleAvailable() {
@@ -1427,6 +1428,9 @@ export class Game {
       terrain: Array.from(this.terrain.data),
       turns: this.turns,
       roundCycles: this.roundCycles,
+      aiAim: this.aiAim,
+      aiTimer: this.aiTimer,
+      aiWeaponTransition: this.aiWeaponTransition,
     });
   }
   static restore(json, weapons) {
@@ -1454,6 +1458,9 @@ export class Game {
       'groundColor',
       'turns',
       'roundCycles',
+      'aiAim',
+      'aiTimer',
+      'aiWeaponTransition',
       'stars',
       'palette',
       'shopPreparedRound',
@@ -1472,7 +1479,9 @@ export class Game {
     game.terrain.data = Uint8Array.from(savedState.terrain);
     game.terrain.version++;
     game.roundCycles ??= 1 + Math.floor(game.turns / game.players.length);
-    game.aiTimer = 1;
+    game.aiTimer ??= 1;
+    game.aiAim ??= null;
+    game.aiWeaponTransition ??= null;
     return game;
   }
 }
