@@ -129,7 +129,7 @@ export const guideContent = {
         name: 'Laser Blaster',
         role: 'Straight beam',
         description:
-          'Charges and fires along the barrel direction without a ballistic arc. The beam spends energy as it travels, clears terrain along its path, and can keep damaging a tank it reaches. Laser ammunition is an energy reserve; a shot spends at least 100 units, with higher power spending more.',
+          'Charges and fires along the barrel direction without a ballistic arc. The beam spends energy as it travels, clears terrain along its path, and can keep damaging a tank it reaches. Laser ammunition is an energy reserve: firing requires at least 100 units in reserve, but spends the selected positive power, limited by the available reserve. Shields absorb beam damage; unshielded hits scatter colored particles.',
         tips: [
           'Aim the barrel directly along the desired line. Check the reserve before firing: a pack of laser energy is not a pack of individual shots.',
         ],
@@ -533,7 +533,7 @@ export const guideContent = {
         name: 'Laser Blaster',
         role: 'Прямой луч',
         description:
-          'Заряжается и стреляет по направлению ствола без баллистической дуги. Луч расходует энергию при движении, расчищает землю на пути и может продолжать повреждать достигнутый танк. Боезапас лазера — запас энергии: выстрел тратит минимум 100 единиц, а большая мощность повышает расход.',
+          'Заряжается и стреляет по направлению ствола без баллистической дуги. Луч расходует энергию при движении, расчищает землю на пути и может продолжать повреждать достигнутый танк. Боезапас лазера — запас энергии: для выстрела нужно иметь хотя бы 100 единиц, но расход равен выбранной положительной мощности и ограничен остатком запаса. Щит поглощает урон луча; попадание в незащищённый танк разбрасывает цветные частицы.',
         tips: [
           'Направляйте ствол прямо по нужной линии. Комплект энергии лазера — не такое же число отдельных выстрелов.',
         ],

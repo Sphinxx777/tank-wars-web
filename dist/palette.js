@@ -29,18 +29,27 @@ export const EGA = [
   '#ffff55',
   '#ffffff',
 ];
-export function tankColor(id, men = 100) {
+export function tankRGB(id, men = 100) {
   const value = Math.max(0, Math.trunc((63 * men) / 100));
+  return DIVISORS[id].map((divisor) => Math.trunc(value / divisor));
+}
+export function dacColor(rgb) {
   return (
     '#' +
-    DIVISORS[id]
-      .map((d) =>
-        Math.round((Math.trunc(value / d) * 255) / 63)
+    rgb
+      .map((value) =>
+        Math.round((value * 255) / 63)
           .toString(16)
           .padStart(2, '0'),
       )
       .join('')
   );
 }
+export function tankColor(id, men = 100) {
+  return dacColor(tankRGB(id, men));
+}
+export const TRAIL_COLORS = DIVISORS.map((values) =>
+  dacColor(values.map((divisor) => Math.trunc(32 / divisor))),
+);
 export const PLAYER_COLORS = DIVISORS.map((_, i) => tankColor(i));
 export const SCREEN_COLOR = '#392428';

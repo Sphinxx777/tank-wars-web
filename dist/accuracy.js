@@ -21,6 +21,7 @@ const content = {
           'Five menu, setup and results screens: 64,000 pixels each, with only the animated background palette phase normalized.',
           'Battle HUD: all 8,960 pixels in the reference crop match.',
           'Explosion outlines: 177 rasters match execution of the original instructions, including radii 0–170.',
+          'Laser walls: 70 reference cases. Runtime gun trigonometry: all 181 integer angles. Lightning: 3,339 center coordinates across 21 paths, with RNG and sound-call checks.',
         ],
         paragraphs: [
           'These checks cover specific reference states. They do not establish complete equivalence for every possible screen, shot or animation.',
@@ -31,6 +32,7 @@ const content = {
         paragraphs: [
           'Ordinary explosions use the original ellipse raster and three red palette passes. Sonic uses a flashing five-pixel cross and changing ground colors. Explosive tank death includes brightness pulses and successive blasts. Tank colors dim with MEN; nine backgrounds have been reconstructed.',
           'Terrain descends through the original one-pixel active-list passes. Tanks land on the unmodified landscape, can slide after losing support, and lose MEN or inertia reserve at every falling step. Initial gun angles and visible computer shopping have been restored. Ground animation and automatic shopping use explicit browser pacing because the DOS loops had no fixed delay.',
+          'Ordinary shells have a five-pixel cross, guidance and bounce colors, dim trails and border position markers. Laser charging, yellow beam fading, shield damage and hit particles follow recovered procedures. Lightning begins after ten full turn cycles, with original path generation, terrain cuts and a final blast.',
           'Audio uses one synthesized PC Speaker channel with recovered frequencies, PIT divisors and explicit delays. Tight loops without Delay still use estimated timing; physical speaker timbre and full audiovisual synchronization have not been verified as identical.',
         ],
       },
@@ -38,7 +40,8 @@ const content = {
         title: 'Known differences and unfinished checks',
         items: [
           'JavaScript floating-point calculations differ from Pascal Real. RNG call order and edge collisions still need more comparison.',
-          'Some death flashes read arbitrary bytes from low DOS memory. Those flashes, CPU-dependent loops, laser timing, burial and anti-stalemate lightning are not fully reproduced.',
+          'Some death flashes read arbitrary bytes from low DOS memory. Those flashes, CPU-dependent timing and burial remain incomplete. Lightning sweeps use explicit browser pacing and clip to the field; victory is checked before another strike to avoid the original endless-strike edge case.',
+          'High-power projectile subdivisions, MIRV child simulation, trail/framebuffer interactions and dirt-ball circle rasterization still need independent reference checks.',
           'Some dialogs and transitions, and AI edge cases remain under review.',
           'Parts of Twanger and Lobber aiming remain approximate. Computer shopping now uses the original four persistent strategies; rejected full-cart purchases end the visit instead of reproducing a DOS no-progress loop.',
           'Custom RAW backgrounds, DOS save import and network multiplayer are not implemented.',
@@ -75,6 +78,7 @@ const content = {
           'Пять экранов меню, настройки и результатов: по 64000 пикселей; нормализована только фаза анимированной фоновой палитры.',
           'Верхняя панель боя: совпали все 8960 пикселей эталонного фрагмента.',
           'Контуры взрывов: 177 растров совпали с исполнением оригинальных инструкций, включая радиусы 0–170.',
+          'Стены для лазера: 70 эталонных случаев. Тригонометрия пушек: все 181 целочисленный угол. Молнии: 3339 центральных координат на 21 траектории, с проверкой вызовов RNG и звука.',
         ],
         paragraphs: [
           'Эти проверки подтверждают конкретные эталонные состояния. Они не доказывают полное совпадение каждого возможного экрана, выстрела или анимации.',
@@ -85,6 +89,7 @@ const content = {
         paragraphs: [
           'Обычные взрывы используют исходную растеризацию эллипса и три прохода красной палитры. Sonic — мигающий крест из пяти пикселей и смена цвета земли. Взрывная смерть танка включает пульсацию яркости и последовательные взрывы. Цвет танков темнеет с уменьшением MEN; восстановлены девять фонов.',
           'Грунт осыпается однопиксельными проходами по исходному активному списку. Танки садятся на неизменённый рельеф, соскальзывают после потери опоры и теряют MEN или запас инерционной защиты на каждом шаге падения. Восстановлены начальные углы пушек и видимый магазин компьютера. Темп осыпания и закупок задан для браузера: в DOS эти циклы не имели фиксированной задержки.',
+          'Обычные снаряды рисуются крестом из пяти пикселей, меняют цвет при наведении и отскоке, оставляют тёмный след и метки положения на рамке. Зарядка лазера, затухание жёлтого луча, урон щиту и частицы попадания восстановлены по коду. Молнии появляются после десяти полных кругов ходов: восстановлены генерация пути, прорезание грунта и завершающий взрыв.',
           'Звук синтезируется одним каналом PC Speaker с восстановленными частотами, делителями PIT и явными задержками. Быстрые циклы без Delay пока используют оценочную длительность; тембр физического динамика и полная синхронизация звука с изображением не подтверждены как идентичные.',
         ],
       },
@@ -92,7 +97,8 @@ const content = {
         title: 'Известные отличия и незавершённые проверки',
         items: [
           'Вычисления JavaScript отличаются от Pascal Real. Порядок вызовов RNG и граничные столкновения требуют дальнейшей сверки.',
-          'Некоторые вспышки смерти читают случайные байты из низкой DOS-памяти. Эти вспышки, CPU-зависимые циклы, темп лазера, засыпание и антизатяжная молния воспроизведены не полностью.',
+          'Некоторые вспышки смерти читают случайные байты из низкой DOS-памяти. Эти вспышки, CPU-зависимый темп и засыпание ещё воспроизведены не полностью. Для молний задан браузерный темп и отсечение по полю; победа проверяется перед новым ударом, чтобы избежать исходного зацикливания молний.',
+          'Подшаги мощных снарядов, дочерние снаряды MIRV, влияние следов на видеопамять и растеризация земляных шаров требуют независимой сверки.',
           'Отдельные диалоги и переходы, крайние случаи AI ещё проверяются.',
           'Часть прицеливания Twanger и Lobber остаётся приближённой. Закупки используют четыре постоянные стратегии оригинала; при невозможности добавить товар компьютер завершает покупки вместо воспроизведения зацикливания DOS.',
           'Пользовательские RAW-фоны, импорт DOS-сохранений и сетевой мультиплеер не реализованы.',

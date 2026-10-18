@@ -1,7 +1,10 @@
+import { runtimeCos, runtimeSin } from './runtime-trig.js';
 import { chooseShoppingStrategy, computerCart, shopItems } from './shop.js';
+import { lightningEffect, lightningDue } from './lightning.js';
+import { laserEffect } from './laser.js';
 import { createBattleBackground } from './background.js';
 import { blastTimeline, blastRaster } from './effects-render.js';
-import { PLAYER_COLORS } from './palette.js';
+import { PLAYER_COLORS, TRAIL_COLORS } from './palette.js';
 import {
   SoundSequence,
   CPU_WRITE_MS,
@@ -9,9 +12,7 @@ import {
   controlSound,
   blastSound,
   sonicSound,
-  laserCharge,
   criDirectSound,
-  lightningSound,
 } from './sound.js';
 import { deathEffect } from './death.js';
 import { sinDeg, cosDeg } from './trig.js';
@@ -77,8 +78,13 @@ export class Random {
 }
 // OVR 0x1114e..0x11216 and 0x11328..0x1141a: original Euler integrator.
 export function launch(x, y, power, angle) {
-  const a = (angle * Math.PI) / 180;
-  return { x, y, vx: (power / 50) * Math.cos(a), vy: (-power / 50) * Math.sin(a), age: 0 };
+  return {
+    x,
+    y,
+    vx: (power / 50) * runtimeCos(angle),
+    vy: (-power / 50) * runtimeSin(angle),
+    age: 0,
+  };
 }
 export function integrate(p, wind, dt = 0.1) {
   p.x += p.vx * dt;
@@ -122,13 +128,15 @@ export function blastDamage(d, r) {
   return Math.max(0, n);
 }
 const BODY = ['000111000', '011111110', '011111110', '111010111', '111111111'];
-export function tankPixel(p, x, y) {
+export function tankBodyPixel(p, x, y) {
   const dx = x - p.x + 4,
     dy = y - p.y + 4;
-  if (dy >= 0 && dy < 5 && dx >= 0 && dx < 9 && BODY[dy][dx] === '1') return true;
-  const a = (p.angle * Math.PI) / 180,
-    x1 = p.x + Math.trunc(8 * Math.cos(a)),
-    y1 = p.y - Math.trunc(8 * Math.sin(a));
+  return dy >= 0 && dy < 5 && dx >= 0 && dx < 9 && BODY[dy][dx] === '1';
+}
+export function tankPixel(p, x, y) {
+  if (tankBodyPixel(p, x, y)) return true;
+  const x1 = p.x + Math.trunc(8 * runtimeCos(p.angle)),
+    y1 = p.y - Math.trunc(8 * runtimeSin(p.angle));
   let xx = p.x,
     yy = p.y;
   const dx1 = Math.abs(x1 - xx),
@@ -337,12 +345,17 @@ export class Game {
   nextRound() {
     this.round++;
     this.turns = 0;
+    this.roundCycles = 1;
+    this.lightningVisual = null;
     this.falling = null;
     this.crumbling = null;
     this.terrainResolved = false;
     this.audioWait = 0;
     this.blockSimulation = 0;
     this.pendingLaser = null;
+    this.effectAnimation = null;
+    this.effectWait = 0;
+    this.laserVisual = null;
     this.deathQueue = [];
     this.deathAnimation = null;
     this.deathVisual = null;
@@ -448,10 +461,9 @@ export class Game {
     const p = this.current,
       id = p.weapon;
     if (p.ammo[id] === 0) return false;
-    if (id === 5 && p.ammo[id] < 100) return false;
-    const a = (p.angle * Math.PI) / 180;
+    if (id === 5 && (p.ammo[id] < 100 || p.power <= 0)) return false;
     const shot = {
-      ...launch(p.x + Math.cos(a) * 10, p.y - Math.sin(a) * 10, p.power, p.angle),
+      ...launch(p.x + runtimeCos(p.angle) * 10, p.y - runtimeSin(p.angle) * 10, p.power, p.angle),
       weapon: id,
       owner: p.id,
       power: p.power,
@@ -467,15 +479,16 @@ export class Game {
     this.turns++;
     this.terrainResolved = false;
     this.trails = [];
+    this.projectileElapsed = 0;
     this.phase = 'flight';
     this.shots = [];
     this.explosions = [];
     this.mirvEndpoints = [];
     this.turnHit = false;
-    if (this.rng.next() < 0.2) this.hurt(p, 1, p.id);
-    this.audio(id === 5 ? laserCharge() : launchSound(), true);
+    if (id !== 5 && this.rng.next() < 0.2) this.hurt(p, 1, p.id);
+    if (id !== 5) this.audio(launchSound(), true);
     if (id === 5) {
-      const energy = Math.min(Math.max(100, p.power), p.ammo[id]);
+      const energy = Math.min(p.power, p.ammo[id]);
       p.ammo[id] -= energy;
       this.pendingLaser = { shot, energy };
     } else {
@@ -487,7 +500,7 @@ export class Game {
   }
   hurt(p, damage, owner, kind = 'blast', deferDeath = false) {
     if (!p.alive || damage <= 0) return;
-    if ((kind === 'blast' || kind === 'death') && p.defense[0] > 0) {
+    if (kind !== 'fall' && p.defense[0] > 0) {
       const absorbed = Math.min(damage, p.defense[0]);
       p.defense[0] -= absorbed;
       damage -= absorbed;
@@ -509,7 +522,7 @@ export class Game {
     p.power = Math.min(p.power, maxPower(p));
     const source = this.players[owner],
       enemy = source && source.team !== p.team;
-    if (enemy && dealt && kind !== 'fall' && kind !== 'laser' && kind !== 'death') {
+    if (enemy && dealt && kind === 'blast') {
       source.score += dealt * 10;
       source.money += dealt * 10;
       if (!this.turnHit) {
@@ -633,61 +646,29 @@ export class Game {
     this.explode(x, y, this.weapons[id]?.radius ?? 10, owner, 'blast', s.mirvChild);
     if (direct) this.hurt(direct, 200, owner);
   }
-  laser(s, energy) {
-    const tank = this.players[s.owner],
-      a = (tank.angle * Math.PI) / 180,
-      p = {
-        x: tank.x + Math.cos(a) * 7,
-        y: tank.y - Math.sin(a) * 7,
-        vx: Math.cos(a),
-        vy: -Math.sin(a),
-      };
-    const path = [],
-      tones = new SoundSequence();
-    let remaining = 10 * energy;
-    for (let i = 0; i < 20000 && remaining > 0; i++) {
-      p.x += p.vx;
-      p.y += p.vy;
-      const speed = Math.hypot(p.vx, p.vy);
-      wallBounce(p, this.wall);
-      const newspeed = Math.hypot(p.vx, p.vy);
-      p.vx *= speed / newspeed;
-      p.vy *= speed / newspeed;
-      path.push([p.x, p.y]);
-      remaining -= 10;
-      if (p.x < LEFT || p.x > RIGHT || p.y < TOP || p.y > BOTTOM) break;
-      const hit = this.players.find((t) => t.alive && Math.hypot(t.x - p.x, t.y - p.y) < 3);
-      if (hit) {
-        remaining -= 10;
-        this.hurt(hit, 3, s.owner, 'laser');
-        p.x -= p.vx;
-        p.y -= p.vy;
-      }
-      if (this.terrain.solid(p.x, p.y)) {
-        for (let j = 0; j < 15; j++) {
-          const x = Math.trunc(p.x - this.rng.int(20) * p.vx),
-            y = Math.trunc(p.y - this.rng.int(20) * p.vy);
-          if (
-            !this.players.some((t) => t.alive && Math.abs(t.x - x) <= 4 && Math.abs(t.y - y) <= 2)
-          )
-            this.terrain.set(x, y, 0);
-          if (this.options.sound)
-            tones.tone(500 + this.rng.int((500 * (j + 1)) & 65535), CPU_WRITE_MS);
-        }
-        this.terrain.version++;
-      }
-      tones.wait(5);
-      if (this.options.sound) tones.tone(100 + this.rng.int((12 * remaining) & 65535));
+  laser(shot, energy) {
+    this.effectAnimation = laserEffect(this, shot, energy, tankPixel, tankBodyPixel);
+    this.effectWait = 0;
+  }
+  updateEffect(dt) {
+    this.effectWait -= dt;
+    while (this.effectAnimation && this.effectWait <= 1e-12) {
+      const next = this.effectAnimation.next();
+      if (next.done) {
+        this.effectAnimation = null;
+        this.effectWait = 0;
+      } else this.effectWait += next.value;
     }
-    this.audio(tones.stop(), true);
-    this.trails.push({ path, color: '#ff5555', laser: true });
-    this.delay = 0.4;
   }
   stepShot(s, dt, preview = false) {
     s.substep = ((s.substep ?? 0) + 1) % 10;
     integrate(s, this.wind, dt);
-    wallBounce(s, this.wall);
-    if (Math.abs(s.vx) > 500 || Math.abs(s.vy) > 500 || s.age > 1800) return 'gone';
+    const x = Math.trunc(s.x),
+      y = Math.trunc(s.y);
+    // DOS caches the displayed/collision pixel before guidance moves the real position.
+    s.pixelX = x;
+    s.pixelY = y;
+    if (s.age > 1800) return 'gone';
     if (this.wall === 0 || this.wall === 4) {
       if (s.y >= 190) return 'hit';
       if (s.x < -1500 || s.x > 1800 || s.y < -5000) return 'gone';
@@ -697,21 +678,6 @@ export class Game {
           (s.x > RIGHT && s.vx >= 0 && this.wind >= 0))
       )
         return 'gone';
-    }
-    if (!preview && s.guidance > 0) {
-      const t = this.players[s.target];
-      if (t?.alive) {
-        const dx = t.x - Math.trunc(s.x),
-          dy = t.y - Math.trunc(s.y);
-        if (s.guidance & 2 && Math.abs(dx) <= 2) {
-          s.vx = 0;
-          s.y += dy > 0 ? 0.5 : -0.5;
-        }
-        if (s.guidance & 1 && dy > 0 && dy <= 4) {
-          s.vy = 0;
-          s.vx = s.vx === 0 ? 0.1 : s.vx * (dx * s.vx < 0 ? -1.01 : 1.01);
-        }
-      }
     }
     if (s.weapon === 7 && s.vy > 0 && !preview) return 'split';
     if (!preview)
@@ -724,14 +690,34 @@ export class Game {
           else continue;
         }
         if (t.alive && t.defense[2] > 0 && d2 > 0 && d2 <= 1600) {
-          const a = (Math.trunc((Math.atan2(dy, dx) * 180) / Math.PI) * Math.PI) / 180,
-            f = (-600 / d2) * dt;
-          s.vx += Math.cos(a) * f;
-          s.vy -= Math.sin(a) * f;
+          const angle =
+            dx === 0
+              ? dy > 0
+                ? 90
+                : 270
+              : Math.trunc((Math.atan(dy / dx) * 180) / Math.PI) + (dx < 0 ? 180 : 0);
+          const force = (-600 / d2) * dt;
+          s.vx += cosDeg(angle) * force;
+          s.vy -= sinDeg(angle) * force;
         }
       }
-    const x = Math.trunc(s.x),
-      y = Math.trunc(s.y);
+    if (!preview && s.guidance > 0) {
+      const t = this.players[s.target];
+      if (t?.alive) {
+        const dx = t.x - Math.trunc(s.x),
+          dy = t.y - Math.trunc(s.y);
+        if (s.guidance & 2 && Math.abs(dx) <= 2) {
+          s.vx = 0;
+          s.y += dy > 0 ? 0.5 : -0.5;
+          s.color = '#ff0000';
+        }
+        if (s.guidance & 1 && dy > 0 && dy <= 4) {
+          s.vy = 0;
+          s.vx = s.vx === 0 ? 0.1 : s.vx * (dx * s.vx < 0 ? -1.01 : 1.01);
+          s.color = '#ff0000';
+        }
+      }
+    }
     let collision = false;
     if (x > 11 && x < 309 && y > 33 && y < 187) {
       for (const [dx, dy] of [
@@ -747,6 +733,7 @@ export class Game {
             collision = false;
             s.guidance = 0;
             s.vy *= -1.2;
+            s.color = '#0000ff';
           } else {
             s.hitTank = tank.id;
             collision = true;
@@ -755,11 +742,13 @@ export class Game {
           const shooter = this.players[s.owner],
             threshold = s.threshold ?? 3 * (shooter?.men ?? 100) + 643,
             power = s.power ?? shooter?.power ?? 0;
-          collision = power !== threshold && (power < threshold || s.substep === 0);
+          if (power === threshold) collision = false;
+          else if (power < threshold || s.substep === 0) collision = true;
         }
       }
     }
-    if (collision || s.stopped) return 'hit';
+    if (!(x > 11 && x < 309 && y > 33 && y < 187)) wallBounce(s, this.wall);
+    if (collision || s.stopped || Math.abs(s.vx) > 30 || Math.abs(s.vy) > 30) return 'hit';
     return null;
   }
   update(dt) {
@@ -778,6 +767,10 @@ export class Game {
     this.audioWait = Math.max(0, (this.audioWait || 0) - dt);
     if (this.blockSimulation > 0) {
       this.blockSimulation = Math.max(0, this.blockSimulation - dt);
+      return;
+    }
+    if (this.effectAnimation) {
+      this.updateEffect(dt);
       return;
     }
     if (this.pendingLaser) {
@@ -807,13 +800,19 @@ export class Game {
 
   // Preserve this order: projectiles → chain reactions → explosions → deaths → settling.
   updateProjectiles(dt) {
-    const iterations = Math.min(60, Math.max(1, Math.round(dt * 600)));
+    this.projectileElapsed = (this.projectileElapsed || 0) + dt;
+    const iterations = Math.floor(this.projectileElapsed * 600 + 1e-9);
+    this.projectileElapsed -= iterations / 600;
     for (let iteration = 0; iteration < iterations; iteration++) {
       const active = this.shots;
       this.shots = [];
       for (const shot of active) {
+        const previousPixel = [
+          shot.pixelX ?? Math.trunc(shot.x),
+          shot.pixelY ?? Math.trunc(shot.y),
+        ];
         const event = this.stepShot(shot, 0.1);
-        if (this.options.trail && iteration % 3 === 0) shot.trail.push([shot.x, shot.y]);
+        if (this.options.trail) shot.trail.push(previousPixel);
         if (event === 'split') {
           const mode = this.options.mirvSpread;
           for (let childIndex = 0; childIndex < 5; childIndex++) {
@@ -850,7 +849,7 @@ export class Game {
               trail: [],
             });
           }
-          this.trails.push({ path: shot.trail, color: '#888' });
+          this.trails.push({ path: shot.trail, color: TRAIL_COLORS[shot.owner] });
         } else if (event) {
           if (!shot.mirvChild)
             this.players[shot.owner].lob.push({
@@ -859,7 +858,7 @@ export class Game {
               power: shot.power,
               angle: this.players[shot.owner].angle,
             });
-          this.trails.push({ path: shot.trail, color: COLORS[shot.owner] });
+          this.trails.push({ path: shot.trail, color: TRAIL_COLORS[shot.owner] });
           if (this.options.flySound) this.audio(new SoundSequence().stop());
           if (shot.y < -5000) {
             const tones = new SoundSequence();
@@ -981,7 +980,7 @@ export class Game {
                   player,
                   blastDamage(distance, explosion.max),
                   explosion.owner,
-                  explosion.kind === 'death' ? 'death' : 'blast',
+                  ['death', 'lightning'].includes(explosion.kind) ? explosion.kind : 'blast',
                 );
             }
         }
@@ -1145,19 +1144,17 @@ export class Game {
       this.emit('roundEnd');
       return;
     }
-    // Original has anti-stalemate lightning; threshold remains an approximation.
-    if (this.turns > 80 && this.turns % 4 === 0) {
-      const t = this.alive[this.rng.int(this.alive.length)];
-      this.audio(lightningSound(this.rng, this.options.sound), true);
-      this.hurt(t, 25, this.active);
-      if (this.deathQueue.length) {
-        this.phase = 'flight';
-        return;
-      }
+    if (lightningDue(this.roundCycles || 1, false, this.rng)) {
+      this.effectAnimation = lightningEffect(this, tankPixel);
+      this.effectWait = 0;
+      this.phase = 'flight';
+      return;
     }
     const start = this.order.indexOf(this.active);
     for (let i = 1; i <= this.order.length; i++) {
-      const id = this.order[(start + i) % this.order.length];
+      const position = (start + i) % this.order.length;
+      if (position === 0) this.roundCycles++;
+      const id = this.order[position];
       if (this.players[id].alive) {
         this.active = id;
         break;
@@ -1181,14 +1178,13 @@ export class Game {
             );
   }
   trajectory(p, angle, power, wind = this.wind) {
-    const a = (angle * Math.PI) / 180,
-      s = {
-        ...launch(p.x + Math.cos(a) * 10, p.y - Math.sin(a) * 10, power, angle),
-        owner: p.id,
-        weapon: 1,
-        power,
-        threshold: 3 * p.men + 643,
-      };
+    const s = {
+      ...launch(p.x + runtimeCos(angle) * 10, p.y - runtimeSin(angle) * 10, power, angle),
+      owner: p.id,
+      weapon: 1,
+      power,
+      threshold: 3 * p.men + 643,
+    };
     const actual = this.wind;
     this.wind = wind;
     for (let i = 0; i < 15000; i++) {
@@ -1425,6 +1421,7 @@ export class Game {
       rng: this.rng.state,
       terrain: Array.from(this.terrain.data),
       turns: this.turns,
+      roundCycles: this.roundCycles,
     });
   }
   static restore(json, weapons) {
@@ -1451,6 +1448,7 @@ export class Game {
       'background',
       'groundColor',
       'turns',
+      'roundCycles',
       'stars',
       'palette',
       'shopPreparedRound',
@@ -1468,6 +1466,7 @@ export class Game {
     }
     game.terrain.data = Uint8Array.from(savedState.terrain);
     game.terrain.version++;
+    game.roundCycles ??= 1 + Math.floor(game.turns / game.players.length);
     game.aiTimer = 1;
     return game;
   }

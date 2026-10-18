@@ -1,3 +1,4 @@
+import { runtimeCos, runtimeSin } from './runtime-trig.js';
 import {
   menuLayout,
   optionsLayout,
@@ -8,7 +9,7 @@ import {
 } from './menu-render.js';
 import { createMenuBackground, backgroundFrame } from './background.js';
 import { drawBlast, drawSonic, sonicFrame, blastRaster } from './effects-render.js';
-import { tankColor, EGA, SCREEN_COLOR } from './palette.js';
+import { tankColor, dacColor, TRAIL_COLORS, EGA, SCREEN_COLOR } from './palette.js';
 import { titleFrame, TITLE_STEP_SECONDS, TITLE_COLORS } from './title.js';
 import weaponIcons from './assets/weapon-icons.js';
 import { W, H, TOP, LEFT, RIGHT, BOTTOM, COLORS } from './engine.js';
@@ -221,8 +222,13 @@ export class Renderer {
     for (let r = 0; r < rows.length; r++)
       for (let k = 0; k < 9; k++) if (rows[r][k] === '1') this.rect(x - 4 + k, y - 4 + r, 1, 1, c);
     if (drawGun) {
-      const a = (p.angle * Math.PI) / 180;
-      this.bgiLine(x, y, x + Math.trunc(Math.cos(a) * 8), y - Math.trunc(Math.sin(a) * 8), c);
+      this.bgiLine(
+        x,
+        y,
+        x + Math.trunc(runtimeCos(p.angle) * 8),
+        y - Math.trunc(runtimeSin(p.angle) * 8),
+        c,
+      );
     }
   }
   icon(id, x, y, c) {
@@ -324,9 +330,22 @@ export class Renderer {
       if (g.options.trail)
         for (const [x, y] of s.trail)
           if (x > LEFT && x < RIGHT && y > TOP && y < BOTTOM)
-            this.rect(x, y, 1, 1, COLORS[s.owner]);
+            this.rect(x, y, 1, 1, TRAIL_COLORS[s.owner]);
       if (g.options.visible && s.x > LEFT && s.x < RIGHT && s.y > TOP && s.y < BOTTOM)
-        this.rect(s.x, s.y, 1, 1, '#fff');
+        for (const [dx, dy] of [
+          [0, 0],
+          [-1, 0],
+          [1, 0],
+          [0, -1],
+          [0, 1],
+        ])
+          this.rect(
+            (s.pixelX ?? Math.trunc(s.x)) + dx,
+            (s.pixelY ?? Math.trunc(s.y)) + dy,
+            1,
+            1,
+            s.color || '#fff',
+          );
     }
     for (const tank of g.players) {
       const waiting =
@@ -349,6 +368,20 @@ export class Renderer {
     this.ctx.beginPath();
     this.ctx.rect(LEFT, TOP, RIGHT - LEFT + 1, BOTTOM - TOP + 1);
     this.ctx.clip();
+    if (g.lightningVisual) {
+      g.lightningVisual.forEach((x, index) => {
+        this.rect(x, index + 31, 1, 1, '#ffffff');
+        this.rect(x + 1, index + 31, 1, 1, '#0000ca');
+        this.rect(x - 1, index + 31, 1, 1, '#0000ca');
+      });
+    }
+    const laser = g.laserVisual;
+    if (laser) {
+      const color = dacColor(laser.rgb);
+      for (const [x, y] of laser.path.values()) this.rect(x, y, 1, 1, color);
+      for (const [x, y, id] of laser.particles)
+        this.rect(x, y, 1, 1, tankColor(id, g.players[id].men));
+    }
     for (const e of g.explosions) {
       if (e.kind === 'sonic') drawSonic(this, e);
       else if (e.kind === 'dirt') {
@@ -374,6 +407,18 @@ export class Renderer {
     }
     this.ctx.restore();
     this.battleHUD(app);
+    for (const shot of g.shots) {
+      const x = shot.pixelX ?? Math.trunc(shot.x),
+        y = shot.pixelY ?? Math.trunc(shot.y);
+      if (x >= 9 && x <= 311) {
+        this.rect(x, 29, 1, 1, '#ff55ff');
+        this.rect(x, 191, 1, 1, '#ff55ff');
+      }
+      if (y >= 29 && y <= 191) {
+        this.rect(9, y, 1, 1, '#ff55ff');
+        this.rect(311, y, 1, 1, '#ff55ff');
+      }
+    }
   }
   battleHUD(app) {
     const g = app.game,

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Laser and lightning verification</title>
+  <style>
+    body {
+      background: #15121a;
+      color: #eee;
+      font: 16px system-ui;
+      margin: 24px;
+    }
+    #views {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    figure {
+      margin: 0;
+    }
+    canvas {
+      width: 480px;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+      image-rendering: pixelated;
+    }
+    figcaption {
+      padding: 8px;
+    }
+    button {
+      padding: 10px;
+      margin: 8px;
+    }
+  </style>
+  <h1>Laser and lightning — production engine</h1>
+  <div id="views"></div>
+  <button id="play">Play laser animation</button>
+  <p id="status">Loading…</p>
+  <script type="module">
+    import { Game, tankPixel } from '../dist/engine.js';
+    import { lightningEffect } from '../dist/lightning.js';
+    import { Renderer } from '../dist/render.js';
+    import { loadGameAssets } from '../dist/assets-loader.js';
+    const { catalog, fonts, bitmap, title } = await loadGameAssets();
+    function scene() {
+      const g = new Game(
+        catalog.weapons,
+        { sound: false, wind: 0, walls: 0, background: 0, crumble: 0, tanksFall: false },
+        38,
+      );
+      g.start([{ name: 'Laser' }, { name: 'Target' }]);
+      g.falling = null;
+      g.terrain.data.fill(0);
+      for (let x = 11; x <= 309; x++) for (let y = 101; y <= 189; y++) g.terrain.set(x, y, 1);
+      g.players.forEach((p, i) => {
+        p.x = 50 + i * 100;
+        p.y = 100;
+        p.angle = i ? 180 : 0;
+      });
+      g.active = 0;
+      g.phase = 'flight';
+      return g;
+    }
+    function laser() {
+      const g = scene();
+      g.laser({ owner: 0 }, 200);
+      return g;
+    }
+    const views = [];
+    for (const [label, kind] of [
+      ['Charging barrel', 'charge'],
+      ['Unshielded hit particles', 'particles'],
+      ['Lightning sweep', 'lightning'],
+    ]) {
+      const fig = document.createElement('figure'),
+        canvas = document.createElement('canvas'),
+        caption = document.createElement('figcaption');
+      canvas.width = 320;
+      canvas.height = 200;
+      caption.textContent = label;
+      fig.append(canvas, caption);
+      document.querySelector('#views').append(fig);
+      const g = kind === 'lightning' ? scene() : laser();
+      if (kind === 'lightning') {
+        g.effectAnimation = lightningEffect(g, tankPixel, { xStart: 160, xEnd: 230 });
+        g.effectWait = 0;
+        g.updateEffect(0);
+      } else
+        for (let i = 0; i < 3000; i++) {
+          g.updateEffect(0.001);
+          if (kind === 'charge' ? i === 420 : g.laserVisual?.particles.length >= 8) break;
+        }
+      const renderer = new Renderer(canvas, fonts, bitmap, title),
+        app = { screen: 'battle', options: g.options, game: g };
+      renderer.render(app, 0);
+      views.push({ g, renderer, app });
+    }
+    document.querySelector('#status').textContent =
+      'Three live engine states rendered successfully.';
+    document.querySelector('#play').onclick = () => {
+      const view = views[0];
+      view.g = laser();
+      view.app.game = view.g;
+      let previous;
+      function frame(time) {
+        if (previous) view.g.updateEffect(Math.min(0.05, (time - previous) / 1000));
+        previous = time;
+        view.renderer.render(view.app, time / 1000);
+        if (view.g.effectAnimation) requestAnimationFrame(frame);
+        else
+          document.querySelector('#status').textContent =
+            'Laser completed: beam and particles cleared; target MEN ' +
+            view.g.players[1].men +
+            '.';
+      }
+      requestAnimationFrame(frame);
+    };
+  </script>
+</html>

@@ -44,7 +44,7 @@ test('dirt stops on the tank barrel instead of falling through it', () => {
   const terrain = new Terrain();
   terrain.set(100, 80, 1);
   terrain.crumble([{ x: 100, y: 100, angle: 90, alive: true }]);
-  assert.ok(terrain.solid(100, 91));
+  assert.ok(terrain.solid(100, 92));
   assert.equal(
     terrain.data.reduce((sum, value) => sum + value, 0),
     1,
