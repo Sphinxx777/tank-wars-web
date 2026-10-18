@@ -138,7 +138,7 @@ test('MIRV produces five falling Mark II children', () => {
     g.update(1 / 60);
     if (g.shots.length === 5) {
       found = true;
-      assert.ok(g.shots.every((s) => s.weapon === 2));
+      assert.ok(g.shots.every((s) => s.weapon === 7 && s.mirvChild));
       break;
     }
   }

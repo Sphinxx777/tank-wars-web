@@ -9,7 +9,7 @@ import {
   statsLayout,
 } from './menu-render.js';
 import { createMenuBackground, backgroundFrame } from './background.js';
-import { drawBlast, drawSonic, sonicFrame, blastRaster } from './effects-render.js';
+import { drawBlast, drawSonic, sonicFrame } from './effects-render.js';
 import { tankColor, dacColor, TRAIL_COLORS, EGA, SCREEN_COLOR } from './palette.js';
 import { titleFrame, TITLE_STEP_SECONDS, TITLE_COLORS } from './title.js';
 import weaponIcons from './assets/weapon-icons.js';
@@ -306,6 +306,12 @@ export class Renderer {
     const g = app.game,
       p = g.current;
     this.paintBackground(g.backgroundModel, g.backgroundElapsed || 0, g.options.paletteSpeed);
+    // Trails belong to the saved background, underneath mutable terrain.
+    for (let y = TOP; y <= BOTTOM; y++)
+      for (let x = LEFT; x <= RIGHT; x++) {
+        const owner = g.trailPixels[y * W + x];
+        if (owner) this.rect(x, y, 1, 1, TRAIL_COLORS[owner - 1]);
+      }
     const sonic = g.explosions.find((e) => e.kind === 'sonic'),
       rgb = sonic && sonicFrame(sonic)?.ground;
     const ground = rgb ? `rgb(${rgb.map((v) => Math.round((v * 255) / 63)).join(',')})` : '#00aa00';
@@ -321,17 +327,7 @@ export class Renderer {
         }
       }
     }
-    for (const trail of g.trails) {
-      if (g.options.trail || trail.laser)
-        for (const [x, y] of trail.path)
-          if (x > LEFT && x < RIGHT && y > TOP && y < BOTTOM)
-            this.rect(x, y, 1, 1, trail.color || '#888');
-    }
     for (const s of g.shots) {
-      if (g.options.trail)
-        for (const [x, y] of s.trail)
-          if (x > LEFT && x < RIGHT && y > TOP && y < BOTTOM)
-            this.rect(x, y, 1, 1, TRAIL_COLORS[s.owner]);
       if (g.options.visible && s.x > LEFT && s.x < RIGHT && s.y > TOP && s.y < BOTTOM)
         for (const [dx, dy] of [
           [0, 0],
@@ -385,13 +381,7 @@ export class Renderer {
     }
     for (const e of g.explosions) {
       if (e.kind === 'sonic') drawSonic(this, e);
-      else if (e.kind === 'dirt') {
-        const map = blastRaster(e.r);
-        for (let y = 0; y < map.height; y++)
-          for (let x = 0; x < map.width; x++)
-            if (map.indices[y * map.width + x] >= 0)
-              this.rect(e.x + map.left + x, e.y + map.top + y, 1, 1, ground);
-      } else drawBlast(this, e);
+      else drawBlast(this, e);
     }
     const death = g.deathVisual;
     if (death) {

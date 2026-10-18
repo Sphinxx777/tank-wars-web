@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>MIRV, dirt and persistent trails verification</title>
+  <style>
+    body {
+      background: #15121a;
+      color: #eee;
+      font: 16px system-ui;
+      margin: 24px;
+    }
+    #views {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 480px));
+      gap: 16px;
+    }
+    figure {
+      margin: 0;
+    }
+    canvas {
+      width: 100%;
+      aspect-ratio: 4/3;
+      image-rendering: pixelated;
+    }
+    figcaption {
+      padding: 8px;
+    }
+    button {
+      padding: 10px;
+      margin: 8px;
+    }
+  </style>
+  <h1>MIRV, dirt and persistent trails — production engine</h1>
+  <div id="views"></div>
+  <button id="play">Play all animations</button>
+  <p id="status">Loading…</p>
+  <script type="module">
+    import { Game, tankPixel } from '../dist/engine.js';
+    import { mirvEffect } from '../dist/mirv.js';
+    import { dirtEffect } from '../dist/dirt.js';
+    import { Renderer } from '../dist/render.js';
+    import { loadGameAssets } from '../dist/assets-loader.js';
+    const { catalog, fonts, bitmap, title } = await loadGameAssets();
+    function scene(weapon) {
+      const g = new Game(
+        catalog.weapons,
+        {
+          sound: false,
+          wind: 0,
+          walls: 0,
+          background: 0,
+          crumble: 0,
+          tanksFall: false,
+          mirvSpread: 1,
+          mirvDetonation: 0,
+        },
+        38,
+      );
+      g.start([{ name: 'MIRV' }, { name: 'Target' }]);
+      g.falling = null;
+      g.wind = 0;
+      g.wall = 0;
+      g.terrain.data.fill(0);
+      for (let x = 11; x <= 309; x++) for (let y = 151; y <= 189; y++) g.terrain.set(x, y, 1);
+      g.players.forEach((p, i) => {
+        p.x = 40 + i * 240;
+        p.y = 150;
+        p.angle = 90;
+      });
+      g.active = 0;
+      g.phase = 'flight';
+      const s = {
+        owner: 0,
+        weapon,
+        x: 155,
+        y: weapon === 7 ? 105 : 150,
+        vx: 0.6,
+        vy: -2,
+        trail: [],
+      };
+      // Retain a previous shot while the next weapon changes the terrain around it.
+      for (let x = 60; x < 260; x++)
+        g.recordTrail(s, x, Math.trunc(145 - 35 * Math.sin(((x - 60) / 200) * Math.PI)));
+      g.shots = weapon === 7 ? [s] : [];
+      g.effectAnimation = weapon === 7 ? mirvEffect(g, s, tankPixel) : dirtEffect(g, s);
+      g.effectWait = 0;
+      return g;
+    }
+    const views = [];
+    for (const [label, weapon, seconds] of [
+      ['MIRV split and saved trajectory', 7, 0.45],
+      ['MIRV blocking impact', 7, 1.1],
+      ['Mountain Mover: BGI circles', 16, 0.14],
+      ['Explosive Dirt: ordered deposition', 17, 0.13],
+    ]) {
+      const figure = document.createElement('figure'),
+        canvas = document.createElement('canvas'),
+        caption = document.createElement('figcaption');
+      canvas.width = 320;
+      canvas.height = 200;
+      caption.textContent = label;
+      figure.append(canvas, caption);
+      document.querySelector('#views').append(figure);
+      const g = scene(weapon);
+      g.updateEffect(seconds);
+      const renderer = new Renderer(canvas, fonts, bitmap, title),
+        app = { screen: 'battle', options: g.options, game: g };
+      renderer.render(app, 0);
+      views.push({ g, renderer, app, weapon });
+    }
+    document.querySelector('#status').textContent =
+      'Four production-engine states rendered. Trails are underneath new terrain.';
+    document.querySelector('#play').onclick = () => {
+      for (const view of views) {
+        view.g = scene(view.weapon);
+        view.app.game = view.g;
+      }
+      let previous;
+      document.querySelector('#status').textContent = 'Animations running…';
+      function frame(time) {
+        for (const v of views) {
+          if (previous && v.g.effectAnimation)
+            v.g.updateEffect(Math.min(0.05, (time - previous) / 1000));
+          v.renderer.render(v.app, time / 1000);
+        }
+        previous = time;
+        if (views.some((v) => v.g.effectAnimation)) requestAnimationFrame(frame);
+        else
+          document.querySelector('#status').textContent =
+            'PASS: all four animations completed; persistent trails remain, no active projectiles or explosions. ' +
+            views
+              .map(
+                (v) =>
+                  `${v.weapon}: shots ${v.g.shots.length}, blasts ${v.g.explosions.length}, trail pixels ${v.g.trailPixels.filter(Boolean).length}`,
+              )
+              .join(' / ');
+      }
+      requestAnimationFrame(frame);
+    };
+  </script>
+</html>

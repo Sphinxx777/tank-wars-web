@@ -1,3 +1,5 @@
+import { dirtEffect } from './dirt.js';
+import { mirvEffect } from './mirv.js';
 import { updateAIAim } from './ai-controls.js';
 import { runtimeCos, runtimeSin } from './runtime-trig.js';
 import { chooseShoppingStrategy, computerCart, shopItems } from './shop.js';
@@ -5,7 +7,7 @@ import { lightningEffect, lightningDue } from './lightning.js';
 import { laserEffect } from './laser.js';
 import { createBattleBackground } from './background.js';
 import { blastTimeline, blastRaster } from './effects-render.js';
-import { PLAYER_COLORS, TRAIL_COLORS } from './palette.js';
+import { PLAYER_COLORS } from './palette.js';
 import {
   SoundSequence,
   CPU_WRITE_MS,
@@ -293,7 +295,7 @@ export class Game {
     this.events = [];
     this.shots = [];
     this.explosions = [];
-    this.trails = [];
+    this.trailPixels = new Uint8Array(W * H);
     this.turns = 0;
     this.active = 0;
     this.deathQueue = [];
@@ -364,7 +366,7 @@ export class Game {
     this.deathWait = 0;
     this.shots = [];
     this.explosions = [];
-    this.trails = [];
+    this.trailPixels = new Uint8Array(W * H);
     this.terrain.generate(this.rng, this.players.length);
     this.wall = this.options.walls === 5 ? this.rng.int(5) : this.options.walls;
     const level = this.options.wind === 5 ? this.rng.int(5) : this.options.wind;
@@ -409,6 +411,7 @@ export class Game {
     this.phase = 'flight';
   }
   setBackground(kind) {
+    this.trailPixels.fill(0);
     this.backgroundModel = createBattleBackground(kind, this.rng, {
       direction: this.backgroundModel?.direction || 1,
     });
@@ -476,12 +479,10 @@ export class Game {
     p.shots++;
     this.turns++;
     this.terrainResolved = false;
-    this.trails = [];
     this.projectileElapsed = 0;
     this.phase = 'flight';
     this.shots = [];
     this.explosions = [];
-    this.mirvEndpoints = [];
     this.turnHit = false;
     if (id !== 5 && this.rng.next() < 0.2) this.hurt(p, 1, p.id);
     if (id !== 5) this.audio(launchSound(), true);
@@ -492,6 +493,10 @@ export class Game {
     } else {
       if (p.ammo[id] > 0) p.ammo[id]--;
       this.shots.push(shot);
+      if (id === 7) {
+        this.effectAnimation = mirvEffect(this, shot, tankPixel);
+        this.effectWait = 0;
+      }
     }
     this.emit('fire', { weapon: id });
     return true;
@@ -551,7 +556,7 @@ export class Game {
     let sequence, visualTimeline;
     if (kind === 'sonic')
       sequence = sonicSound(this.rng, this.options.sound, delayMs, visualFrames);
-    else if (kind !== 'dirt') {
+    else {
       if (this.options.sound) sequence = blastSound(r, this.rng, delayMs);
       visualTimeline = blastTimeline(r, delayMs, this.options.sound ? CPU_WRITE_MS : 0);
     }
@@ -581,28 +586,9 @@ export class Game {
       if (direct) this.hurt(direct, 5, owner);
       return;
     }
-    if (id >= 13 && id <= 16) {
-      this.explode(x, y, this.weapons[id].radius, owner, 'dirt');
-      return;
-    }
-    if (id === 17) {
-      const tones = new SoundSequence(),
-        n = 300 + this.rng.int(100),
-        layers = 3 + this.rng.int(8),
-        points = [];
-      for (let j = 1; j <= layers; j++)
-        for (let i = 0; i < n; i++) {
-          const h = this.rng.int(20 * j),
-            dx = Math.trunc(this.rng.int(h + 1) - h / 2);
-          points.push([Math.trunc(x) + dx, Math.trunc(y) + 2 - h, j]);
-        }
-      for (const [xx, yy, j] of points) {
-        this.terrain.set(xx, yy, 1);
-        if (this.options.sound) tones.tone(100 * j + this.rng.int(200), CPU_WRITE_MS);
-      }
-      this.audio(tones.stop());
-      this.terrain.version++;
-      this.forceCrumble = this.rng.next() * 100 < 2 * this.options.crumble;
+    if (id >= 13 && id <= 17) {
+      this.effectAnimation = dirtEffect(this, s);
+      this.effectWait = 0;
       return;
     }
 
@@ -666,6 +652,7 @@ export class Game {
     // DOS caches the displayed/collision pixel before guidance moves the real position.
     s.pixelX = x;
     s.pixelY = y;
+    if (!preview && s.previousPixel) this.restoreProjectile(s, ...s.previousPixel);
     if (s.age > 1800) return 'gone';
     if (this.wall === 0 || this.wall === 4) {
       if (s.y >= 190) return 'hit';
@@ -677,7 +664,6 @@ export class Game {
       )
         return 'gone';
     }
-    if (s.weapon === 7 && s.vy > 0 && !preview) return 'split';
     if (!preview)
       for (const t of this.players) {
         const dx = t.x - Math.trunc(s.x),
@@ -783,6 +769,7 @@ export class Game {
     }
     if (this.phase !== 'flight') return;
     this.updateProjectiles(dt);
+    if (this.effectAnimation) return;
     this.updateChainReaction();
     this.updateExplosions(dt);
     if (this.delay > 0) {
@@ -790,6 +777,34 @@ export class Game {
       return;
     }
     this.settleTurn();
+  }
+
+  restoreProjectile(shot, x, y) {
+    if (this.options.visible && x > LEFT && x < RIGHT && y > TOP && y <= BOTTOM) {
+      for (const [dx, dy] of [
+        [0, 0],
+        [-1, 0],
+        [1, 0],
+        [0, -1],
+        [0, 1],
+      ])
+        this.terrain.set(x + dx, y + dy, 0);
+      this.terrain.version++;
+    }
+    this.recordTrail(shot, x, y);
+  }
+  recordTrail(shot, x, y) {
+    if (!this.options.trail || x <= LEFT || x >= RIGHT || y <= TOP || y > BOTTOM) return;
+    x = Math.trunc(x);
+    y = Math.trunc(y);
+    shot.trail.push([x, y]);
+    // EXE 0x5f1d writes VGA and the saved background: this pixel survives
+    // later shots and reappears when overlying earth is restored to sky.
+    this.trailPixels[y * W + x] = shot.owner + 1;
+    if (this.terrain.solid(x, y)) {
+      this.terrain.set(x, y, 0);
+      this.terrain.version++;
+    }
   }
 
   // Preserve this order: projectiles → chain reactions → explosions → deaths → settling.
@@ -805,46 +820,10 @@ export class Game {
           shot.pixelX ?? Math.trunc(shot.x),
           shot.pixelY ?? Math.trunc(shot.y),
         ];
+        shot.previousPixel = previousPixel;
         const event = this.stepShot(shot, 0.1);
-        if (this.options.trail) shot.trail.push(previousPixel);
-        if (event === 'split') {
-          const mode = this.options.mirvSpread;
-          for (let childIndex = 0; childIndex < 5; childIndex++) {
-            let dx = 0,
-              dy = 0;
-            if (mode === 0) {
-              dx = this.rng.next() * 6 - 3;
-              dy = this.rng.next() * 6 - 3;
-            } else if (mode === 1) dx = (childIndex - 2) * 1.75;
-            else if (mode === 2) dy = (childIndex - 2) * 1.75;
-            else if (mode === 3)
-              [dx, dy] = [
-                [1.75, 0],
-                [-1.75, 0],
-                [0, -1.75],
-                [0, 1.75],
-                [0, 0],
-              ][childIndex];
-            else
-              [dx, dy] = [
-                [1.75, 1.75],
-                [-1.75, -1.75],
-                [1.75, -1.75],
-                [-1.75, 1.75],
-                [0, 0],
-              ][childIndex];
-            this.shots.push({
-              ...shot,
-              vx: shot.vx + dx,
-              vy: shot.vy + dy,
-              weapon: 2,
-              mirvChild: true,
-              guidance: 0,
-              trail: [],
-            });
-          }
-          this.trails.push({ path: shot.trail, color: TRAIL_COLORS[shot.owner] });
-        } else if (event) {
+        delete shot.previousPixel;
+        if (event) {
           if (!shot.mirvChild)
             this.players[shot.owner].lob.push({
               x: shot.x,
@@ -852,7 +831,6 @@ export class Game {
               power: shot.power,
               angle: this.players[shot.owner].angle,
             });
-          this.trails.push({ path: shot.trail, color: TRAIL_COLORS[shot.owner] });
           if (this.options.flySound) this.audio(new SoundSequence().stop());
           if (shot.y < -5000) {
             const tones = new SoundSequence();
@@ -865,16 +843,9 @@ export class Game {
               tones.tone(f, ms);
             this.audio(tones.stop());
           }
-          if (event === 'hit') {
-            if (shot.mirvChild && this.options.mirvDetonation === 1) this.mirvEndpoints.push(shot);
-            else if (!shot.mirvChild || this.options.mirvDetonation !== 2) this.impact(shot);
-          }
+          if (event === 'hit') this.impact(shot);
         } else this.shots.push(shot);
       }
-    }
-    if (!this.shots.length && this.mirvEndpoints?.length) {
-      for (const shot of this.mirvEndpoints) this.impact(shot);
-      this.mirvEndpoints = [];
     }
     if (this.shots.length && this.options.flySound) {
       const tones = new SoundSequence();
@@ -959,24 +930,22 @@ export class Game {
             this.terrain.set(explosion.x + dx, explosion.y + dy, 0);
           this.terrain.version++;
         } else {
-          const map = blastRaster(explosion.max),
-            value = explosion.kind === 'dirt' ? 1 : 0;
+          const map = blastRaster(explosion.max);
           for (let y = 0; y < map.height; y++)
             for (let x = 0; x < map.width; x++)
               if (map.indices[y * map.width + x] >= 0)
-                this.terrain.set(explosion.x + map.left + x, explosion.y + map.top + y, value);
+                this.terrain.set(explosion.x + map.left + x, explosion.y + map.top + y, 0);
           this.terrain.version++;
-          if (explosion.kind !== 'dirt')
-            for (const player of this.players) {
-              const distance = Math.hypot(player.x - explosion.x, player.y - explosion.y);
-              if (player.alive)
-                this.hurt(
-                  player,
-                  blastDamage(distance, explosion.max),
-                  explosion.owner,
-                  ['death', 'lightning'].includes(explosion.kind) ? explosion.kind : 'blast',
-                );
-            }
+          for (const player of this.players) {
+            const distance = Math.hypot(player.x - explosion.x, player.y - explosion.y);
+            if (player.alive)
+              this.hurt(
+                player,
+                blastDamage(distance, explosion.max),
+                explosion.owner,
+                ['death', 'lightning'].includes(explosion.kind) ? explosion.kind : 'blast',
+              );
+          }
         }
       }
       if (explosion.age < explosion.duration) this.explosions.push(explosion);
@@ -1426,6 +1395,7 @@ export class Game {
       shoppingCompleted: this.shoppingCompleted,
       rng: this.rng.state,
       terrain: Array.from(this.terrain.data),
+      trailPixels: Array.from(this.trailPixels),
       turns: this.turns,
       roundCycles: this.roundCycles,
       aiAim: this.aiAim,
@@ -1477,6 +1447,10 @@ export class Game {
       player.power = clamp(player.power, 0, maxPower(player));
     }
     game.terrain.data = Uint8Array.from(savedState.terrain);
+    if (Array.isArray(savedState.trailPixels) && savedState.trailPixels.length === W * H)
+      game.trailPixels = Uint8Array.from(savedState.trailPixels, (value) =>
+        value >= 1 && value <= 10 ? value : 0,
+      );
     game.terrain.version++;
     game.roundCycles ??= 1 + Math.floor(game.turns / game.players.length);
     game.aiTimer ??= 1;

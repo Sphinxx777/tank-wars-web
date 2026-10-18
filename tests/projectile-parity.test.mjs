@@ -89,6 +89,7 @@ test('renderer paints the cached five-pixel cross, dim trail and four border mar
   g.shots = [
     shot({ x: 80, y: 80.75, pixelX: 80, pixelY: 80, color: '#ff0000', trail: [[79, 80]] }),
   ];
+  g.recordTrail(g.shots[0], 79, 80);
   const pixels = [];
   const renderer = {
     paintBackground() {},
@@ -120,4 +121,39 @@ test('renderer paints the cached five-pixel cross, dim trail and four border mar
     ],
   );
   assert.ok(pixels.some((p) => p[0] === 79 && p[1] === 80 && p[4] === TRAIL_COLORS[0]));
+});
+
+test('new dirt covers saved trails; clearing terrain reveals them even with Trail disabled', () => {
+  const g = scene();
+  g.recordTrail(shot(), 120, 80);
+  g.options.trail = false;
+  const paints = [];
+  const renderer = {
+    paintBackground() {},
+    tank() {},
+    battleHUD() {},
+    rect(x, y, w, h, color) {
+      paints.push({ x, y, w, h, color });
+    },
+    ctx: {
+      fillRect(x, y, w, h) {
+        paints.push({ x, y, w, h, color: this.fillStyle });
+      },
+      save() {},
+      beginPath() {},
+      rect() {},
+      clip() {},
+      restore() {},
+    },
+  };
+  const colorAt = () =>
+    paints.filter((p) => p.x <= 120 && p.x + p.w > 120 && p.y <= 80 && p.y + p.h > 80).at(-1)
+      ?.color;
+  g.terrain.set(120, 80, 1);
+  Renderer.prototype.battle.call(renderer, { game: g });
+  assert.equal(colorAt(), '#00aa00');
+  paints.length = 0;
+  g.terrain.set(120, 80, 0);
+  Renderer.prototype.battle.call(renderer, { game: g });
+  assert.equal(colorAt(), TRAIL_COLORS[0]);
 });

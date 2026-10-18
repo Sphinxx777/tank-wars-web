@@ -54,7 +54,7 @@ test('laser keeps charge animation when muted and spends selected energy below 1
   for (let i = 0; g.phase === 'flight' && i < 200; i++) g.update(0.01);
   assert.equal(g.phase, 'aim');
   assert.equal(g.laserVisual, null);
-  assert.ok(g.trails.every((trail) => !trail.laser));
+  assert.ok(g.trailPixels.every((pixel) => pixel === 0));
   assert.equal(laserIntensity(1000, 1000), 63);
   assert.equal(laserIntensity(0, 1000), 10);
 });

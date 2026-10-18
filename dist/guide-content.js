@@ -149,7 +149,7 @@ export const guideContent = {
         name: 'MIRV (5 Mark IIs inside)',
         role: 'Five bomblets',
         description:
-          'Splits into five Mark II-sized bomblets as the main projectile starts descending. Before firing, choose a random, horizontal, vertical, cross, or diagonal spread. Impact detonates each bomblet when it lands; Simultaneous waits for all of them; None disables their impact explosions.',
+          'Splits into five Mark II-sized bomblets as the main projectile starts descending. Before firing, choose a random, horizontal, vertical, cross, or diagonal spread. Impact completes each blast before the other bomblets resume; Simultaneous waits for all five to stop, then plays their blasts in order; None disables their impact explosions.',
         tips: [
           'Use a wider spread for separated targets or terrain coverage. MIRV does not use guidance systems.',
         ],
@@ -553,7 +553,7 @@ export const guideContent = {
         name: 'MIRV (5 Mark IIs inside)',
         role: 'Пять суббоеприпасов',
         description:
-          'Когда основной снаряд начинает снижаться, он разделяется на пять боеприпасов с взрывами размера Mark II. Перед выстрелом выбирается случайный, горизонтальный, вертикальный, крестообразный или диагональный разлёт. Impact взрывает каждый при падении, Simultaneous ждёт падения всех, None отключает их взрывы при попадании.',
+          'Когда основной снаряд начинает снижаться, он разделяется на пять боеприпасов с взрывами размера Mark II. Перед выстрелом выбирается случайный, горизонтальный, вертикальный, крестообразный или диагональный разлёт. Impact приостанавливает остальные заряды до конца текущего взрыва; Simultaneous ждёт остановки всех пяти, затем взрывает их по очереди; None отключает их взрывы при попадании.',
         tips: [
           'Широкий разлёт полезен против разнесённых целей и для охвата земли. MIRV не использует системы наведения.',
         ],
