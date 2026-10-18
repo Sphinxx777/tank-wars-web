@@ -88,13 +88,24 @@ test('round placement preserves a steep natural slope without building pedestals
   };
   game.start(Array.from({ length: 5 }, (_, index) => ({ name: String(index) })));
   while (game.falling) game.update(1 / 60);
-  assert.deepEqual(game.terrain.data, original, 'landing must not add a single dirt pixel');
+  assert.ok(
+    game.terrain.data.every((pixel, i) => pixel <= original[i]),
+    'landing must not add dirt',
+  );
+  assert.ok(
+    game.terrain.data.some((pixel, i) => pixel < original[i]),
+    'the moving body restores sky over intersected earth',
+  );
   const ordered = [...game.players].sort((a, b) => a.x - b.x);
   assert.deepEqual(
     ordered.map((player) => player.angle),
     [75, 90, 90, 90, 105],
   );
-  for (const player of ordered) assert.equal(player.y, game.terrain.surface(player.x - 4) - 1);
+  for (const player of ordered) {
+    assert.equal(player.y, 50 + Math.floor((player.x + 4) / 3) - 1);
+    assert.equal(player.men, 100);
+    for (let dx = -4; dx <= 4; dx++) assert.ok(game.terrainSupports(player.x + dx, player.y + 1));
+  }
 });
 
 test('an unsupported tank slides off an outer edge and clears its old body footprint', () => {
@@ -133,4 +144,60 @@ test('successive dirt frames match independent original-machine-code fixtures', 
     }
     assert.deepEqual(actual, fixture.sweeps, fixture.name);
   }
+});
+
+test('round introduction finishes every tank before aiming, with no deferred fall after the first shot', () => {
+  const snapshots = [];
+  for (const rate of [30, 60, 144]) {
+    const game = new Game(weapons, { sound: false, wind: 0, crumble: 0 }, 47);
+    game.terrain.generate = function () {
+      this.data.fill(0);
+      for (let x = 11; x <= 309; x++)
+        for (let y = 45 + Math.floor(x / 3); y <= BOTTOM; y++) this.set(x, y, 1);
+    };
+    game.start(Array.from({ length: 8 }, (_, i) => ({ name: String(i) })));
+    let updates = 0;
+    while (game.falling && updates++ < rate * 8) {
+      assert.equal(game.phase, 'flight');
+      assert.equal(game.fire(), false);
+      game.update(1 / rate);
+    }
+    assert.equal(game.falling, null);
+    assert.equal(game.phase, 'aim');
+    const positions = game.players.map(({ x, y, men }) => ({ x, y, men }));
+    // A harmless first shot must not finish an incomplete initial landing.
+    game.current.weapon = 11;
+    assert.ok(game.fire());
+    game.shots = [];
+    game.audioWait = 0;
+    game.blockSimulation = 0;
+    game.resolveTerrain();
+    while (game.falling) game.update(1 / rate);
+    assert.deepEqual(
+      game.players.map(({ x, y, men }) => ({ x, y, men })),
+      positions,
+    );
+    snapshots.push(positions);
+  }
+  assert.deepEqual(snapshots[0], snapshots[1]);
+  assert.deepEqual(snapshots[1], snapshots[2]);
+});
+
+test('initial support at y=33 skips falling, but contact encountered during descent does not', () => {
+  const game = battle();
+  const player = game.current;
+  player.x = 100;
+  player.y = 32;
+  game.terrain.set(104, 33, 1);
+  game.falling = { intro: true, elapsed: 0, queue: [{ player: player.id, started: false }] };
+  game.update(0.005);
+  assert.equal(player.y, 32);
+  assert.equal(game.falling, null);
+  game.terrain.set(104, 33, 0);
+  game.terrain.set(104, 81, 1);
+  for (let x = 96; x <= 104; x++) for (let y = 100; y <= BOTTOM; y++) game.terrain.set(x, y, 1);
+  game.falling = { intro: true, elapsed: 0, queue: [{ player: player.id, started: false }] };
+  while (game.falling) game.update(0.005);
+  assert.equal(player.y, 99);
+  assert.equal(player.men, 100);
 });

@@ -391,7 +391,10 @@ test('initial placement descends from y32 without damage, RNG draws or an extra 
   g.start([{ name: 'A' }, { name: 'B' }]);
   const owner = g.active,
     seed = g.rng.state,
-    targets = g.falling.queue.map((f) => [f.player, f.target]);
+    targets = g.players.map((p) => [
+      p.id,
+      Math.max(...Array.from({ length: 9 }, (_, i) => g.terrain.surface(p.x + i - 4))) - 1,
+    ]);
   assert.equal(g.phase, 'flight');
   assert.ok(g.players.every((p) => p.y <= 32));
   g.update(0.02);

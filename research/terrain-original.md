@@ -52,10 +52,19 @@ web code's seven-column launch pads had no basis in this routine.
 Initial placement sets each tank's bottom coordinate to **y=32** at **0x1d1ad**.
 It checks palette membership at `(x+dx,y+1)` for all dx from -4 through +4.
 The set stored at OVR **0x1ca24** contains precisely colors **2 and 13** (earth and
-boundary). If **any** of those nine positions supports the tank, the initial fall
-stops. Otherwise it restores the old body, increments y by one, and draws the new
-body. The loop is **0x1d1d4–0x1d2ee**. There is no initial fall damage or sideways
-slide. The delay at **0x1d28c** is DS:e8c8, 5 ms in the supplied configuration.
+boundary). The entry check at **0x1d1d4–0x1d224** skips falling if **any**
+of those nine positions already supports the tank at y=32. Once descent starts,
+its continuation check is different: **all nine** positions must have support.
+At **0x1d22d** the flag is set to 1; **0x1d2cb–0x1d2d2** clears it whenever
+membership fails. **0x1d2dd–0x1d2e3** repeats the descent when that flag is zero.
+Each step restores the old body, increments y by one, and draws the new body.
+There is no initial fall damage or sideways slide.
+
+Correction to the earlier interpretation: stopping descent at the first supported
+pixel confused the entry test with the continuation test. That left tanks on
+one outer edge; the next shot's ordinary falling pass could then drop them.
+The web implementation now runs the full nine-pixel continuation test before
+handing control to the first player. The delay at **0x1d28c** is DS:e8c8, 5 ms in the supplied configuration.
 The original can skip that delay when its startup/keyboard skip flag is set.
 
 Initial gun elevations are also positional, not based on the midpoint x=160.
@@ -82,8 +91,8 @@ Evidence: **0x1a9e8–0x1aa94**. Once eligible, the loop does the following:
 4. Independently check `(x-4,y+1)` using that possibly updated x; if supported,
    increment x (**0x1ac29–0x1ac31**).
 5. Continue falling unless **all nine** positions x-4 through x+4 at y+1 are
-   support (**0x1ac35–0x1ac7b**). This differs deliberately from the initial
-   landing test, which stops on any support.
+   support (**0x1ac35–0x1ac7b**). The initial descent also needs all nine
+   positions once it has started; its entry test differs as described above.
 6. Apply `Random(3)+1` damage through defense type 1 (fall shield), then wait
    DS:e8c8 milliseconds (**0x1ac7d–0x1aca2**).
 7. Restore the old body from the original background (**0x1aca7–0x1acb5**).

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Initial tank landing verification</title>
+  <style>
+    body {
+      background: #15121a;
+      color: #eee;
+      font: 16px system-ui;
+      margin: 20px;
+    }
+    canvas {
+      width: 720px;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+      image-rendering: pixelated;
+    }
+    button {
+      padding: 10px;
+      margin: 8px 8px 8px 0;
+    }
+  </style>
+  <h1>Eight tanks: landing before the first shot</h1>
+  <canvas id="screen" width="320" height="200"></canvas>
+  <p id="status">Loading…</p>
+  <button id="replay">Replay initial landing</button>
+  <button id="shot" disabled>Fire harmless first shot</button>
+  <script type="module">
+    import { Game, BOTTOM } from '../dist/engine.js';
+    import { Renderer } from '../dist/render.js';
+    import { loadGameAssets } from '../dist/assets-loader.js';
+    const { catalog, fonts, bitmap, title } = await loadGameAssets();
+    const renderer = new Renderer(document.querySelector('canvas'), fonts, bitmap, title);
+    let game, before;
+    function start() {
+      game = new Game(
+        catalog.weapons,
+        { sound: false, wind: 0, walls: 0, crumble: 0, background: 0 },
+        47,
+      );
+      game.terrain.generate = function () {
+        this.data.fill(0);
+        for (let x = 11; x <= 309; x++)
+          for (let y = 55 + Math.floor(x / 4) + Math.floor(20 * Math.sin(x / 35)); y <= BOTTOM; y++)
+            this.set(x, y, 1);
+      };
+      game.start(Array.from({ length: 8 }, (_, id) => ({ name: 'Tank ' + (id + 1) })));
+      before = null;
+    }
+    start();
+    document.querySelector('#replay').onclick = start;
+    document.querySelector('#shot').onclick = () => {
+      before = game.players.map(({ x, y }) => ({ x, y }));
+      // Fire outwards through an absent wall: no terrain or tank is hit.
+      game.active = game.order[0];
+      game.current.angle = 135;
+      game.current.power = 200;
+      game.current.weapon = 11;
+      game.fire();
+    };
+    let previous;
+    function frame(time) {
+      if (previous) game.update(Math.min(0.05, (time - previous) / 1000));
+      previous = time;
+      renderer.render({ screen: 'battle', options: game.options, game }, time / 1000);
+      const ready = game.phase === 'aim';
+      document.querySelector('#shot').disabled = !ready;
+      const supported = game.players.filter((p) =>
+        Array.from({ length: 9 }, (_, i) => i - 4).every((dx) =>
+          game.terrainSupports(p.x + dx, p.y + 1),
+        ),
+      ).length;
+      document.querySelector('#status').textContent = ready
+        ? before
+          ? 'First shot completed. Tank positions unchanged: ' +
+            (JSON.stringify(before) === JSON.stringify(game.players.map(({ x, y }) => ({ x, y }))))
+          : 'Ready before first shot. Fully supported tanks: ' + supported + '/8.'
+        : game.falling?.intro
+          ? 'Landing in progress…'
+          : 'First shot in flight…';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  </script>
+</html>

@@ -384,9 +384,7 @@ export class Game {
       last = 305 - this.rng.int(28);
     order.forEach((p, i) => {
       p.x = first + i * Math.trunc((last - first) / (order.length - 1));
-      // Initial fall stops at the first support anywhere under the nine-pixel base.
-      p.y =
-        Math.min(...Array.from({ length: 9 }, (_, dx) => this.terrain.surface(p.x + dx - 4))) - 1;
+      p.y = 32;
       p.men = 100;
       p.alive = true;
       p.angle = i === 0 ? 75 : i === order.length - 1 ? 105 : 90;
@@ -403,12 +401,9 @@ export class Game {
     this.phase = 'aim';
     this.aiTimer = 0.8;
     this.emit('round');
-    const queue = order.map((p) => ({ player: p.id, target: p.y, damage: 0 }));
-    for (const p of order) p.y = Math.min(32, p.y);
-    if (queue.some((f) => this.players[f.player].y < f.target)) {
-      this.falling = { queue, elapsed: 0, intro: true };
-      this.phase = 'flight';
-    }
+    const queue = order.map((p) => ({ player: p.id, started: false, damage: 0 }));
+    this.falling = { queue, elapsed: 0, intro: true };
+    this.phase = 'flight';
   }
   setBackground(kind) {
     this.backgroundModel = createBattleBackground(kind, this.rng, {
@@ -1086,20 +1081,26 @@ export class Game {
         continue;
       }
       const support = (dx) => this.terrainSupports(player.x + dx, player.y + 1);
-      if (!fall.intro && !item.started) {
-        // OVR 0x1a9e8: the middle seven pixels or both outer edges hold a tank.
-        if ([-3, -2, -1, 0, 1, 2, 3].some(support) || (support(-4) && support(4))) {
+      if (!item.started) {
+        // Initial entry (OVR 0x1d1d4): any support skips the fall at y=32.
+        // Later falls (0x1a9e8): the middle seven pixels or both edges hold it.
+        const supported = fall.intro
+          ? Array.from({ length: 9 }, (_, i) => i - 4).some(support)
+          : [-3, -2, -1, 0, 1, 2, 3].some(support) || (support(-4) && support(4));
+        if (supported) {
           fall.queue.shift();
           continue;
         }
         item.started = true;
-        // Removing the old gun restores its pixels from the original sky too.
-        for (let y = player.y - 8; y <= player.y; y++)
-          for (let x = player.x - 8; x <= player.x + 8; x++)
-            if (tankPixel(player, x, y)) this.terrain.set(x, y, 0);
-        this.terrain.version++;
+        if (!fall.intro) {
+          // Removing the old gun restores its pixels from the original sky too.
+          for (let y = player.y - 8; y <= player.y; y++)
+            for (let x = player.x - 8; x <= player.x + 8; x++)
+              if (tankPixel(player, x, y)) this.terrain.set(x, y, 0);
+          this.terrain.version++;
+        }
       }
-      if (fall.intro ? player.y >= item.target : item.landed) {
+      if (item.landed) {
         if (!fall.intro && player.men === 0) this.recordDeath(player, this.active);
         fall.queue.shift();
         continue;
@@ -1109,7 +1110,11 @@ export class Game {
       const oldPosition = { ...player };
       if (fall.intro) this.clearTankBody(oldPosition);
       player.y++;
-      if (!fall.intro) {
+      if (fall.intro) {
+        // OVR 0x1d295..0x1d2e3: after falling starts, ALL nine pixels
+        // must be supported. The any-support test above is entry-only.
+        item.landed = Array.from({ length: 9 }, (_, i) => i - 4).every(support);
+      } else {
         // OVR 0x1abed: these are independent checks using the updated x.
         if (support(4)) player.x--;
         if (support(-4)) player.x++;
