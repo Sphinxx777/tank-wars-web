@@ -1,0 +1,322 @@
+[
+  {
+    "strategy": 1,
+    "money": 3000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": null
+  },
+  {
+    "strategy": 1,
+    "money": 7000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 2
+    }
+  },
+  {
+    "strategy": 1,
+    "money": 10000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 2
+    }
+  },
+  {
+    "strategy": 1,
+    "money": 20000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 2
+    }
+  },
+  {
+    "strategy": 1,
+    "money": 40000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 2
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 3000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 7000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 3
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 10000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 4
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 20000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 4
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 40000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 4
+    }
+  },
+  {
+    "strategy": 3,
+    "money": 3000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 3,
+    "money": 7000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 3
+    }
+  },
+  {
+    "strategy": 3,
+    "money": 10000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 5
+    }
+  },
+  {
+    "strategy": 3,
+    "money": 20000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 5
+    }
+  },
+  {
+    "strategy": 3,
+    "money": 40000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 5
+    }
+  },
+  {
+    "strategy": 4,
+    "money": 3000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": null
+  },
+  {
+    "strategy": 4,
+    "money": 7000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": null
+  },
+  {
+    "strategy": 4,
+    "money": 10000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "defense",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 4,
+    "money": 20000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "defense",
+      "index": 0
+    }
+  },
+  {
+    "strategy": 4,
+    "money": 40000,
+    "ammo": {
+      "1": 30
+    },
+    "expected": {
+      "kind": "defense",
+      "index": 0
+    }
+  },
+  {
+    "strategy": 1,
+    "money": 20000,
+    "ammo": {
+      "1": 19
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 20000,
+    "ammo": {
+      "1": 19
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 3,
+    "money": 20000,
+    "ammo": {
+      "1": 19
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 4,
+    "money": 20000,
+    "ammo": {
+      "1": 19
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 1,
+    "money": 40000,
+    "ammo": {
+      "1": 20,
+      "2": 20,
+      "3": 20,
+      "4": 20
+    },
+    "expected": null
+  },
+  {
+    "strategy": 1,
+    "money": 40000,
+    "ammo": {
+      "1": 30,
+      "2": 15
+    },
+    "cart": {
+      "2": 1
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 3
+    }
+  },
+  {
+    "strategy": 1,
+    "money": 40000,
+    "ammo": {
+      "1": 19
+    },
+    "cart": {
+      "1": 1
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 2
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 2000,
+    "ammo": {
+      "1": 19
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 1
+    }
+  },
+  {
+    "strategy": 2,
+    "money": 10000,
+    "ammo": {
+      "1": 30
+    },
+    "cart": {
+      "4": 9
+    },
+    "expected": {
+      "kind": "weapon",
+      "index": 4
+    }
+  }
+]

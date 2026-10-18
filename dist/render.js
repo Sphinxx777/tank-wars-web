@@ -213,15 +213,17 @@ export class Renderer {
   ai(app) {
     aiLayout.call(this, app);
   }
-  tank(p, level = p.men) {
+  tank(p, level = p.men, drawGun = true) {
     const x = Math.round(p.x),
       y = Math.round(p.y),
       c = tankColor(p.id, level);
     const rows = ['000111000', '011111110', '011111110', '111010111', '111111111'];
     for (let r = 0; r < rows.length; r++)
       for (let k = 0; k < 9; k++) if (rows[r][k] === '1') this.rect(x - 4 + k, y - 4 + r, 1, 1, c);
-    const a = (p.angle * Math.PI) / 180;
-    this.bgiLine(x, y, x + Math.trunc(Math.cos(a) * 8), y - Math.trunc(Math.sin(a) * 8), c);
+    if (drawGun) {
+      const a = (p.angle * Math.PI) / 180;
+      this.bgiLine(x, y, x + Math.trunc(Math.cos(a) * 8), y - Math.trunc(Math.sin(a) * 8), c);
+    }
   }
   icon(id, x, y, c) {
     for (let row = 0; row < 10; row++)
@@ -326,9 +328,23 @@ export class Renderer {
       if (g.options.visible && s.x > LEFT && s.x < RIGHT && s.y > TOP && s.y < BOTTOM)
         this.rect(s.x, s.y, 1, 1, '#fff');
     }
-    for (const t of g.players)
-      if (t.alive || g.dyingTank?.id === t.id || g.deathQueue.some((d) => d.id === t.id))
-        this.tank(t, g.deathVisual?.tank?.id === t.id ? g.deathVisual.level : t.men);
+    for (const tank of g.players) {
+      const waiting =
+        g.falling?.intro && g.falling.queue.slice(1).some((item) => item.player === tank.id);
+      if (waiting) continue;
+      if (
+        tank.alive ||
+        g.dyingTank?.id === tank.id ||
+        g.deathQueue.some((dead) => dead.id === tank.id)
+      ) {
+        const falling = g.falling?.queue[0]?.player === tank.id;
+        this.tank(
+          tank,
+          g.deathVisual?.tank?.id === tank.id ? g.deathVisual.level : tank.men,
+          !falling,
+        );
+      }
+    }
     this.ctx.save();
     this.ctx.beginPath();
     this.ctx.rect(LEFT, TOP, RIGHT - LEFT + 1, BOTTOM - TOP + 1);

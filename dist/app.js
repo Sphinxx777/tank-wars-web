@@ -2,7 +2,15 @@ import { initLanguage, t, getLanguage } from './i18n.js';
 import { loadGameAssets } from './assets-loader.js';
 import { getScreenStatus, localizeHitLabel } from './ui-text.js';
 import { GAME_OPTION_KEYS } from './menu-render.js';
-import { shopItems, shopStock, visibleShopItems, cartCost, reserve } from './shop.js';
+import {
+  shopItems,
+  shopStock,
+  visibleShopItems,
+  cartCost,
+  reserve,
+  computerChoice,
+  chooseShoppingStrategy,
+} from './shop.js';
 import { PCSpeaker } from './sound.js';
 import { Game, DEFAULTS, AI_NAMES, clamp, maxPower } from './engine.js';
 import { Renderer } from './render.js';
@@ -81,7 +89,6 @@ function newGame(quick = false) {
         wind: 1,
         walls: 0,
         background: 0,
-        computerBuy: false,
       }
     : app.options;
   app.game = new Game(catalog.weapons, opts);
@@ -130,25 +137,51 @@ export function beginShop() {
     return;
   }
   if (app.game.shopPreparedRound !== app.game.round) {
-    app.game.computerShop();
+    app.game.shoppingCompleted = [];
     app.game.shopPreparedRound = app.game.round;
   }
   app.shopQueue = app.game.players
-    .filter((p) => p.ai < 0 && p.money >= Math.min(...app.shopItems.map((it) => it.price)))
+    .filter(
+      (p) =>
+        !app.game.shoppingCompleted?.includes(p.id) &&
+        (p.ai < 0 || app.game.options.computerBuy) &&
+        p.money >= Math.min(...app.shopItems.map((it) => it.price)),
+    )
     .map((p) => p.id);
   nextShop();
 }
 function nextShop() {
   app.cart = [];
   app.shopSelection = 0;
+  app.computerShopping = false;
   const next = app.shopQueue.shift();
   if (next === undefined) {
     app.game.nextRound();
     setScreen('battle');
   } else {
     app.shopPlayer = next;
+    const player = app.game.players[next];
+    app.computerShopping = player.ai >= 0;
+    if (app.computerShopping)
+      player.shoppingStrategy ??= chooseShoppingStrategy(player.ai, app.game.rng);
+    app.shopTimer = 0.5;
     setScreen('shop');
   }
+}
+function finishShopping() {
+  if (!purchase()) return;
+  (app.game.shoppingCompleted ??= []).push(app.shopPlayer);
+  nextShop();
+}
+function updateComputerShopping(dt) {
+  app.shopTimer -= dt;
+  if (app.shopTimer > 0) return;
+  // Presentation pacing only: the original drives these selections via its input loop.
+  app.shopTimer = 0.15;
+  const player = app.game.players[app.shopPlayer];
+  const choice = computerChoice(player, app.shopItems, app.cart);
+  if (choice < 0 || !reserve(app.cart, app.shopItems, player, choice)) finishShopping();
+  else app.shopSelection = app.shopVisible().indexOf(choice);
 }
 function purchase() {
   const p = app.game.players[app.shopPlayer],
@@ -204,6 +237,12 @@ function updateSound() {
 function dispatchAction(actionId, dir = 1) {
   const [name, arg] = actionId.split(':'),
     n = Number(arg);
+  if (
+    app.screen === 'shop' &&
+    app.computerShopping &&
+    ['shopCard', 'cartPlus', 'cartMinus', 'purchase', 'shopDone'].includes(name)
+  )
+    return;
   switch (name) {
     case 'menu':
       setScreen('menu');
@@ -318,7 +357,7 @@ function dispatchAction(actionId, dir = 1) {
       purchase();
       break;
     case 'shopDone':
-      if (purchase()) nextShop();
+      finishShopping();
       break;
     case 'mirvSpread':
       app.game.options.mirvSpread = (app.game.options.mirvSpread + 1) % 5;
@@ -525,6 +564,7 @@ function handleOpponentKey(k) {
 }
 
 function handleShopKey(k) {
+  if (app.computerShopping) return;
   const visible = app.shopVisible(),
     move = { ArrowUp: -1, ArrowDown: 1, ArrowLeft: -9, ArrowRight: 9 }[k];
   if (move) {
@@ -610,7 +650,7 @@ for (const [id, k] of [
     canvas.focus({ preventScroll: true });
   });
 function updateControls() {
-  $('shop-controls').hidden = app.screen !== 'shop';
+  $('shop-controls').hidden = app.screen !== 'shop' || app.computerShopping;
   const battle = app.screen === 'battle',
     g = app.game,
     p = g?.current;
@@ -649,7 +689,7 @@ function updateControls() {
 let hitSignature = '';
 function syncHitTargets() {
   const layer = $('hit-layer'),
-    hits = renderer.hits;
+    hits = app.screen === 'shop' && app.computerShopping ? [] : renderer.hits;
   layer.style.left = canvas.offsetLeft + 'px';
   layer.style.top = canvas.offsetTop + 'px';
   layer.style.width = canvas.clientWidth + 'px';
@@ -689,6 +729,7 @@ function frame(t) {
     handleKey(held.key);
     held.last = t;
   }
+  if (app.screen === 'shop' && app.computerShopping) updateComputerShopping(dt);
   if (app.screen === 'battle' && app.game) {
     app.game.update(dt);
     for (const event of app.game.events.splice(0)) {

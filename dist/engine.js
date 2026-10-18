@@ -1,3 +1,4 @@
+import { chooseShoppingStrategy, computerCart, shopItems } from './shop.js';
 import { createBattleBackground } from './background.js';
 import { blastTimeline, blastRaster } from './effects-render.js';
 import { PLAYER_COLORS } from './palette.js';
@@ -52,6 +53,9 @@ export const DEFAULTS = {
 };
 // BOMB.CFG fall delay: 5 ms per pixel (OVR 0x1ac9e).
 export const FALL_STEP_SECONDS = 0.005;
+// Crumbling has no DOS Delay call. This presentation cadence keeps the original
+// one-row passes visible; its wall-clock speed was hardware-dependent.
+export const CRUMBLE_STEP_SECONDS = 1 / 120;
 // OVR 0x1b4b1..0x1b4e3 clamps power to 10 * MEN; BOMB.DOC says 100 in error.
 export const maxPower = (p) => 10 * p.men;
 export const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -228,26 +232,43 @@ export class Terrain {
     }
     this.version++;
   }
-  crumble(tanks = []) {
-    let changed = false;
-    for (let x = LEFT; x <= RIGHT; x++) {
-      let floor = BOTTOM;
-      for (let y = BOTTOM; y >= TOP; y--) {
-        if (tanks.some((p) => p.alive && tankPixel(p, x, y))) {
-          floor = y - 1;
-          continue;
-        }
-        if (this.data[y * W + x]) {
-          if (y !== floor) {
-            this.data[floor * W + x] = 1;
-            this.data[y * W + x] = 0;
-            changed = true;
-          }
-          floor--;
-        }
-      }
+  *crumbleFrames(tanks = []) {
+    // Tank pixels occupy VGA memory in DOS and block falling dirt, including
+    // the barrel. Capture them once: tanks move only after this routine ends.
+    const blocked = new Uint8Array(W * H);
+    for (const tank of tanks) {
+      if (!tank.alive) continue;
+      for (let y = Math.max(TOP, tank.y - 8); y <= Math.min(BOTTOM, tank.y); y++)
+        for (let x = Math.max(LEFT, tank.x - 8); x <= Math.min(RIGHT, tank.x + 8); x++)
+          if (tankPixel(tank, x, y)) blocked[y * W + x] = 1;
     }
-    if (changed) this.version++;
+    const move = (address) => {
+      const below = address + W;
+      if (below >= (BOTTOM + 1) * W || blocked[below] || this.data[below]) return false;
+      this.data[below] = this.data[address];
+      this.data[address] = 0;
+      return true;
+    };
+    // EXE 0x5e46: one descending scan creates the active pixel list.
+    let active = [];
+    for (let y = BOTTOM - 1; y >= TOP; y--)
+      for (let x = RIGHT; x >= LEFT; x--) {
+        const address = y * W + x;
+        if (this.data[address] && !blocked[address] && move(address)) active.push(address + W);
+      }
+    while (active.length) {
+      this.version++;
+      yield active.length;
+      const remaining = [];
+      for (const address of active) if (move(address)) remaining.push(address + W);
+      active = remaining;
+    }
+  }
+  crumble(tanks = []) {
+    // Synchronous utility for offline fixtures; the game consumes each yielded
+    // pass on its simulation clock instead of exhausting the iterator at once.
+    let changed = false;
+    for (const moved of this.crumbleFrames(tanks)) changed ||= moved > 0;
     return changed;
   }
 }
@@ -305,6 +326,7 @@ export class Game {
       ...p,
     }));
     for (const p of this.players) {
+      p.shoppingStrategy = chooseShoppingStrategy(p.ai, this.rng);
       p.ammo[0] = 100;
       p.ammo[1] = 3 * this.options.rounds;
       p.ammo[11] = Math.min(10 * this.options.rounds, 999);
@@ -316,6 +338,7 @@ export class Game {
     this.round++;
     this.turns = 0;
     this.falling = null;
+    this.crumbling = null;
     this.terrainResolved = false;
     this.audioWait = 0;
     this.blockSimulation = 0;
@@ -348,19 +371,18 @@ export class Game {
       last = 305 - this.rng.int(28);
     order.forEach((p, i) => {
       p.x = first + i * Math.trunc((last - first) / (order.length - 1));
-      p.y = this.terrain.surface(p.x) - 1;
+      // Initial fall stops at the first support anywhere under the nine-pixel base.
+      p.y =
+        Math.min(...Array.from({ length: 9 }, (_, dx) => this.terrain.surface(p.x + dx - 4))) - 1;
       p.men = 100;
       p.alive = true;
-      p.angle = p.x < 160 ? 75 : 105;
+      p.angle = i === 0 ? 75 : i === order.length - 1 ? 105 : 90;
       p.power = 200;
       p.lob = [];
       p.target = null;
       p.armed = 0;
       if (p.ammo[p.weapon] === 0) p.weapon = 1;
       if (p.ammo[1] === 0) p.weapon = 11;
-      // Small launch pad prevents a tank straddling a steep hillside.
-      for (let x = p.x - 3; x <= p.x + 3; x++)
-        for (let y = p.y + 1; y <= BOTTOM; y++) this.terrain.set(x, y, 1);
     });
     this.terrain.version++;
     this.order = order.map((p) => p.id);
@@ -463,7 +485,7 @@ export class Game {
     this.emit('fire', { weapon: id });
     return true;
   }
-  hurt(p, damage, owner, kind = 'blast') {
+  hurt(p, damage, owner, kind = 'blast', deferDeath = false) {
     if (!p.alive || damage <= 0) return;
     if ((kind === 'blast' || kind === 'death') && p.defense[0] > 0) {
       const absorbed = Math.min(damage, p.defense[0]);
@@ -495,18 +517,22 @@ export class Game {
         this.turnHit = true;
       }
     }
-    if (p.men === 0) {
-      p.alive = false;
-      p.deaths = (p.deaths || 0) + 1;
-      if (source) {
-        const bonus = enemy ? 1500 : -1000;
-        source.score += bonus;
-        source.money += bonus;
-        if (enemy) source.kills++;
-      }
-      this.deathQueue.push({ ...p, owner });
-      this.emit('kill', { player: p.id });
+    if (p.men === 0 && !deferDeath) this.recordDeath(p, owner);
+  }
+  recordDeath(p, owner) {
+    if (!p.alive) return;
+    p.alive = false;
+    p.deaths = (p.deaths || 0) + 1;
+    const source = this.players[owner];
+    if (source) {
+      const enemy = source.team !== p.team;
+      const bonus = enemy ? 1500 : -1000;
+      source.score += bonus;
+      source.money += bonus;
+      if (enemy) source.kills++;
     }
+    this.deathQueue.push({ ...p, owner });
+    this.emit('kill', { player: p.id });
   }
   explode(x, y, r, owner, kind = 'blast', mirv = false) {
     const delayMs = mirv ? 1 : 8,
@@ -738,6 +764,10 @@ export class Game {
   }
   update(dt) {
     this.backgroundElapsed = (this.backgroundElapsed || 0) + dt;
+    if (this.crumbling) {
+      this.updateCrumbling(dt);
+      return;
+    }
     if (this.falling) {
       this.updateFalling(dt);
       return;
@@ -971,7 +1001,8 @@ export class Game {
         this.resolveTerrain();
         this.terrainResolved = true;
       }
-      if (!this.falling && !this.explosions.length && !this.deathQueue.length) this.finishTurn();
+      if (!this.crumbling && !this.falling && !this.explosions.length && !this.deathQueue.length)
+        this.finishTurn();
     }
   }
 
@@ -991,6 +1022,9 @@ export class Game {
         this.deathVisual = null;
         this.dyingTank = null;
         this.deathWait = 0;
+        // OVR 0x15a3f: settle after each death, before dispatching the next one.
+        this.resolveTerrain();
+        this.terrainResolved = true;
         break;
       }
       this.deathWait += next.value ?? 1 / 60;
@@ -999,40 +1033,95 @@ export class Game {
   }
 
   resolveTerrain() {
-    if (this.forceCrumble || this.rng.next() * 100 < this.options.crumble)
-      this.terrain.crumble(this.players);
+    const shouldCrumble = this.forceCrumble || this.rng.next() * 100 <= this.options.crumble;
     this.forceCrumble = false;
-    const queue = [];
-    if (this.options.tanksFall)
-      for (const p of this.players) {
-        if (!p.alive) continue;
-        const ground = Math.min(
-            ...[-2, -1, 0, 1, 2].map((dx) => this.terrain.surface(p.x + dx, p.y + 1)),
-          ),
-          target = Math.min(BOTTOM, ground - 1);
-        if (target > p.y) queue.push({ player: p.id, target, damage: 0 });
+    if (shouldCrumble) {
+      this.crumbling = { frames: this.terrain.crumbleFrames(this.players), elapsed: 0 };
+      return;
+    }
+    this.beginFalling();
+  }
+  updateCrumbling(dt) {
+    const crumble = this.crumbling;
+    crumble.elapsed += dt;
+    while (crumble.elapsed + 1e-12 >= CRUMBLE_STEP_SECONDS) {
+      crumble.elapsed -= CRUMBLE_STEP_SECONDS;
+      if (crumble.frames.next().done) {
+        this.crumbling = null;
+        this.beginFalling();
+        break;
       }
+    }
+  }
+  terrainSupports(x, y) {
+    return x <= 10 || x >= 310 || y >= 190 || this.terrain.solid(x, y);
+  }
+  clearTankBody(player) {
+    // EXE 0x6035 restores these 33 pixels from the untouched background.
+    // Ground overwritten by the moving body must not reappear behind it.
+    for (let row = 0; row < BODY.length; row++)
+      for (let column = 0; column < BODY[row].length; column++)
+        if (BODY[row][column] === '1')
+          this.terrain.set(player.x + column - 4, player.y + row - 4, 0);
+    this.terrain.version++;
+  }
+  beginFalling() {
+    if (!this.options.tanksFall) return;
+    const queue = this.players
+      .filter((player) => player.alive)
+      .map((player) => ({
+        player: player.id,
+        damage: 0,
+        started: false,
+      }));
     if (queue.length) this.falling = { queue, elapsed: 0, intro: false };
   }
   updateFalling(dt) {
     const fall = this.falling;
     fall.elapsed += dt;
     while (fall.queue.length) {
-      const item = fall.queue[0],
-        p = this.players[item.player];
-      if (!p.alive) {
+      const item = fall.queue[0];
+      const player = this.players[item.player];
+      if (!player.alive) {
         fall.queue.shift();
         continue;
       }
-      if (p.y >= item.target) {
-        if (!fall.intro) this.hurt(p, item.damage, this.active, 'fall');
+      const support = (dx) => this.terrainSupports(player.x + dx, player.y + 1);
+      if (!fall.intro && !item.started) {
+        // OVR 0x1a9e8: the middle seven pixels or both outer edges hold a tank.
+        if ([-3, -2, -1, 0, 1, 2, 3].some(support) || (support(-4) && support(4))) {
+          fall.queue.shift();
+          continue;
+        }
+        item.started = true;
+        // Removing the old gun restores its pixels from the original sky too.
+        for (let y = player.y - 8; y <= player.y; y++)
+          for (let x = player.x - 8; x <= player.x + 8; x++)
+            if (tankPixel(player, x, y)) this.terrain.set(x, y, 0);
+        this.terrain.version++;
+      }
+      if (fall.intro ? player.y >= item.target : item.landed) {
+        if (!fall.intro && player.men === 0) this.recordDeath(player, this.active);
         fall.queue.shift();
         continue;
       }
       if (fall.elapsed + 1e-12 < FALL_STEP_SECONDS) break;
       fall.elapsed -= FALL_STEP_SECONDS;
-      p.y++;
-      if (!fall.intro) item.damage += this.rng.int(3) + 1;
+      const oldPosition = { ...player };
+      if (fall.intro) this.clearTankBody(oldPosition);
+      player.y++;
+      if (!fall.intro) {
+        // OVR 0x1abed: these are independent checks using the updated x.
+        if (support(4)) player.x--;
+        if (support(-4)) player.x++;
+        item.landed = Array.from({ length: 9 }, (_, i) => i - 4).every(support);
+        const damage = this.rng.int(3) + 1;
+        item.damage += damage;
+        // MEN and the inertia reserve change on each step; a fatal fall still
+        // reaches the ground before the original death-resolution pass.
+        this.hurt(player, damage, this.active, 'fall', true);
+        this.clearTankBody(oldPosition);
+      }
     }
     if (!fall.queue.length) {
       this.falling = null;
@@ -1296,13 +1385,21 @@ export class Game {
     dest[index] += item.quantity * count;
     return true;
   }
-  computerShop() {
+  computerShop(catalog, players = this.players) {
     if (!this.options.computerBuy) return;
-    for (const p of this.players.filter((p) => p.ai >= 0)) {
-      for (let n = 0; n < 6; n++) {
-        const id = [1, 2, 3, 4, 6, 7, 8][this.rng.int(7)];
-        this.buy(p.id, id);
-      }
+    const items = shopItems(catalog);
+    for (const player of players.filter((player) => player.ai >= 0)) {
+      player.shoppingStrategy ??= chooseShoppingStrategy(player.ai, this.rng);
+      computerCart(player, items).forEach((count, index) => {
+        const item = items[index];
+        this.buy(
+          player.id,
+          item.index,
+          count,
+          item.kind,
+          item.kind === 'defense' ? catalog.defenses : catalog.guidance,
+        );
+      });
     }
   }
   serialize() {
@@ -1324,6 +1421,7 @@ export class Game {
       stars: this.stars,
       palette: this.palette,
       shopPreparedRound: this.shopPreparedRound,
+      shoppingCompleted: this.shoppingCompleted,
       rng: this.rng.state,
       terrain: Array.from(this.terrain.data),
       turns: this.turns,
@@ -1356,6 +1454,7 @@ export class Game {
       'stars',
       'palette',
       'shopPreparedRound',
+      'shoppingCompleted',
       'backgroundModel',
       'backgroundElapsed',
     ])

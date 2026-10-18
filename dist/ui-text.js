@@ -2,8 +2,11 @@ import { t, translate, getLanguage } from './i18n.js';
 
 /** Screen instructions are derived from state, so changing language never resets a game. */
 export function getScreenStatus(app) {
+  if (app.screen === 'shop' && app.computerShopping)
+    return t('status.computerShopping', { name: app.game.players[app.shopPlayer].name });
   if (app.screen !== 'battle') return t(`status.${app.screen}`);
   const game = app.game;
+  if (game.crumbling) return t('status.crumbling');
   if (game.falling) return t('status.falling');
   if (game.phase === 'flight') return t('status.flight');
   const player = game.current;

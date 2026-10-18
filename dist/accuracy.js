@@ -30,6 +30,7 @@ const content = {
         title: 'Animation and sound',
         paragraphs: [
           'Ordinary explosions use the original ellipse raster and three red palette passes. Sonic uses a flashing five-pixel cross and changing ground colors. Explosive tank death includes brightness pulses and successive blasts. Tank colors dim with MEN; nine backgrounds have been reconstructed.',
+          'Terrain descends through the original one-pixel active-list passes. Tanks land on the unmodified landscape, can slide after losing support, and lose MEN or inertia reserve at every falling step. Initial gun angles and visible computer shopping have been restored. Ground animation and automatic shopping use explicit browser pacing because the DOS loops had no fixed delay.',
           'Audio uses one synthesized PC Speaker channel with recovered frequencies, PIT divisors and explicit delays. Tight loops without Delay still use estimated timing; physical speaker timbre and full audiovisual synchronization have not been verified as identical.',
         ],
       },
@@ -38,8 +39,8 @@ const content = {
         items: [
           'JavaScript floating-point calculations differ from Pascal Real. RNG call order and edge collisions still need more comparison.',
           'Some death flashes read arbitrary bytes from low DOS memory. Those flashes, CPU-dependent loops, laser timing, burial and anti-stalemate lightning are not fully reproduced.',
-          'Dirt-circle rasterization, some dialogs and transitions, and AI edge cases remain under review.',
-          'Computer purchasing and parts of Twanger and Lobber behavior remain approximate.',
+          'Some dialogs and transitions, and AI edge cases remain under review.',
+          'Parts of Twanger and Lobber aiming remain approximate. Computer shopping now uses the original four persistent strategies; rejected full-cart purchases end the visit instead of reproducing a DOS no-progress loop.',
           'Custom RAW backgrounds, DOS save import and network multiplayer are not implemented.',
         ],
         paragraphs: [
@@ -83,6 +84,7 @@ const content = {
         title: 'Анимация и звук',
         paragraphs: [
           'Обычные взрывы используют исходную растеризацию эллипса и три прохода красной палитры. Sonic — мигающий крест из пяти пикселей и смена цвета земли. Взрывная смерть танка включает пульсацию яркости и последовательные взрывы. Цвет танков темнеет с уменьшением MEN; восстановлены девять фонов.',
+          'Грунт осыпается однопиксельными проходами по исходному активному списку. Танки садятся на неизменённый рельеф, соскальзывают после потери опоры и теряют MEN или запас инерционной защиты на каждом шаге падения. Восстановлены начальные углы пушек и видимый магазин компьютера. Темп осыпания и закупок задан для браузера: в DOS эти циклы не имели фиксированной задержки.',
           'Звук синтезируется одним каналом PC Speaker с восстановленными частотами, делителями PIT и явными задержками. Быстрые циклы без Delay пока используют оценочную длительность; тембр физического динамика и полная синхронизация звука с изображением не подтверждены как идентичные.',
         ],
       },
@@ -91,8 +93,8 @@ const content = {
         items: [
           'Вычисления JavaScript отличаются от Pascal Real. Порядок вызовов RNG и граничные столкновения требуют дальнейшей сверки.',
           'Некоторые вспышки смерти читают случайные байты из низкой DOS-памяти. Эти вспышки, CPU-зависимые циклы, темп лазера, засыпание и антизатяжная молния воспроизведены не полностью.',
-          'Окружности земляного оружия, отдельные диалоги и переходы, крайние случаи AI ещё проверяются.',
-          'Покупки компьютеров и часть поведения Twanger и Lobber остаются приближёнными.',
+          'Отдельные диалоги и переходы, крайние случаи AI ещё проверяются.',
+          'Часть прицеливания Twanger и Lobber остаётся приближённой. Закупки используют четыре постоянные стратегии оригинала; при невозможности добавить товар компьютер завершает покупки вместо воспроизведения зацикливания DOS.',
           'Пользовательские RAW-фоны, импорт DOS-сохранений и сетевой мультиплеер не реализованы.',
         ],
         paragraphs: [

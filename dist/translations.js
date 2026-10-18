@@ -1,6 +1,8 @@
 // Web interface strings. DOS canvas labels intentionally retain their original text.
 export const translations = {
   en: {
+    'status.computerShopping': '{name} is buying supplies…',
+    'status.crumbling': 'The ground is settling…',
     pageTitle: 'Tank Wars 3.2 — Native Web',
     description:
       'A native JavaScript reconstruction of Tank Wars 3.2, the classic DOS artillery game.',
@@ -133,6 +135,8 @@ export const translations = {
     'hit.shopDone': 'Done',
   },
   ru: {
+    'status.computerShopping': '{name} закупает боеприпасы…',
+    'status.crumbling': 'Грунт осыпается…',
     pageTitle: 'Tank Wars 3.2 — браузерная версия',
     description: 'Независимая JavaScript-реконструкция классической DOS-игры Tank Wars 3.2.',
     helpToggle: 'Показать управление',

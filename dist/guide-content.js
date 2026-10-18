@@ -39,7 +39,7 @@ export const guideContent = {
       {
         title: 'Earn points and buy supplies',
         description:
-          'Enemy damage, kills, and round victories earn rewards. Between rounds, use the shop to spend your money on ammunition, guidance, or defenses. Purchases are packs, not necessarily single shots. The shop shows supplies you already own or can afford; unused stock carries into the next round.',
+          'Enemy damage, kills, and round victories earn rewards. Between rounds, use the shop to spend your money on ammunition, guidance, or defenses. Purchases are packs, not necessarily single shots. The shop shows supplies you already own or can afford; unused stock carries into the next round. With Computers Can Buy enabled, computer opponents visit the same shop automatically, including after a lost round. Each keeps a buying strategy: stock explosives, prioritize larger bombs, favor lasers, or buy defenses.',
       },
       {
         title: 'Choose the rules',
@@ -432,7 +432,7 @@ export const guideContent = {
       {
         title: 'Зарабатывайте и покупайте припасы',
         description:
-          'За урон врагам, уничтожения и победы в раундах выдаются награды. Между раундами в магазине можно потратить деньги на боеприпасы, наведение и защиту. Товары продаются комплектами, не обязательно по одному выстрелу. Магазин показывает то, что уже есть у вас или доступно по цене; неизрасходованный запас переходит в следующий раунд.',
+          'За урон врагам, уничтожения и победы в раундах выдаются награды. Между раундами в магазине можно потратить деньги на боеприпасы, наведение и защиту. Товары продаются комплектами, не обязательно по одному выстрелу. Магазин показывает то, что уже есть у вас или доступно по цене; неизрасходованный запас переходит в следующий раунд. При включённом Computers Can Buy компьютерные соперники автоматически посещают тот же магазин, в том числе после проигранного раунда. Каждый сохраняет стратегию закупок: запас взрывчатки, крупные бомбы, лазеры или защита.',
       },
       {
         title: 'Выберите правила',
