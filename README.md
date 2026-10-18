@@ -1,68 +1,71 @@
-# Tank Wars 3.2 — Native Web
+# Tank Wars — Native Web
 
-Самостоятельный HTML/JavaScript-движок по локальному оригиналу **Tank Wars 3.2, Kenneth Morse, 1992**. Игра работает через Canvas и Web Audio, без DOSBox, WASM и исполнения DOS-бинарника.
+A browser reconstruction of **Tank Wars 3.2**, the 1992 DOS artillery game by **Kenneth Morse**. The game uses a new JavaScript simulation, Canvas renderer and Web Audio PC Speaker synthesizer. It does not run the DOS executable or an emulator.
 
-## Запуск
+**[Play in your browser](https://tank-wars-native.readyangel128.chatgpt.site/)** · **[Player guide](https://tank-wars-native.readyangel128.chatgpt.site/guide.html)** · **[Accuracy notes](https://tank-wars-native.readyangel128.chatgpt.site/accuracy.html)**
+
+The surrounding interface and player guide support English and Russian. The reconstructed DOS game screen keeps its original English labels.
+
+## Run locally
 
 ```sh
+git clone https://github.com/Sphinxx777/tank-wars-web.git
+cd tank-wars-web
 npm start
 ```
 
-Открыть http://127.0.0.1:8786/. Для запуска достаточно Python 3; сборка и npm-зависимости не нужны. `dist/` можно разместить на любом статическом HTTP-хостинге. Модули и ресурсы загружаются через HTTP, поэтому двойной щелчок по index.html не подходит.
+Open [localhost:8786](http://127.0.0.1:8786/). Node.js 18 or later is required for the local server. No dependency installation or build step is required to play. Serve `dist/` over HTTP rather than opening `index.html` directly: the game loads JavaScript modules and asset files.
 
-`npm test` запускает тесты физики, оружия, AI, экономики, команд, сохранений и полного раунда; требуется Node.js 18+.
+Install the optional development tools to run formatting checks:
 
-## Возможности
+```sh
+npm ci
+npm run check
+```
 
-- 2–10 игроков: локальная игра за одной клавиатурой или семь типов компьютера; команды и несколько раундов.
-- 18 видов оружия, MIRV с пятью схемами разлёта и тремя режимами детонации, CRI, лазер и земляное оружие.
-- Два типа наведения, щиты, инерционный демпфер, Repulser, магазин между раундами.
-- Разрушаемая земля, падение танков, ветер, пять типов стен.
-- Оригинальные извлечённые заставки и векторные BGI-шрифты; внутренний экран 320×200 с отображением 4:3.
-- 20 иконок восстановлены из команд рисования OVR: 3000/3000 пикселей совпали с DOS-кадром.
-- Магазин восстановлен по координатам и BGI-растеризации: полный контрольный кадр QA200K совпал на 64000/64000 пикселей.
-- Один синтезируемый канал PC Speaker с PIT-делителями, исходными частотами и последовательностями выстрела, взрывов, прицеливания, лазера, Sonic и эффектов смерти.
-- Клавиатура, мышь, экранные элементы управления, пауза и сохранение в localStorage.
+`npm run check` runs tests, formatting checks and JavaScript syntax checks. `npm test` can also run on its own without installing packages. `npm run format` applies the project's formatting rules. Development dependencies are not loaded by the game.
 
-Быстрый бой запускает матч против Mr. Stupid. Полная настройка доступна через оригинальное меню. Сохранения привязаны к браузеру и адресу сайта; DOS-сохранения не импортируются. Сетевой мультиплеер не реализован.
+## What you can play
 
-## Основание реконструкции
+- Matches with 2–10 local players, seven computer opponent types, teams and multiple rounds.
+- Eighteen weapons, including MIRVs, chain reactions, lasers and dirt weapons; two guidance systems and three defenses.
+- Destructible terrain, falling tanks, wind, wall modes and a shop between rounds.
+- The original 320×200 game layout, displayed at 4:3, with animated title lettering, cycling background palettes and reconstructed effects.
+- Keyboard, mouse and on-screen controls, synthesized PC Speaker sound, pause and browser saves.
 
-Исходная игра найдена в `/Users/sphinxx/dos_games/tankwars`; главный файл — **BOMB.EXE**, а не TANK.EXE. Оригинальные файлы не изменены. SHA-256 исследованного BOMB.EXE:
+Quick Battle creates a match against Mr. Stupid. Use the main menu for a full match setup. Sound becomes available after interacting with the page. Saves stay in the browser and are separate for each site address. DOS save-file import and online multiplayer are not implemented.
 
-`659ace6b9a97c30191a8f65cf25f22322c087166909e9fa1d522e529adbafd9d`
+## How close is it?
 
-- `research/binary-findings.md` — форматы, таблицы, баллистика, адреса процедур.
-- `research/advanced-weapons.md` — MIRV, CRI, лазер, наведение, защиты.
-- `research/fidelity-details.md` — генератор случайных чисел, карта, коллизии, шрифты, ветер.
-- `research/remaining-mechanics.md` — алгоритмы AI и земляное оружие.
-- `research/death-effects.md` — все семь вариантов уничтожения танков и учёт очков.
-- `tools/extract-assets.py` — повторяемое извлечение ресурсов с проверкой хеша, таблиц и штрихов шрифтов.
-- `dist/engine.js` — независимая симуляция, `render.js` — отрисовка, `app.js` — управление.
+The project combines disassembly, resource extraction, reference captures and executable raster oracles. Some comparisons are exact within their tested scope:
 
-Извлечение: `python3 tools/extract-assets.py /path/to/tankwars --bios-font /path/to/FONT8.BIN`. BIOS-шрифт 8×8 получен из BIOS памяти локального DOSBox отдельной COM-программой в исследовательской копии игры; это шрифт среды эталона, а не ресурс BOMB.EXE.
+| Component                                                  | Evidence                                                                                                        |
+| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Title image                                                | A reference phase matches all 64,000 original pixels; lettering uses the original 20-step, 60 ms palette cycle. |
+| Weapon icons                                               | All 3,000 pixels across 20 icons match the DOS reference.                                                       |
+| Shop                                                       | A populated reference shop matches all 64,000 pixels.                                                           |
+| Main menu, player setup, options, sound options and scores | Five complete frames match after normalizing only the animated magenta palette phase.                           |
+| Battle HUD                                                 | All 8,960 pixels in the tested upper panel match.                                                               |
+| Explosion rasterizer                                       | 177 circle/ellipse rasters were checked by executing the original drawing instructions.                         |
 
-## Точность и границы
+These checks do **not** prove that every match or animation is identical. Remaining differences include JavaScript numbers versus Turbo Pascal Real, some random-number call ordering and collision boundaries, CPU-dependent animation timing, parts of computer strategy and buying, and effects that still need synchronized DOS/browser comparison. Some original effects read changing DOS memory; the reconstruction does not reproduce that environment. Window transitions and some dialogs remain incomplete. Custom RAW backgrounds and DOS file compatibility are not supported.
 
-Это играбельная реконструкция v0.2, **не подтверждённая побитовая копия**. Численные формулы и многие ветви переведены из дизассемблированного EXE/OVR, а изображения и BGI-шрифты извлечены. Тесты проверяют портированные правила, но не заменяют синхронное покадровое сравнение двух движков.
+See [accuracy.html](dist/accuracy.html) for the player-facing summary and [research/](research/) for addresses, measurements and limits of individual findings. Tests of translated rules are distinguished from comparisons against the original.
 
-Остаются различия: JavaScript double вместо Pascal Real; последовательность вызовов RNG и отдельные граничные коллизии; CPU-зависимый темп анимации; выбор цели Twanger, сброс истории Lobber и крайние случаи других AI; компьютерные покупки; визуальная синхронизация эффектов смерти и антизатяжная молния; BGI-окружности земляного оружия, засыпание танков и отдельные диалоги. Отсутствуют пользовательский RAW-фон и DOS-совместимость файлов сохранений. Точный список доступен также на `dist/accuracy.html`.
+## Project layout
 
-Публикуются только статические веб-ресурсы; оригинальные DOS-программы и исследовательский эмулятор не входят в сайт.
+- [`dist/`](dist/) — the actual editable game source and static assets. The directory name is historical; it is committed source, not a build output.
+- [`tests/`](tests/) — simulation, rendering and audio tests, plus browser-only QA pages.
+- [`tools/`](tools/) — extraction and verification tools.
+- [`research/`](research/) — reverse-engineering notes and extracted data with provenance.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — module responsibilities and runtime flow.
 
-## Локальная доработка v0.2
+Any static HTTP host can serve `dist/`. The deployed site does not need a game server, package runtime or DOS installation.
 
-Магазин: стрелки выбирают карточку; Space / + / правая кнопка мыши добавляют комплект, − / левая кнопка убирают. Enter / P покупают и оставляют магазин открытым; Escape / D покупают и переходят дальше. Максимум 9 комплектов в корзине на карточку. При деньгах меньше3000 магазин пропускается. Под игровым экраном также есть кнопки для сенсорного управления.
+## Contributing and attribution
 
-Звук запускается после первого нажатия/касания страницы. `sound.js` строит временные последовательности; `speaker-worklet.js` воспроизводит один PIT-канал. Частоты, uint16-обёртка, игнорирование Sound(0..18), NoSound и явные Delay восстановлены. Точные длительности без Delay зависят от DOS CPU: сейчас используется явно обозначенная оценка0.035мс на запись. Аналоговый динамик/DOSBox-фильтр, полный порядок столкновений лазера и синхронизация эффектов ещё не подтверждены записью1:1. Полного побитового совпадения звука не заявляем.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing a reconstructed rule or updating a visual reference. Reports with an original-game version, reproduction steps and comparable captures are especially useful.
 
-Исследования: `research/icons.md`, `research/shop-layout.md`, `research/bgi-line.md`, `research/sound-effects.md`. `tools/verify-shop.mjs` рисует production-магазин для проверки; golden-test в `tests/fidelity.test.mjs` сравнивает SHA-256 всех RGB-пикселей с оригиналом. `tests/browser.html` — отдельная локальная QA-страница для магазина, иконок, звуков и измерения реального AudioWorklet-выхода (проектный HTTP-server, не dist). В публичный сайт она не входит.
+Original game: **Tank Wars 3.2, Kenneth Morse, 1992**. This is an independent reconstruction, not an official release.
 
-
-## Сверка внешнего вида 18 октября 2026
-
-Обычные взрывы используют оригинальную четырёхстороннюю ellipse-процедуру, три центра и три прохода красной палитры. 177 растров (радиусы 0–170 и эллипсы) проверены исполнением оригинальных машинных инструкций. Земля удаляется после завершения палитровой анимации. Sonic рисует мигающий крест из пяти пикселей и меняет палитру земли. Взрывная смерть танка включает три пульсации яркости и последовательные взрывы; цвета танков зависят от MEN. У эффектов 0/2 восстановлены цветные кольца приземления частиц и центральные кольца.
-
-Главное меню, настройка игроков, игровые/звуковые настройки и таблица результатов совпадают с пятью DOS-кадрами на 64000/64000 пикселей после нормализации только фазы анимированной фоновой палитры. Верхняя панель боя совпадает на 8960/8960 пикселей. Все девять фонов переведены из оригинальных процедур. Геометрия пяти линейных фонов проверена исполнением исходного кода; меню сверено с DOS-кадром. AI-popup и статистика переведены статически, без контрольного кадра.
-
-Это не доказательство полного 1:1 всех анимаций. Вспышки смерти 0/2 читают случайные RGB-байты из низкой DOS-памяти: этот эффект пока не воспроизведён. Скорость циклов без Delay, редкие эффекты смерти, молния, лазер, земляные окружности и переходы окон требуют дальнейшей динамической сверки. Файлы `research/explosion-visuals.md`, `research/backgrounds.md`, `research/menu-layout.md` содержат адреса и границы проверки. `tests/effects-browser.html` — локальный стенд, в публичный сайт не включён.
+The repository's original implementation code is provided under the [MIT license](LICENSE). **That license does not relicense the original game's extracted artwork, fonts or other third-party material.** Their provenance and the limits of the available rights information are recorded in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The original DOS executables are not included.

@@ -1,32 +1,196 @@
 <!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#141219"><meta name="description" content="Tank Wars 3.2 — самостоятельная браузерная реконструкция классической DOS-игры на JavaScript.">
-  <title>Tank Wars 3.2 — Native Web</title><link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<main>
-  <header><a class="brand" href="./"><span class="pixel">▰</span> TANK WARS <span class="version">3.2</span></a><span class="tag">NATIVE JAVASCRIPT · 320 × 200</span><button id="help-toggle" aria-label="Показать управление">?</button></header>
-  <section class="machine" aria-label="Tank Wars">
-    <div class="screen-wrap" id="screen-wrap">
-      <canvas id="screen" width="320" height="200" tabindex="0" aria-label="Tank Wars. Enter — меню, стрелки — угол и мощность, пробел — огонь."></canvas>
-      <div id="hit-layer" aria-label="Кнопки игрового экрана"></div>
-      <div id="loading">Загрузка Tank Wars…</div>
-    </div>
-    <nav class="toolbar" aria-label="Действия игры"><div><button id="quick">Быстрый бой</button><button id="menu">Меню</button><button id="pause">Пауза</button></div><div><button id="save">Сохранить</button><button id="load">Загрузить</button><button id="sound" aria-pressed="true">Звук: вкл</button><button id="fullscreen" aria-label="Полный экран">⛶</button></div></nav>
-  </section>
-  <section id="battle-controls" class="battle-controls" hidden aria-label="Управление танком">
-    <div class="adjust"><label for="angle">Угол <output id="angle-value">75°</output></label><div><button data-key="ArrowLeft" aria-label="Ствол влево">◀</button><input id="angle" type="range" min="0" max="180" value="75"><button data-key="ArrowRight" aria-label="Ствол вправо">▶</button></div></div>
-    <div class="adjust"><label for="power">Мощность <output id="power-value">200</output></label><div><button data-key="PageDown" aria-label="Мощность минус 100">−</button><input id="power" type="range" min="0" max="1000" value="200"><button data-key="PageUp" aria-label="Мощность плюс 100">+</button></div></div>
-    <div class="armament"><label for="weapon">Оружие</label><select id="weapon"></select></div><button id="fire" class="fire">ОГОНЬ <kbd>Space</kbd></button>
-  </section>
-  <section id="shop-controls" class="toolbar" hidden aria-label="Управление магазином"><div><button id="shop-prev" aria-label="Предыдущий товар">←</button><button id="shop-minus" aria-label="Убрать комплект">−</button><button id="shop-plus" aria-label="Добавить комплект">+</button><button id="shop-next" aria-label="Следующий товар">→</button></div><div><button id="shop-buy">Купить</button><button id="shop-done">Готово</button></div></section>
-  <p id="status" role="status" aria-live="polite">Enter или щелчок по экрану — продолжить</p>
-  <details id="help"><summary>Управление и об игре</summary><div class="help-grid"><div><h2>Как играть</h2><p>Уничтожьте остальные танки. Выберите угол и мощность, затем стреляйте. После раунда очки можно потратить на оружие и защиту.</p><p>Для игры вдвоём выберите KEYBOARD для обоих игроков. Доступно до 10 игроков и семь типов компьютера.</p></div><div><h2>Клавиши оригинала</h2><p><kbd>←</kbd> <kbd>→</kbd> — ствол · <kbd>↑</kbd> <kbd>↓</kbd> — мощность ±1<br><kbd>PgUp</kbd> <kbd>PgDn</kbd> — мощность ±100<br><kbd>Space</kbd> / <kbd>Enter</kbd> — огонь · <kbd>Tab</kbd> — оружие<br><kbd>I</kbd> — разворот · <kbd>H</kbd> / <kbd>V</kbd> — наведение<br><kbd>Esc</kbd> — пауза · <kbd>F10</kbd> — «начальник идёт»</p><p>Магазин: стрелки — выбор; пробел / + / ПКМ — добавить; − / ЛКМ — убрать; Enter — купить; D / Esc — купить и выйти.</p></div></div><p class="note">Самостоятельная реконструкция на JavaScript по Tank Wars 3.2, Kenneth Morse, 1992. Формулы и ресурсы восстановлены из локального оригинала. Полное совпадение всех режимов пока не подтверждено. <a href="./accuracy.html">Что восстановлено и что ещё сверяется →</a></p></details>
-  <footer><span>KENNETH MORSE · 1992</span><span>WEB RECONSTRUCTION · v0.2</span></footer>
-</main>
-<dialog id="name-dialog"><form method="dialog"><label for="player-name">Имя игрока</label><input id="player-name" maxlength="12" autocomplete="off" required><button value="ok">Готово</button><button value="cancel" formnovalidate>Отмена</button></form></dialog>
-<dialog id="confirm-dialog"><form method="dialog"><p id="confirm-text"></p><button value="ok">Продолжить</button><button value="cancel">Отмена</button></form></dialog>
-<script type="module" src="./app.js"></script>
-</body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#141219" />
+    <meta
+      name="description"
+      data-i18n-content="description"
+      content="A native JavaScript reconstruction of Tank Wars 3.2, the classic DOS artillery game."
+    />
+    <title data-i18n="pageTitle">Tank Wars 3.2 — Native Web</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <a class="brand" href="./"
+          ><span class="pixel">▰</span> TANK WARS <span class="version">3.2</span></a
+        >
+        <span class="tag">NATIVE JAVASCRIPT · 320 × 200</span>
+        <a class="header-guide" href="./guide.html" data-i18n="guideLink">Player guide</a>
+        <button id="help-toggle" aria-label="Show controls" data-i18n-aria="helpToggle">?</button>
+      </header>
+      <section class="machine" aria-label="Tank Wars">
+        <div class="screen-wrap" id="screen-wrap">
+          <canvas
+            id="screen"
+            width="320"
+            height="200"
+            tabindex="0"
+            aria-label="Tank Wars. Enter: menu. Arrow keys: angle and power. Space: fire."
+            data-i18n-aria="canvasLabel"
+          ></canvas>
+          <div id="hit-layer" aria-label="Game screen controls" data-i18n-aria="hitLayer"></div>
+          <div id="loading" data-i18n="loading">Loading Tank Wars…</div>
+        </div>
+        <nav class="toolbar" aria-label="Game actions" data-i18n-aria="gameActions">
+          <div>
+            <button id="quick" data-i18n="quick">Quick battle</button
+            ><button id="menu" data-i18n="menu">Menu</button
+            ><button id="pause" data-i18n="pause">Pause</button>
+          </div>
+          <div>
+            <button id="save" data-i18n="save">Save</button
+            ><button id="load" data-i18n="load">Load</button
+            ><button id="sound" aria-pressed="true">Sound: on</button
+            ><button id="fullscreen" aria-label="Full screen" data-i18n-aria="fullscreen">⛶</button>
+          </div>
+        </nav>
+      </section>
+      <section
+        id="battle-controls"
+        class="battle-controls"
+        hidden
+        aria-label="Tank controls"
+        data-i18n-aria="tankControls"
+      >
+        <div class="adjust">
+          <label for="angle"
+            ><span data-i18n="angle">Angle</span> <output id="angle-value">75°</output></label
+          >
+          <div>
+            <button data-key="ArrowLeft" aria-label="Turn barrel left" data-i18n-aria="barrelLeft">
+              ◀</button
+            ><input id="angle" type="range" min="0" max="180" value="75" /><button
+              data-key="ArrowRight"
+              aria-label="Turn barrel right"
+              data-i18n-aria="barrelRight"
+            >
+              ▶
+            </button>
+          </div>
+        </div>
+        <div class="adjust">
+          <label for="power"
+            ><span data-i18n="power">Power</span> <output id="power-value">200</output></label
+          >
+          <div>
+            <button
+              data-key="PageDown"
+              aria-label="Decrease power by 100"
+              data-i18n-aria="powerDown"
+            >
+              −</button
+            ><input id="power" type="range" min="0" max="1000" value="200" /><button
+              data-key="PageUp"
+              aria-label="Increase power by 100"
+              data-i18n-aria="powerUp"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <div class="armament">
+          <label for="weapon" data-i18n="weapon">Weapon</label
+          ><select id="weapon"></select>
+        </div>
+        <button id="fire" class="fire"><span data-i18n="fire">FIRE</span> <kbd>Space</kbd></button>
+      </section>
+      <section
+        id="shop-controls"
+        class="toolbar"
+        hidden
+        aria-label="Shop controls"
+        data-i18n-aria="shopControls"
+      >
+        <div>
+          <button id="shop-prev" aria-label="Previous item" data-i18n-aria="previousItem">←</button
+          ><button id="shop-minus" aria-label="Remove one lot" data-i18n-aria="removeLot">−</button
+          ><button id="shop-plus" aria-label="Add one lot" data-i18n-aria="addLot">+</button
+          ><button id="shop-next" aria-label="Next item" data-i18n-aria="nextItem">→</button>
+        </div>
+        <div>
+          <button id="shop-buy" data-i18n="buy">Purchase</button
+          ><button id="shop-done" data-i18n="done">Done</button>
+        </div>
+      </section>
+      <p id="status" role="status" aria-live="polite" data-i18n="status.splash">
+        Press Enter or click the screen to continue.
+      </p>
+      <details id="help">
+        <summary data-i18n="helpSummary">Controls and about the game</summary>
+        <div class="help-grid">
+          <div>
+            <h2 data-i18n="howToPlay">How to play</h2>
+            <p data-i18n="helpPlay">
+              Destroy the other tanks. Choose your angle and power, then fire. Spend your earnings
+              on weapons and defenses between rounds.
+            </p>
+            <p data-i18n="helpPlayers">
+              For local multiplayer, choose KEYBOARD for each human player. Play with 2–10 tanks and
+              seven types of computer opponent.
+            </p>
+            <a href="./guide.html" data-i18n="guideLink">Player guide</a>
+          </div>
+          <div>
+            <h2 data-i18n="originalKeys">Keyboard controls</h2>
+            <ul class="key-list">
+              <li data-i18n="keysAim">← / →: barrel · ↑ / ↓: power ±1</li>
+              <li data-i18n="keysPower">PgUp / PgDn: power ±100</li>
+              <li data-i18n="keysFire">Space / Enter: fire · Tab: next weapon</li>
+              <li data-i18n="keysGuidance">I: reverse barrel · H / V: guidance</li>
+              <li data-i18n="keysPause">Esc: pause · F10: boss screen</li>
+            </ul>
+            <p data-i18n="helpShop">
+              Shop: arrows select an item; Space / + / right-click adds a lot; − / left-click
+              removes it. Enter purchases; D / Esc purchases and leaves.
+            </p>
+          </div>
+        </div>
+        <p class="note">
+          <span data-i18n="aboutShort"
+            >An independent reconstruction of Tank Wars 3.2 by Kenneth Morse (1992). The original
+            game screen stays in English. Full parity with every DOS behavior has not yet been
+            verified.</span
+          >
+          <a href="./accuracy.html" data-i18n="accuracyLink">Fidelity and known differences →</a>
+        </p>
+      </details>
+      <footer>
+        <span>KENNETH MORSE · 1992</span>
+        <nav class="footer-links">
+          <a href="./guide.html" data-i18n="guideLink">Player guide</a
+          ><a href="https://github.com/Sphinxx777/tank-wars-web" data-i18n="githubLink"
+            >Source on GitHub</a
+          >
+        </nav>
+        <div class="language-switch" role="group" aria-label="Language" data-i18n-aria="language">
+          <button type="button" data-language="en" lang="en" aria-pressed="true">En</button
+          ><span aria-hidden="true">/</span
+          ><button type="button" data-language="ru" lang="ru" aria-pressed="false">Ru</button>
+        </div>
+      </footer>
+    </main>
+    <dialog id="name-dialog">
+      <form method="dialog">
+        <label for="player-name" data-i18n="playerName">Player name</label
+        ><input id="player-name" maxlength="12" autocomplete="off" required /><button
+          value="ok"
+          data-i18n="done"
+        >
+          Done</button
+        ><button value="cancel" formnovalidate data-i18n="cancel">Cancel</button>
+      </form>
+    </dialog>
+    <dialog id="confirm-dialog">
+      <form method="dialog">
+        <p id="confirm-text"></p>
+        <button value="ok" data-i18n="continue">Continue</button
+        ><button value="cancel" data-i18n="cancel">Cancel</button>
+      </form>
+    </dialog>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

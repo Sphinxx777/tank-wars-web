@@ -6,3 +6,12 @@ node_modules/
 *.tar.gz
 
 research/capture/
+
+# Local credentials, tooling caches and research environments.
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+coverage/

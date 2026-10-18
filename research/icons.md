@@ -10,7 +10,7 @@ All 20 toolbar masks were extracted from the original executable's procedural dr
 Run from the project root:
 
 ```sh
-python3 tools/extract-icons.py /Users/sphinxx/dos_games/tankwars
+python3 tools/extract-icons.py /path/to/tankwars
 python3 tools/extract-icons.py --verify-screenshot research/screenshots/original-battle.png
 ```
 

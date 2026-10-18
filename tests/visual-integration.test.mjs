@@ -1,9 +1,85 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createHash} from 'node:crypto';
-import {renderHUD} from '../tools/verify-hud.mjs';import {Game,tankPixel} from '../dist/engine.js';import {deathEffect} from '../dist/death.js';import {tankColor,PLAYER_COLORS} from '../dist/palette.js';
-const weapons=JSON.parse(fs.readFileSync(new URL('../dist/assets/weapons.json',import.meta.url))).weapons;
-function game(sound=false){const g=new Game(weapons,{sound,background:0,wind:0,crumble:0,tanksFall:false},42);g.start([{name:'A'},{name:'B'}]);g.falling=null;g.phase='flight';g.events=[];return g;}
-test('battle HUD equals all 8960 pixels in the DOS reference',()=>assert.equal(createHash('sha256').update(renderHUD()).digest('hex'),'4a39337c6067a952207016065798c69c66b988035a4a94cadbad9dbd221053a1'));
-test('tank palette uses DOS RGB divisors and MEN intensity',()=>{assert.deepEqual(PLAYER_COLORS.slice(0,7),['#ff0000','#00ff00','#0000ff','#ffff00','#00ffff','#ff00ff','#ffffff']);assert.equal(tankColor(0,50),'#7d0000');assert.equal(tankColor(0,0),'#000000');});
-test('ordinary explosion keeps terrain until all three palette passes finish, with sound on and off',()=>{for(const sound of [false,true]){const g=game(sound);g.terrain.set(160,160,1);g.explode(160,160,10,0);const e=g.explosions[0];assert.ok(e.duration>=.264);g.update(e.duration-.001);assert.equal(g.terrain.solid(160,160),true);g.update(.002);assert.equal(g.terrain.solid(160,160),false);assert.equal(g.explosions.length,0);}});
-test('death fade explicit delays survive sound off and different frame rates',()=>{for(const hz of [30,60,144]){const g=game(),dead={...g.players[1],alive:false,men:0,owner:0};g.players[1].alive=false;g.deathAnimation=deathEffect(g,dead,tankPixel,5);let t=0,bright=false;while(g.deathAnimation&&t<3){g.update(1/hz);t+=1/hz;if(g.deathVisual?.level>80)bright=true;}assert.equal(bright,true);assert.ok(t>=1.6&&t<1.7,`${hz}: ${t}`);}});
-test('explosive death pulses three times then produces sequential weapon-size explosions',()=>{const g=game();g.rng.int=()=>0;const dead={...g.players[1],owner:0},it=deathEffect(g,dead,tankPixel,6);let duration=0,levels=[];for(let i=0;i<403;i++){duration+=it.next().value;levels.push(g.deathVisual.level);}assert.ok(Math.abs(duration-3.224)<1e-8);assert.equal(levels.filter(v=>v===100).length,4);assert.equal(g.explosions.length,0);it.next();assert.equal(g.explosions[0].max,weapons[1].radius);});
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { createHash } from 'node:crypto';
+import { renderHUD } from '../tools/verify-hud.mjs';
+import { Game, tankPixel } from '../dist/engine.js';
+import { deathEffect } from '../dist/death.js';
+import { tankColor, PLAYER_COLORS } from '../dist/palette.js';
+const weapons = JSON.parse(
+  fs.readFileSync(new URL('../dist/assets/weapons.json', import.meta.url)),
+).weapons;
+function game(sound = false) {
+  const g = new Game(weapons, { sound, background: 0, wind: 0, crumble: 0, tanksFall: false }, 42);
+  g.start([{ name: 'A' }, { name: 'B' }]);
+  g.falling = null;
+  g.phase = 'flight';
+  g.events = [];
+  return g;
+}
+test('battle HUD equals all 8960 pixels in the DOS reference', () =>
+  assert.equal(
+    createHash('sha256').update(renderHUD()).digest('hex'),
+    '4a39337c6067a952207016065798c69c66b988035a4a94cadbad9dbd221053a1',
+  ));
+test('tank palette uses DOS RGB divisors and MEN intensity', () => {
+  assert.deepEqual(PLAYER_COLORS.slice(0, 7), [
+    '#ff0000',
+    '#00ff00',
+    '#0000ff',
+    '#ffff00',
+    '#00ffff',
+    '#ff00ff',
+    '#ffffff',
+  ]);
+  assert.equal(tankColor(0, 50), '#7d0000');
+  assert.equal(tankColor(0, 0), '#000000');
+});
+test('ordinary explosion keeps terrain until all three palette passes finish, with sound on and off', () => {
+  for (const sound of [false, true]) {
+    const g = game(sound);
+    g.terrain.set(160, 160, 1);
+    g.explode(160, 160, 10, 0);
+    const e = g.explosions[0];
+    assert.ok(e.duration >= 0.264);
+    g.update(e.duration - 0.001);
+    assert.equal(g.terrain.solid(160, 160), true);
+    g.update(0.002);
+    assert.equal(g.terrain.solid(160, 160), false);
+    assert.equal(g.explosions.length, 0);
+  }
+});
+test('death fade explicit delays survive sound off and different frame rates', () => {
+  for (const hz of [30, 60, 144]) {
+    const g = game(),
+      dead = { ...g.players[1], alive: false, men: 0, owner: 0 };
+    g.players[1].alive = false;
+    g.deathAnimation = deathEffect(g, dead, tankPixel, 5);
+    let t = 0,
+      bright = false;
+    while (g.deathAnimation && t < 3) {
+      g.update(1 / hz);
+      t += 1 / hz;
+      if (g.deathVisual?.level > 80) bright = true;
+    }
+    assert.equal(bright, true);
+    assert.ok(t >= 1.6 && t < 1.7, `${hz}: ${t}`);
+  }
+});
+test('explosive death pulses three times then produces sequential weapon-size explosions', () => {
+  const g = game();
+  g.rng.int = () => 0;
+  const dead = { ...g.players[1], owner: 0 },
+    it = deathEffect(g, dead, tankPixel, 6);
+  let duration = 0,
+    levels = [];
+  for (let i = 0; i < 403; i++) {
+    duration += it.next().value;
+    levels.push(g.deathVisual.level);
+  }
+  assert.ok(Math.abs(duration - 3.224) < 1e-8);
+  assert.equal(levels.filter((v) => v === 100).length, 4);
+  assert.equal(g.explosions.length, 0);
+  it.next();
+  assert.equal(g.explosions[0].max, weapons[1].radius);
+});

@@ -1,0 +1,152 @@
+.documentation {
+  max-width: 1060px;
+}
+.documentation header {
+  justify-content: space-between;
+}
+.doc-heading {
+  margin: 44px 0 28px;
+  max-width: 760px;
+}
+.eyebrow {
+  color: #b6d482;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+.documentation h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  color: #f4eff7;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+.doc-lead {
+  font-size: 15px;
+  color: #b6acbf;
+  line-height: 1.8;
+}
+.doc-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  border-block: 1px solid #413447;
+  padding: 18px 0;
+  margin-bottom: 32px;
+}
+.doc-section {
+  margin: 40px 0;
+  scroll-margin-top: 20px;
+}
+.doc-section > h2 {
+  font-size: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #413447;
+}
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.doc-card {
+  border: 1px solid #433848;
+  border-radius: 8px;
+  background: #211c27;
+  padding: 22px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.doc-card h3 {
+  margin: 0 0 10px;
+  color: #e9e1ef;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.doc-card p {
+  margin: 10px 0;
+}
+.doc-card .role {
+  color: #b6d482;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.doc-card ul {
+  padding-left: 20px;
+  color: #ada2b6;
+}
+.weapon-icon {
+  width: 45px;
+  height: 30px;
+  image-rendering: pixelated;
+  float: right;
+  margin: 0 0 12px 16px;
+}
+.item-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-top: 12px;
+  margin-top: 16px;
+  border-top: 1px solid #433848;
+}
+.item-stats div {
+  flex: 1 1 90px;
+}
+.item-stats dt {
+  font-size: 10px;
+  color: #a394ac;
+}
+.item-stats dd {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #e3edcc;
+}
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  line-height: 1.6;
+}
+.doc-table td,
+.doc-table th {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #413447;
+}
+.doc-table th {
+  width: 32%;
+  color: #d1e5ae;
+  font-weight: normal;
+}
+#accuracy-content {
+  max-width: 800px;
+  margin: 45px auto;
+  line-height: 1.85;
+  font-size: 14px;
+}
+#accuracy-content h2 {
+  margin-top: 36px;
+  font-size: 21px;
+}
+#accuracy-content code {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+.doc-note {
+  color: #aa9cb4;
+  line-height: 1.8;
+}
+@media (max-width: 680px) {
+  .doc-grid {
+    grid-template-columns: 1fr;
+  }
+  .doc-heading {
+    margin-top: 26px;
+  }
+  .doc-card {
+    padding: 18px;
+  }
+  .documentation h1 {
+    letter-spacing: 0;
+  }
+  .documentation header .brand {
+    font-size: 14px;
+  }
+}

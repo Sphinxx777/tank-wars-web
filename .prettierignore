@@ -1,0 +1,7 @@
+# Generated/reference data retain their extractor's representation.
+dist/assets/
+research/
+tests/fixtures/
+# Local-only originals, output and dependencies.
+node_modules/
+*.tar.gz

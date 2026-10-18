@@ -1,1 +1,30 @@
-{"name":"tank-wars-native","version":"0.2.0","private":true,"type":"module","scripts":{"start":"python3 -m http.server 8786 --bind 127.0.0.1 --directory dist","test":"node --test tests/*.test.mjs"}}
+{
+  "name": "tank-wars-native",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "format": "prettier --write .",
+    "check:format": "prettier --check .",
+    "check:syntax": "node tools/check-syntax.mjs",
+    "check": "npm run check:syntax && npm test && npm run check:format"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10"
+  },
+  "description": "A native JavaScript reconstruction of Tank Wars 3.2 (1992).",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sphinxx777/tank-wars-web.git"
+  },
+  "homepage": "https://tank-wars-native.readyangel128.chatgpt.site/",
+  "bugs": {
+    "url": "https://github.com/Sphinxx777/tank-wars-web/issues"
+  }
+}
