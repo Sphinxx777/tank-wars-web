@@ -152,7 +152,7 @@ test('CRI D visits diagonally connected dirt; ND does not', () => {
     g.terrain.set(100, 101, 1);
     g.terrain.set(101, 102, 1);
     g.phase = 'flight';
-    g.impact({ x: 100, y: 100, weapon: id, owner: g.active });
+    g.impact({ x: 100, y: 100, weapon: id, owner: g.active, collisionColor: 2 });
     for (let i = 0; i < 10 && g.reaction; i++) g.update(1 / 60);
     assert.equal(g.terrain.solid(101, 102), id === 9);
   }
@@ -411,7 +411,7 @@ test('initial placement descends from y32 without damage, RNG draws or an extra 
 });
 
 // The manual has a factor-of-ten typo; the executable uses 10 * MEN.
-test('human power follows original 1000 ceiling and shrinks with casualties', () => {
+test('power controls apply the MEN limit; damage does not reset the existing setting', () => {
   const g = game({ sound: false }),
     p = g.current;
   g.setPower(10000);
@@ -420,13 +420,13 @@ test('human power follows original 1000 ceiling and shrinks with casualties', ()
   assert.equal(p.power, 1000);
   g.hurt(p, 83, p.id, 'fall');
   assert.equal(p.men, 17);
-  assert.equal(p.power, 170);
+  assert.equal(p.power, 1000);
   g.setPower(1000);
   assert.equal(p.power, 170);
   g.setPower(-1);
   assert.equal(p.power, 0);
 });
-test('old saves with excessive power are clamped to the original health limit', () => {
+test('saves cap invalid power at 1000 and preserve power selected before damage', () => {
   const g = game();
   g.players[0].power = 10000;
   g.players[1].men = 17;
@@ -434,6 +434,6 @@ test('old saves with excessive power are clamped to the original health limit', 
   const restored = Game.restore(g.serialize(), weapons);
   assert.deepEqual(
     restored.players.map((p) => p.power),
-    [1000, 170],
+    [1000, 900],
   );
 });

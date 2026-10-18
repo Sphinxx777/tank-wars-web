@@ -62,7 +62,7 @@ test('high-power dirt sample preserves an earlier tank hit in the five-pixel cro
   g.terrain.set(106, 100, 1);
   const s = shot({ x: 105, y: 100 });
   assert.equal(g.stepShot(s, 0.1), 'hit');
-  assert.equal(s.hitTank, 1);
+  assert.equal(s.collisionColor, 2);
 });
 test('accelerating shots impact at speed over 30 and dirt weapons bounce blue', () => {
   const g = scene();

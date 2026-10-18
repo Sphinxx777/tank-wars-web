@@ -666,7 +666,7 @@ function updateControls() {
   $('angle').value = p.angle;
   $('angle-value').textContent =
     Math.min(p.angle, 180 - p.angle) + '° ' + (p.angle > 90 ? '←' : '→');
-  $('power').max = maxPower(p);
+  $('power').max = Math.max(p.power, maxPower(p));
   $('power').value = p.power;
   $('power-value').textContent = p.power;
   const signature = p.id + ':' + p.ammo.join(',') + ':' + p.weapon;

@@ -1,3 +1,10 @@
+import {
+  SHOT_SUBDIVISIONS,
+  advanceShotCounter,
+  ordinaryCollision,
+  ordinaryOpenWall,
+  ordinaryFlightEnd,
+} from './projectile.js';
 import { dirtEffect } from './dirt.js';
 import { mirvEffect } from './mirv.js';
 import { updateAIAim } from './ai-controls.js';
@@ -98,26 +105,28 @@ export function integrate(p, wind, dt = 0.1) {
   return p;
 }
 export function wallBounce(p, wall) {
+  const x = p.pixelX ?? Math.trunc(p.x),
+    y = p.pixelY ?? Math.trunc(p.y);
   if (wall === 4) {
-    if (Math.trunc(p.x) <= 10) p.x += 300;
-    else if (Math.trunc(p.x) >= 310) p.x -= 300;
+    if (x <= 10) p.x += 300;
+    else if (x >= 310) p.x -= 300;
     return;
   }
   if (wall < 1 || wall > 3) return;
   const k = wall === 1 ? 0.7071059999998397 : wall === 3 ? 1.4142100000008213 : 1;
-  if (Math.trunc(p.x) <= 10 && p.vx < 0) {
+  if (x <= 10 && p.vx < 0) {
     p.vx = -p.vx * k;
     p.vy *= k;
   }
-  if (Math.trunc(p.x) >= 310 && p.vx > 0) {
+  if (x >= 310 && p.vx > 0) {
     p.vx = -p.vx * k;
     p.vy *= k;
   }
-  if (Math.trunc(p.y) <= 30 && p.vy < 0) {
+  if (y <= 30 && p.vy < 0) {
     p.vy = -p.vy * k;
     p.vx *= k;
   }
-  if (Math.trunc(p.y) >= 188 && p.vy > 0) {
+  if (y >= 188 && p.vy > 0) {
     p.vy = -p.vy * k;
     p.vx *= k;
     if (Math.abs(p.vy) < 0.1) p.stopped = true;
@@ -489,6 +498,10 @@ export class Game {
       owner: p.id,
       power: p.power,
       threshold: 3 * p.men + 643,
+      subdivisions: SHOT_SUBDIVISIONS,
+      substep: this.players.length,
+      groups: 0,
+      collisionColor: 0,
       trail: [],
       target: p.target,
       guidance: p.armed,
@@ -542,7 +555,6 @@ export class Game {
       p.defense[2]--;
     const dealt = Math.min(p.men, Math.trunc(damage));
     p.men = Math.max(0, p.men - dealt);
-    p.power = Math.min(p.power, maxPower(p));
     const source = this.players[owner],
       enemy = source && source.team !== p.team;
     if (enemy && dealt && kind === 'blast') {
@@ -599,9 +611,8 @@ export class Game {
   }
   impact(s) {
     const { weapon: id, x, y, owner } = s;
-    const direct = this.players.find(
-      (p) => p.alive && (p.id === s.hitTank || tankPixel(p, Math.trunc(x), Math.trunc(y))),
-    );
+    const direct =
+      s.collisionColor >= 20 && s.collisionColor <= 29 ? this.players[s.collisionColor - 20] : null;
     if (id === 0) {
       if (direct) this.hurt(direct, 5, owner);
       return;
@@ -627,6 +638,7 @@ export class Game {
         this.audio(criDirectSound());
         return;
       }
+      if (s.collisionColor !== 2) return;
       const count = { 6: 4, 8: 8, 9: 20, 10: 20 }[id],
         sx = Math.trunc(x);
       let sy = Math.trunc(y);
@@ -648,7 +660,7 @@ export class Game {
       return;
     }
     this.explode(x, y, this.weapons[id]?.radius ?? 10, owner, 'blast', s.mirvChild);
-    if (direct) this.hurt(direct, 200, owner);
+    if (direct) this.explosions.at(-1).directTarget = direct.id;
   }
   laser(shot, energy) {
     this.effectAnimation = laserEffect(this, shot, energy, tankPixel, tankBodyPixel);
@@ -665,7 +677,7 @@ export class Game {
     }
   }
   stepShot(s, dt, preview = false) {
-    s.substep = ((s.substep ?? 0) + 1) % 10;
+    advanceShotCounter(s, this.players.length);
     integrate(s, this.wind, dt);
     const x = Math.trunc(s.x),
       y = Math.trunc(s.y);
@@ -673,17 +685,6 @@ export class Game {
     s.pixelX = x;
     s.pixelY = y;
     if (!preview && s.previousPixel) this.restoreProjectile(s, ...s.previousPixel);
-    if (s.age > 1800) return 'gone';
-    if (this.wall === 0 || this.wall === 4) {
-      if (s.y >= 190) return 'hit';
-      if (s.x < -1500 || s.x > 1800 || s.y < -5000) return 'gone';
-      if (
-        this.wall === 0 &&
-        ((s.x < LEFT && s.vx <= 0 && this.wind <= 0) ||
-          (s.x > RIGHT && s.vx >= 0 && this.wind >= 0))
-      )
-        return 'gone';
-    }
     if (!preview)
       for (const t of this.players) {
         const dx = t.x - Math.trunc(s.x),
@@ -723,38 +724,14 @@ export class Game {
       }
     }
     let collision = false;
-    if (x > 11 && x < 309 && y > 33 && y < 187) {
-      for (const [dx, dy] of [
-        [-1, 0],
-        [0, -1],
-        [0, 0],
-        [0, 1],
-        [1, 0],
-      ]) {
-        const tank = this.players.find((p) => p.alive && tankPixel(p, x + dx, y + dy));
-        if (tank) {
-          if (s.weapon >= 12 && s.weapon <= 16) {
-            collision = false;
-            s.guidance = 0;
-            s.vy *= -1.2;
-            s.color = '#0000ff';
-          } else {
-            s.hitTank = tank.id;
-            collision = true;
-          }
-        } else if (this.terrain.solid(x + dx, y + dy)) {
-          const shooter = this.players[s.owner],
-            threshold = s.threshold ?? 3 * (shooter?.men ?? 100) + 643,
-            power = s.power ?? shooter?.power ?? 0;
-          if (power === threshold) collision = false;
-          else if (power < threshold || s.substep === 0) collision = true;
-        }
-      }
+    if (x > 11 && x < 309 && y > 33 && y < 187) collision = ordinaryCollision(this, s, tankPixel);
+    else {
+      wallBounce(s, this.wall);
+      if (this.wall === 0) ordinaryOpenWall(s, this.wind);
     }
-    if (!(x > 11 && x < 309 && y > 33 && y < 187)) wallBounce(s, this.wall);
-    if (collision || s.stopped || Math.abs(s.vx) > 30 || Math.abs(s.vy) > 30) return 'hit';
-    return null;
+    return ordinaryFlightEnd(s, this.wall, collision);
   }
+
   update(dt) {
     this.backgroundElapsed = (this.backgroundElapsed || 0) + dt;
     if (this.crumbling) {
@@ -841,7 +818,7 @@ export class Game {
           shot.pixelY ?? Math.trunc(shot.y),
         ];
         shot.previousPixel = previousPixel;
-        const event = this.stepShot(shot, 0.1);
+        const event = this.stepShot(shot, 1 / (shot.subdivisions ?? SHOT_SUBDIVISIONS));
         delete shot.previousPixel;
         if (event) {
           if (!shot.mirvChild)
@@ -852,7 +829,7 @@ export class Game {
               angle: this.players[shot.owner].angle,
             });
           if (this.options.flySound) this.audio(new SoundSequence().stop());
-          if (shot.y < -5000) {
+          if (shot.pixelY < -5000) {
             const tones = new SoundSequence();
             for (const [f, ms] of [
               [1525, 15],
@@ -869,7 +846,7 @@ export class Game {
     }
     if (this.shots.length && this.options.flySound) {
       const tones = new SoundSequence();
-      tones.tone(600 - 2 * Math.trunc(this.shots.at(-1).y));
+      tones.tone(600 - 2 * this.shots.at(-1).pixelY);
       this.audio(tones);
     }
   }
@@ -967,6 +944,8 @@ export class Game {
               );
           }
         }
+        if (explosion.directTarget != null)
+          this.hurt(this.players[explosion.directTarget], 200, explosion.owner);
       }
       if (explosion.age < explosion.duration) this.explosions.push(explosion);
     }
@@ -1464,7 +1443,7 @@ export class Game {
     else game.backgroundModel = createBattleBackground(game.background, new Random(savedState.rng));
     for (const player of game.players) {
       player.color = COLORS[player.id];
-      player.power = clamp(player.power, 0, maxPower(player));
+      player.power = clamp(player.power, 0, 1000);
     }
     game.terrain.data = Uint8Array.from(savedState.terrain);
     if (Array.isArray(savedState.trailPixels) && savedState.trailPixels.length === W * H)

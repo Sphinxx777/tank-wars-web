@@ -34,7 +34,7 @@ export const guideContent = {
       {
         title: 'Watch MEN and power',
         description:
-          'MEN is your tank’s remaining strength. A tank starts each round with 100 MEN, and its maximum power is ten times its remaining MEN: 1000 at full strength, 500 at 50 MEN. Damage can make a previously reachable target harder to hit.',
+          'MEN is your tank’s remaining strength. A tank starts each round with 100 MEN, and adjusting power applies a limit of ten times its remaining MEN: 1000 at full strength, 500 at 50 MEN. As in DOS, damage alone leaves the previous power setting intact until you adjust it.',
       },
       {
         title: 'Earn points and buy supplies',
@@ -427,7 +427,7 @@ export const guideContent = {
       {
         title: 'Следите за MEN и мощностью',
         description:
-          'MEN — оставшаяся сила танка. Каждый раунд начинается со 100 MEN, а предел мощности равен десятикратному значению MEN: 1000 при полной силе, 500 при 50 MEN. После повреждений добраться до прежней цели может стать труднее.',
+          'MEN — оставшаяся сила танка. Каждый раунд начинается со 100 MEN, а при регулировке мощности применяется предел 10 × MEN: 1000 при полной силе, 500 при 50 MEN. Как в DOS, сам урон не сбрасывает ранее выбранную мощность — новый предел применяется при её регулировке.',
       },
       {
         title: 'Зарабатывайте и покупайте припасы',
