@@ -1,3 +1,4 @@
+import {GAME_OPTION_KEYS} from './menu-render.js';
 import {shopItems,shopStock,visibleShopItems,cartCost,reserve} from './shop.js';
 import {PCSpeaker} from './sound.js';
 import {Game,DEFAULTS,AI_NAMES,clamp,maxPower} from './engine.js';
@@ -31,9 +32,10 @@ function action(actionId,dir=1){const [name,arg]=actionId.split(':'),n=Number(ar
   case 'playersCount':app.options.players=clamp(app.options.players+dir,2,10);break;
   case 'roundsCount':app.options.rounds=clamp(app.options.rounds+dir,1,99);break;
   case 'option':option(arg,dir);break;
-  case 'human':app.roster[n].ai=-1;app.editPlayer=n;if(AI_NAMES.includes(app.roster[n].name))app.roster[n].name='Player '+(n+1);break;
+  case 'mouse':case 'human':app.roster[n].control=name==='mouse'?'mouse':'keyboard';app.roster[n].ai=-1;app.editPlayer=n;if(AI_NAMES.includes(app.roster[n].name))app.roster[n].name='Player '+(n+1);break;
   case 'name':app.editPlayer=n;$('player-name').value=app.roster[n].name;$('name-dialog').showModal();$('player-name').select();break;
-  case 'ai':app.editPlayer=n;screen('ai');break;
+  case 'ai':app.editPlayer=n;app.aiSelection=undefined;screen('ai');break;
+  case 'aiRandom':action('setAI:'+Math.floor(Math.random()*AI_NAMES.length));break;
   case 'setAI':app.roster[app.editPlayer].ai=n;app.roster[app.editPlayer].name=AI_NAMES[n];screen('roster');break;
   case 'team':app.roster[n].team=(app.roster[n].team+1)%app.options.players;break;
   case 'weapon':if(!canAim())break;if(n<18&&app.game.current.ammo[n]!==0)app.game.current.weapon=n;else if(n>=18)app.game.armGuidance(n-18);break;
@@ -70,6 +72,7 @@ canvas.addEventListener('pointerdown',e=>{e.preventDefault();canvas.focus({preve
 canvas.addEventListener('pointermove',e=>{const {x,y}=canvasPoint(e);const hit=renderer.hits.find(h=>x>=h.x&&x<h.x+h.w&&y>=h.y&&y<h.y+h.h);canvas.style.cursor=hit?'pointer':'default';canvas.title=hit?.label||'';});
 function key(k,shift=false,ctrl=false){
   if(k==='F10'){if(app.screen==='boss')screen(previousScreen);else{previousScreen=app.screen;screen('boss');}return;}
+  if(app.screen==='stats'){action('resume');return;}
   if(app.screen==='boss'){if(k===' ')screen(previousScreen);return;}
   if(ctrl&&k.toLowerCase()==='s'){app.options.sound=!app.options.sound;updateSound();return;}
   if(ctrl&&k.toLowerCase()==='p'){pause();return;}
@@ -77,23 +80,25 @@ function key(k,shift=false,ctrl=false){
   if(k==='Escape'){if(['pause','stats','mirv'].includes(app.screen))action('resume');else if(app.screen==='battle')pause();else if(app.screen==='ai')screen('roster');else if(app.screen==='shop')action('shopDone');else if(app.screen!=='score'&&app.screen!=='shop')screen('menu');return;}
   if(app.screen==='splash'){screen('menu');return;}
   if(app.screen==='menu'){
+    if(k.toLowerCase()==='l'){load();return;}
     if(k==='ArrowDown')app.selection=(app.selection+1)%5;if(k==='ArrowUp')app.selection=(app.selection+4)%5;
     if(['Enter','ArrowRight','ArrowLeft',' '].includes(k)){action(['sound','options','playersCount','roundsCount','roster'][app.selection],k==='ArrowLeft'?-1:1);}return;
   }
   if(['sound','options'].includes(app.screen)){
-    const keys=app.screen==='sound'?['sound','flySound']:['crumble','walls','visible','trail','background','tanksFall','computerBuy','wind','teams','paletteSpeed'];
+    const keys=app.screen==='sound'?['sound','flySound']:GAME_OPTION_KEYS;
     if(k==='ArrowDown')app.optionIndex=((app.optionIndex||0)+1)%keys.length;
     if(k==='ArrowUp')app.optionIndex=((app.optionIndex||0)+keys.length-1)%keys.length;
     if(k==='ArrowLeft'||k==='ArrowRight')option(keys[app.optionIndex||0],k==='ArrowLeft'?-1:1);
     if(k==='Enter')screen('menu');return;
   }
+  if(app.screen==='ai'){const ids=[-1,0,1,2,4,3,5,6];app.aiSelection??=Math.max(0,ids.indexOf(app.roster[app.editPlayer].ai));if(k==='ArrowDown')app.aiSelection=(app.aiSelection+1)%8;if(k==='ArrowUp')app.aiSelection=(app.aiSelection+7)%8;if(k==='Enter'||k===' ')action(app.aiSelection===0?'aiRandom':'setAI:'+ids[app.aiSelection]);return;}
   if(app.screen==='roster'&&(k==='Enter'||k===' ')){newGame();return;}
   if(app.screen==='mirv'&&(k==='Enter'||k===' ')){action('mirvFire');return;}
   if(app.screen==='score'&&(k==='Enter'||k===' ')){beginShop();return;}
   if(app.screen==='shop'){const visible=app.shopVisible(),move={ArrowUp:-1,ArrowDown:1,ArrowLeft:-9,ArrowRight:9}[k];if(move){const next=(app.shopSelection||0)+move;if(next>=0&&next<visible.length)app.shopSelection=next;}const i=visible[app.shopSelection||0];if(i!==undefined){if([' ','+','='].includes(k))action('cartPlus:'+i);if(k==='-')action('cartMinus:'+i);}if(k.toLowerCase()==='d')action('shopDone');if(k.toLowerCase()==='p'||k==='Enter')purchase();return;}
   if(app.screen!=='battle')return;
   if(/^[0-9]$/.test(k)){const id=(Number(k)+9)%10;if(app.game.players[id])action('tank:'+id);return;}
-  if(ctrl&&k.toLowerCase()==='r'){app.game.background=1+app.game.rng.int(9);return;}
+  if(ctrl&&k.toLowerCase()==='r'){app.game.setBackground(9);return;}
   if(!canAim())return;
   const g=app.game,p=g.current;
   if(k==='ArrowLeft')g.setAngle(p.angle+1);if(k==='ArrowRight')g.setAngle(p.angle-1);

@@ -1,3 +1,6 @@
+import {createBattleBackground} from './background.js';
+import {blastTimeline,blastRaster} from './effects-render.js';
+import {PLAYER_COLORS} from './palette.js';
 import {SoundSequence,CPU_WRITE_MS,launchSound,controlSound,blastSound,sonicSound,laserCharge,criDirectSound,lightningSound} from './sound.js';
 import {deathEffect} from './death.js';
 import {sinDeg,cosDeg} from './trig.js';
@@ -5,7 +8,7 @@ import {sinDeg,cosDeg} from './trig.js';
 export const W = 320, H = 200, TOP = 31, LEFT = 11, RIGHT = 309, BOTTOM = 189;
 export const AI_NAMES = ['Mr. Stupid','Lobber','Rifleman','Windless Wit','Lob & Shoot','Twanger','Wind Master'];
 export const WALLS = ['Non Existent','Sticky','Elastic','Accelerating','Warping','Random'];
-export const COLORS = ['#ff0000','#00ff00','#5555ff','#ffff00','#ff00ff','#00ffff','#ffffff','#ffaa00','#aa55ff','#aaaaaa'];
+export const COLORS = PLAYER_COLORS;
 export const DEFAULTS = {players:2,rounds:10,crumble:50,walls:5,wind:2,background:9,tanksFall:true,computerBuy:true,trail:true,visible:true,sound:true,flySound:false,teams:false,paletteSpeed:3,mirvSpread:0,mirvDetonation:0};
 // BOMB.CFG fall delay: 5 ms per pixel (OVR 0x1ac9e).
 export const FALL_STEP_SECONDS = .005;
@@ -35,8 +38,8 @@ const BODY=['000111000','011111110','011111110','111010111','111111111'];
 export function tankPixel(p,x,y){
   const dx=x-p.x+4,dy=y-p.y+4;if(dy>=0&&dy<5&&dx>=0&&dx<9&&BODY[dy][dx]==='1')return true;
   const a=p.angle*Math.PI/180,x1=p.x+Math.trunc(8*Math.cos(a)),y1=p.y-Math.trunc(8*Math.sin(a));
-  let xx=p.x,yy=p.y,ex=Math.abs(x1-xx),sx=xx<x1?1:-1,ey=-Math.abs(y1-yy),sy=yy<y1?1:-1,err=ex+ey;
-  for(let i=0;i<12;i++){if(xx===x&&yy===y)return true;if(xx===x1&&yy===y1)break;const e=2*err;if(e>=ey){err+=ey;xx+=sx;}if(e<=ex){err+=ex;yy+=sy;}}
+  let xx=p.x,yy=p.y;const dx1=Math.abs(x1-xx),dy1=Math.abs(y1-yy),horizontal=dx1>dy1,major=horizontal?dx1:dy1,minor=horizontal?dy1:dx1,sx=x1>xx?1:-1,sy=y1>yy?1:-1;let error=major>>1;
+  for(let n=0;n<=major;n++){if(xx===x&&yy===y)return true;if(horizontal)xx+=sx;else yy+=sy;error+=minor;if(error>=major){if(horizontal)yy+=sy;else xx+=sx;error-=major;}}
   return false;
 }
 export class Terrain {
@@ -71,22 +74,19 @@ export class Game {
   emit(type,data={}){this.events.push({type,...data});}
   audio(sequence,block=false){if(!this.options.sound)return;this.emit('speaker',{sequence});this.audioWait=(this.audioWait||0)+sequence.ms/1000;if(block)this.blockSimulation=(this.blockSimulation||0)+sequence.ms/1000;}
   start(roster){
-    this.players=roster.map((p,i)=>({id:i,name:p.name||`Player ${i+1}`,ai:p.ai??-1,team:this.options.teams?(p.team??i%2):i,color:COLORS[i],men:100,power:300,angle:45,weapon:1,ammo:Array(18).fill(0),guidance:[0,0],defense:[0,0,0],score:0,money:0,wins:0,kills:0,shots:0,hits:0,alive:true,x:0,y:0,lob:[],...p}));
+    this.players=roster.map((p,i)=>({id:i,name:p.name||`Player ${i+1}`,ai:p.ai??-1,team:this.options.teams?(p.team??i%2):i,color:COLORS[i],men:100,power:300,angle:45,weapon:1,ammo:Array(18).fill(0),guidance:[0,0],defense:[0,0,0],score:0,money:0,wins:0,kills:0,deaths:0,shots:0,hits:0,alive:true,x:0,y:0,lob:[],...p}));
     for(const p of this.players){p.ammo[0]=100;p.ammo[1]=3*this.options.rounds;p.ammo[11]=Math.min(10*this.options.rounds,999);}
     this.round=0;this.nextRound();
   }
   nextRound(){
-    this.round++;this.turns=0;this.falling=null;this.terrainResolved=false;this.audioWait=0;this.blockSimulation=0;this.pendingLaser=null;this.deathQueue=[];this.deathAnimation=null;this.deathVisual=null;this.shots=[];this.explosions=[];this.trails=[];this.terrain.generate(this.rng,this.players.length);
+    this.round++;this.turns=0;this.falling=null;this.terrainResolved=false;this.audioWait=0;this.blockSimulation=0;this.pendingLaser=null;this.deathQueue=[];this.deathAnimation=null;this.deathVisual=null;this.dyingTank=null;this.deathWait=0;this.shots=[];this.explosions=[];this.trails=[];this.terrain.generate(this.rng,this.players.length);
     this.wall=this.options.walls===5?this.rng.int(5):this.options.walls;
     const level=this.options.wind===5?this.rng.int(5):this.options.wind;
     const range=[0,20,100,300,4000][level];
     do{this.wind=range/2-this.rng.int(range);}while(Math.abs(this.wind)<range/10);
     for(const chance of [.1,.1,.05,.05])if(this.rng.next()<chance)this.wind=(this.wind*4<<16)>>16;
     this.wind=clamp(this.wind,-30000,30000);
-    this.background=this.options.background===9?this.rng.int(9):this.options.background;this.groundColor=this.rng.int(5);
-    this.stars=[];this.palette=[];
-    if(this.background===1){for(let i=0;i<20;i++){const v=5*(i%10);this.palette.push([v,v,i<10?v:0].map(n=>Math.round(n*255/63)));}const n=250+this.rng.int(500);for(let i=0;i<n;i++)this.stars.push([11+this.rng.int(299),31+this.rng.int(159),this.rng.int(20)]);}
-    else{const anchors=Array.from({length:3},()=>Array.from({length:3},()=>this.rng.int(64)));for(let j=0;j<3;j++)for(let k=0;k<10;k++)this.palette.push(anchors[j].map((n,c)=>Math.round(Math.trunc(n+k*(anchors[(j+1)%3][c]-n)/10)*255/63)));}
+    this.setBackground(this.options.background);
     const order=[...this.players].sort(()=>0);for(let i=order.length-1;i>0;i--){const j=this.rng.int(i+1);[order[i],order[j]]=[order[j],order[i]];}
     const first=16+this.rng.int(28),last=305-this.rng.int(28);
     order.forEach((p,i)=>{p.x=first+i*Math.trunc((last-first)/(order.length-1));p.y=this.terrain.surface(p.x)-1;p.men=100;p.alive=true;p.angle=p.x<160?75:105;p.power=200;p.lob=[];p.target=null;p.armed=0;if(p.ammo[p.weapon]===0)p.weapon=1;if(p.ammo[1]===0)p.weapon=11;
@@ -97,6 +97,7 @@ export class Game {
     const queue=order.map(p=>({player:p.id,target:p.y,damage:0}));for(const p of order)p.y=Math.min(32,p.y);
     if(queue.some(f=>this.players[f.player].y<f.target)){this.falling={queue,elapsed:0,intro:true};this.phase='flight';}
   }
+  setBackground(kind){this.backgroundModel=createBattleBackground(kind,this.rng,{direction:this.backgroundModel?.direction||1});this.background=this.backgroundModel.kind;this.backgroundElapsed=0;this.stars=this.backgroundModel.stars||[];this.palette=this.backgroundModel.palette;}
   get current(){return this.players[this.active];}
   get alive(){return this.players.filter(p=>p.alive);}
   enemies(p){return this.players.filter(t=>t.alive&&t.id!==p.id&&(!this.options.teams||t.team!==p.team));}
@@ -126,9 +127,15 @@ export class Game {
     const dealt=Math.min(p.men,Math.trunc(damage));p.men=Math.max(0,p.men-dealt);p.power=Math.min(p.power,maxPower(p));
     const source=this.players[owner],enemy=source&&source.team!==p.team;
     if(enemy&&dealt&&kind!=='fall'&&kind!=='laser'&&kind!=='death'){source.score+=dealt*10;source.money+=dealt*10;if(!this.turnHit){source.hits++;this.turnHit=true;}}
-    if(p.men===0){p.alive=false;if(source){const bonus=enemy?1500:-1000;source.score+=bonus;source.money+=bonus;if(enemy)source.kills++;}this.deathQueue.push({...p,owner});this.emit('kill',{player:p.id});}
+    if(p.men===0){p.alive=false;p.deaths=(p.deaths||0)+1;if(source){const bonus=enemy?1500:-1000;source.score+=bonus;source.money+=bonus;if(enemy)source.kills++;}this.deathQueue.push({...p,owner});this.emit('kill',{player:p.id});}
   }
-  explode(x,y,r,owner,kind='blast',mirv=false){let sequence;if(kind==='sonic')sequence=sonicSound(this.rng,this.options.sound);else if(kind!=='dirt'&&this.options.sound)sequence=blastSound(r,this.rng,mirv?1:8);if(sequence)this.audio(sequence);this.explosions.push({x,y,r:0,max:r,owner,kind,age:0,duration:Math.max(.15,sequence?.ms/1000||r/55),applied:false});this.emit('explosion',{radius:r,kind});}
+  explode(x,y,r,owner,kind='blast',mirv=false){
+    const delayMs=mirv?1:8,visualFrames=[];let sequence,visualTimeline;
+    if(kind==='sonic')sequence=sonicSound(this.rng,this.options.sound,delayMs,visualFrames);
+    else if(kind!=='dirt'){if(this.options.sound)sequence=blastSound(r,this.rng,delayMs);visualTimeline=blastTimeline(r,delayMs,this.options.sound?CPU_WRITE_MS:0);}
+    if(sequence)this.audio(sequence);
+    this.explosions.push({x:Math.trunc(x),y:Math.trunc(y),r:0,max:r,owner,kind,age:0,delayMs,visualFrames,visualTimeline,duration:visualTimeline?.duration??(kind==='sonic'?sequence.ms/1000:0),applied:false});this.emit('explosion',{radius:r,kind});
+  }
   impact(s){
     const {weapon:id,x,y,owner}=s;const direct=this.players.find(p=>p.alive&&(p.id===s.hitTank||tankPixel(p,Math.trunc(x),Math.trunc(y))));
     if(id===0){if(direct)this.hurt(direct,5,owner);return;}
@@ -177,8 +184,9 @@ export class Game {
     return null;
   }
   update(dt){
+    this.backgroundElapsed=(this.backgroundElapsed||0)+dt;
     if(this.falling){this.updateFalling(dt);return;}
-    this.audioWait=Math.max(0,(this.audioWait||0)-dt);if(this.blockSimulation>0){this.blockSimulation=Math.max(0,this.blockSimulation-dt);return;}
+    this.deathWait=this.explosions.length?Math.max(0,this.deathWait||0):(this.deathWait||0)-dt;this.audioWait=Math.max(0,(this.audioWait||0)-dt);if(this.blockSimulation>0){this.blockSimulation=Math.max(0,this.blockSimulation-dt);return;}
     if(this.pendingLaser){const {shot,energy}=this.pendingLaser;this.pendingLaser=null;this.laser(shot,energy);return;}
     if(this.phase==='aim'&&this.current?.ai>=0){this.aiTimer-=dt;if(this.aiTimer<=0){this.aimAI(this.current);this.fire();}return;}
     if(this.phase!=='flight')return;
@@ -209,13 +217,30 @@ export class Game {
       }this.terrain.version++;if(!this.reaction)tones.stop();this.audio(tones);
     }
     const effects=this.explosions;this.explosions=[];
-    for(const e of effects){e.age+=dt;e.r=Math.min(e.max,e.r+dt*e.max/Math.max(.04,e.duration*.15));
-      if(!e.applied&&e.r>=e.max){e.applied=true;if(e.kind==='dirt'){for(const dx of [-1,0,1])this.terrain.circle(e.x+dx,e.y,e.max,1);}
-        else if(e.kind!=='sonic'){this.terrain.circle(e.x,e.y,e.max,0);for(const p of this.players){const d=Math.hypot(p.x-e.x,p.y-e.y);if(p.alive)this.hurt(p,blastDamage(d,e.max),e.owner,e.kind==='death'?'death':'blast');}}}
-      if(e.age<e.duration+.08)this.explosions.push(e);
+    for(const e of effects){e.age+=dt;e.r=Math.min(e.max,Math.floor(e.age/.008));
+      if(!e.applied&&e.age>=e.duration){e.applied=true;
+        if(e.kind==='sonic'){for(const [dx,dy] of [[0,0],[1,0],[-1,0],[0,1],[0,-1]])this.terrain.set(e.x+dx,e.y+dy,0);this.terrain.version++;}
+        else{
+          const map=blastRaster(e.max),value=e.kind==='dirt'?1:0;
+          for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++)if(map.indices[y*map.width+x]>=0)this.terrain.set(e.x+map.left+x,e.y+map.top+y,value);
+          this.terrain.version++;
+          if(e.kind!=='dirt')for(const p of this.players){const d=Math.hypot(p.x-e.x,p.y-e.y);if(p.alive)this.hurt(p,blastDamage(d,e.max),e.owner,e.kind==='death'?'death':'blast');}
+        }
+      }
+      if(e.age<e.duration)this.explosions.push(e);
     }
     if(this.delay>0){this.delay-=dt;return;}
-    if(!this.shots.length&&!this.explosions.length&&!this.reaction){if(this.audioWait>0)return;if(this.deathAnimation||this.deathQueue.length){this.terrainResolved=false;this.deathAnimation??=deathEffect(this,this.deathQueue.shift(),tankPixel);if(this.deathAnimation.next().done){this.deathAnimation=null;this.deathVisual=null;}return;}if(!this.terrainResolved){this.resolveTerrain();this.terrainResolved=true;}if(!this.falling&&!this.explosions.length&&!this.deathQueue.length)this.finishTurn();}
+    if(!this.shots.length&&!this.explosions.length&&!this.reaction){if(this.deathAnimation||this.deathQueue.length){
+      if(!this.deathAnimation){if(this.audioWait>0)return;this.dyingTank=this.deathQueue.shift();this.deathAnimation=deathEffect(this,this.dyingTank,tankPixel);this.deathWait=0;}
+      this.terrainResolved=false;
+      for(let step=0;step<1000&&this.deathWait<=0;step++){
+        const next=this.deathAnimation.next();
+        if(next.done){this.deathAnimation=null;this.deathVisual=null;this.dyingTank=null;this.deathWait=0;break;}
+        this.deathWait+=next.value??1/60;
+        if(this.explosions.length)break;
+      }
+      return;
+    }if(this.audioWait>0)return;if(!this.terrainResolved){this.resolveTerrain();this.terrainResolved=true;}if(!this.falling&&!this.explosions.length&&!this.deathQueue.length)this.finishTurn();}
   }
   resolveTerrain(){
     if(this.forceCrumble||this.rng.next()*100<this.options.crumble)this.terrain.crumble(this.players);this.forceCrumble=false;
@@ -318,6 +343,6 @@ export class Game {
     const dest=kind==='weapon'?p.ammo:kind==='guidance'?p.guidance:p.defense;dest[index]+=item.quantity*count;return true;
   }
   computerShop(){if(!this.options.computerBuy)return;for(const p of this.players.filter(p=>p.ai>=0)){for(let n=0;n<6;n++){const id=[1,2,3,4,6,7,8][this.rng.int(7)];this.buy(p.id,id);}}}
-  serialize(){return JSON.stringify({version:1,options:this.options,players:this.players,round:this.round,phase:this.phase,active:this.active,order:this.order,wind:this.wind,wall:this.wall,background:this.background,groundColor:this.groundColor,stars:this.stars,palette:this.palette,shopPreparedRound:this.shopPreparedRound,rng:this.rng.state,terrain:Array.from(this.terrain.data),turns:this.turns});}
-  static restore(json,weapons){const s=JSON.parse(json);if(s.version!==1||!Array.isArray(s.terrain)||s.terrain.length!==W*H||!Array.isArray(s.players)||s.players.length<2||s.players.length>10||!['aim','score'].includes(s.phase))throw Error('Invalid save');const g=new Game(weapons,s.options,s.rng);for(const k of ['players','round','phase','active','order','wind','wall','background','groundColor','turns','stars','palette','shopPreparedRound'])g[k]=s[k];for(const p of g.players)p.power=clamp(p.power,0,maxPower(p));g.terrain.data=Uint8Array.from(s.terrain);g.terrain.version++;g.aiTimer=1;return g;}
+  serialize(){return JSON.stringify({version:1,options:this.options,players:this.players,round:this.round,phase:this.phase,active:this.active,order:this.order,wind:this.wind,wall:this.wall,background:this.background,backgroundModel:this.backgroundModel?{...this.backgroundModel,pixels:Array.from(this.backgroundModel.pixels)}:null,backgroundElapsed:this.backgroundElapsed,stars:this.stars,palette:this.palette,shopPreparedRound:this.shopPreparedRound,rng:this.rng.state,terrain:Array.from(this.terrain.data),turns:this.turns});}
+  static restore(json,weapons){const s=JSON.parse(json);if(s.version!==1||!Array.isArray(s.terrain)||s.terrain.length!==W*H||!Array.isArray(s.players)||s.players.length<2||s.players.length>10||!['aim','score'].includes(s.phase))throw Error('Invalid save');const g=new Game(weapons,s.options,s.rng);for(const k of ['players','round','phase','active','order','wind','wall','background','groundColor','turns','stars','palette','shopPreparedRound','backgroundModel','backgroundElapsed'])g[k]=s[k];if(g.backgroundModel)g.backgroundModel.pixels=Uint8Array.from(g.backgroundModel.pixels);else g.backgroundModel=createBattleBackground(g.background,new Random(s.rng));for(const p of g.players){p.color=COLORS[p.id];p.power=clamp(p.power,0,maxPower(p));}g.terrain.data=Uint8Array.from(s.terrain);g.terrain.version++;g.aiTimer=1;return g;}
 }
