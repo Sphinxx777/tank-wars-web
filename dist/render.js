@@ -1,5 +1,4 @@
 import { aiIconColor } from './ai-controls.js';
-import { runtimeCos, runtimeSin } from './runtime-trig.js';
 import {
   menuLayout,
   optionsLayout,
@@ -13,7 +12,7 @@ import { drawBlast, drawSonic, sonicFrame } from './effects-render.js';
 import { tankColor, dacColor, TRAIL_COLORS, EGA, SCREEN_COLOR } from './palette.js';
 import { titleFrame, TITLE_STEP_SECONDS, TITLE_COLORS } from './title.js';
 import weaponIcons from './assets/weapon-icons.js';
-import { W, H, TOP, LEFT, RIGHT, BOTTOM, COLORS } from './engine.js';
+import { W, H, TOP, LEFT, RIGHT, BOTTOM, COLORS, tankBarrelPixels } from './engine.js';
 export class Renderer {
   constructor(canvas, fonts, bitmap, title) {
     this.canvas = canvas;
@@ -222,16 +221,10 @@ export class Renderer {
     const rows = ['000111000', '011111110', '011111110', '111010111', '111111111'];
     for (let r = 0; r < rows.length; r++)
       for (let k = 0; k < 9; k++) if (rows[r][k] === '1') this.rect(x - 4 + k, y - 4 + r, 1, 1, c);
-    if (drawGun) {
-      this.bgiLine(
-        x,
-        y,
-        x + Math.trunc(runtimeCos(p.angle) * 8),
-        y - Math.trunc(runtimeSin(p.angle) * 8),
-        c,
-      );
-    }
+    if (drawGun)
+      for (const [px, py] of tankBarrelPixels({ ...p, x, y })) this.rect(px, py, 1, 1, c);
   }
+
   icon(id, x, y, c) {
     for (let row = 0; row < 10; row++)
       for (let col = 0; col < 15; col++)

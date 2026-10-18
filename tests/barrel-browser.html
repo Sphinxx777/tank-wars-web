@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Buried tank barrel verification</title>
+  <style>
+    body {
+      background: #15121a;
+      color: #eee;
+      font: 16px system-ui;
+      margin: 20px;
+    }
+    canvas {
+      width: 100%;
+      max-width: 640px;
+      image-rendering: pixelated;
+    }
+    #detail {
+      width: 240px;
+      height: 240px;
+    }
+    button {
+      padding: 10px;
+      margin: 6px;
+    }
+    p {
+      max-width: 640px;
+    }
+  </style>
+  <h1>Buried tank: barrel excavation</h1>
+  <canvas id="battle" width="320" height="200"></canvas>
+  <p>
+    <button id="sweep">Rotate barrel 0° → 180°</button><button id="reset">Reset buried tank</button>
+  </p>
+  <canvas id="detail" width="25" height="25"></canvas>
+  <p id="status">Loading…</p>
+  <script type="module">
+    import { Game } from '../dist/engine.js';
+    import { Renderer } from '../dist/render.js';
+    import { loadGameAssets } from '../dist/assets-loader.js';
+    const { catalog, fonts, bitmap, title } = await loadGameAssets();
+    const canvas = document.querySelector('#battle'),
+      detail = document.querySelector('#detail'),
+      renderer = new Renderer(canvas, fonts, bitmap, title);
+    let game,
+      run = 0;
+    function draw() {
+      renderer.render({ screen: 'battle', options: game.options, game }, 0);
+      detail.getContext('2d').drawImage(canvas, 148, 136, 25, 25, 0, 0, 25, 25);
+      document.querySelector('#status').textContent =
+        `Angle ${game.current.angle}°. ${game.current.angle === 180 ? 'PASS: the barrel leaves a permanent cavity; earth beyond its reach remains.' : 'The tank is buried in solid earth. Rotate to uncover the old barrel pixels.'}`;
+    }
+    function reset() {
+      run++;
+      game = new Game(
+        catalog.weapons,
+        { sound: false, background: 0, wind: 0, walls: 0, crumble: 0 },
+        42,
+      );
+      game.start([{ name: 'Buried' }, { name: 'Target' }]);
+      game.falling = null;
+      game.phase = 'aim';
+      game.terrain.data.fill(0);
+      for (let x = 11; x <= 309; x++) for (let y = 100; y <= 189; y++) game.terrain.set(x, y, 1);
+      game.current.x = 160;
+      game.current.y = 150;
+      game.current.angle = 0;
+      game.players.find((p) => p !== game.current).x = 280;
+      game.players.find((p) => p !== game.current).y = 99;
+      draw();
+    }
+    document.querySelector('#reset').onclick = reset;
+    document.querySelector('#sweep').onclick = () => {
+      const id = ++run;
+      function step() {
+        if (run !== id) return;
+        game.setAngle(Math.min(180, game.current.angle + 1));
+        draw();
+        if (game.current.angle < 180) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    };
+    reset();
+  </script>
+</html>

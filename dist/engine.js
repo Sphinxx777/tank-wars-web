@@ -136,12 +136,19 @@ export function tankBodyPixel(p, x, y) {
     dy = y - p.y + 4;
   return dy >= 0 && dy < 5 && dx >= 0 && dx < 9 && BODY[dy][dx] === '1';
 }
-export function tankPixel(p, x, y) {
-  if (tankBodyPixel(p, x, y)) return true;
-  const x1 = p.x + Math.trunc(8 * runtimeCos(p.angle)),
-    y1 = p.y - Math.trunc(8 * runtimeSin(p.angle));
-  let xx = p.x,
+export function* tankBarrelPixels(p) {
+  const localAngle = Math.min(p.angle, 180 - p.angle);
+  const direction = p.angle > 90 ? -1 : 1;
+  let x1 = p.x + direction * Math.trunc(8 * runtimeCos(localAngle)),
+    y1 = p.y - Math.trunc(8 * runtimeSin(localAngle)),
+    xx = p.x,
     yy = p.y;
+  // The BGI line driver starts at the smaller x, including for steep lines.
+  // Its tie pixels therefore differ from simply mirroring a right-facing gun.
+  if (xx > x1) {
+    [xx, x1] = [x1, xx];
+    [yy, y1] = [y1, yy];
+  }
   const dx1 = Math.abs(x1 - xx),
     dy1 = Math.abs(y1 - yy),
     horizontal = dx1 > dy1,
@@ -151,7 +158,7 @@ export function tankPixel(p, x, y) {
     sy = y1 > yy ? 1 : -1;
   let error = major >> 1;
   for (let n = 0; n <= major; n++) {
-    if (xx === x && yy === y) return true;
+    yield [xx, yy];
     if (horizontal) xx += sx;
     else yy += sy;
     error += minor;
@@ -161,6 +168,10 @@ export function tankPixel(p, x, y) {
       error -= major;
     }
   }
+}
+export function tankPixel(p, x, y) {
+  if (tankBodyPixel(p, x, y)) return true;
+  for (const [px, py] of tankBarrelPixels(p)) if (px === x && py === y) return true;
   return false;
 }
 export class Terrain {
@@ -440,7 +451,16 @@ export class Game {
     if (this.phase !== 'aim') return;
     const delta = (v - this.current.angle) * (this.current.angle > 90 ? -1 : 1);
     this.audio(controlSound(flip ? 'flip' : delta > 0 ? 'angleUp' : 'angleDown'));
-    this.current.angle = (Math.round(v) + 181) % 181;
+    this.changeGunAngle(this.current, (Math.round(v) + 181) % 181);
+  }
+  changeGunAngle(player, angle) {
+    // OVR 0x1b177: restore the old barrel, then redraw the body and new
+    // barrel over VGA earth. Saved background (including trails) survives.
+    // A direction flip replaces two lines; it does not sweep through a semicircle.
+    for (const [x, y] of tankBarrelPixels(player)) this.terrain.set(x, y, 0);
+    player.angle = angle;
+    this.clearTankBody(player);
+    for (const [x, y] of tankBarrelPixels(player)) this.terrain.set(x, y, 0);
   }
   cycleWeapon(dir = 1) {
     if (this.phase !== 'aim') return;

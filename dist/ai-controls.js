@@ -78,7 +78,7 @@ export function updateAIAim(game, dt) {
       duration = AI_WEAPON_SECONDS;
     } else if (action.kind === 'flip') {
       state.direction *= -1;
-      player.angle = 180 - player.angle;
+      game.changeGunAngle(player, 180 - player.angle);
       game.audio(controlSound('flip'));
     } else if (action.kind === 'power') {
       game.setPower(action.value);
@@ -86,7 +86,7 @@ export function updateAIAim(game, dt) {
       // Keep direction separately while passing through vertical: angle=90
       // alone cannot tell a left-facing gun from a right-facing one.
       const increasing = action.value > player.angle;
-      player.angle = action.value;
+      game.changeGunAngle(player, action.value);
       game.audio(controlSound(increasing ? 'angleUp' : 'angleDown'));
     } else {
       player.target = state.plan.target;
