@@ -1,78 +1,49 @@
 # Architecture
 
-Tank Wars Native Web is a static ES-module application. It reconstructs the DOS game's behavior in JavaScript; it does not execute BOMB.EXE or BOMB.OVR. The playable source is kept directly in `dist/`, with no generated application bundle.
+The game is a static JavaScript application with ES modules. Source and assets live in `dist/`, served directly without a build step.
 
-## Runtime flow
+## Runtime
 
-`index.html` loads `app.js`, which fetches the weapon catalog, extracted vector fonts, bitmap font and indexed title image. The app creates a renderer and PC Speaker synthesizer, tracks the current screen and translates keyboard, pointer and on-screen controls into game actions.
+`index.html` loads `app.js`, which fetches assets, initializes rendering and audio, and handles screens and input. A `Game` instance owns match state; the animation loop advances it and renders the result.
 
-A `Game` instance owns match and simulation state. The animation loop advances that state and asks the renderer to draw it. Aiming, projectile flight, explosions, terrain settling, tank falling, deaths and score presentation have separate state transitions so that visible effects can complete before the next player acts.
-
-All game graphics use a 320×200 canvas. CSS scales the output for the original 4:3 display shape. Menus and text are drawn from original bitmap/vector data using integer rasterization; HTML controls around the canvas provide browser conveniences. English/Russian interface text and `guide.html` belong to that surrounding interface. The reconstructed framebuffer retains the original labels.
+Graphics use a 320×200 canvas scaled to 4:3. The game retains its original English labels; surrounding controls and the player guide support English and Russian.
 
 ## Modules
 
-| File in `dist/`      | Responsibility                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------ |
-| `app.js`             | Screens, per-screen input handlers, browser saves, controls and UI/audio coordination.     |
-| `engine.js`          | Players, turns, terrain, projectile physics, weapons, AI, damage, scoring and match state. |
-| `render.js`          | Canvas drawing and screen dispatch, game HUD, tank sprites and interaction hit areas.      |
-| `menu-render.js`     | Reconstructed menu, roster, options, score, AI and statistics layouts.                     |
-| `background.js`      | Indexed background generation and animated palette rotation.                               |
-| `effects-render.js`  | Original-style ellipse rasterization and effect drawing data.                              |
-| `death.js`           | Tank destruction sequences and their evolving visual state.                                |
-| `palette.js`         | VGA/EGA color definitions and player color intensity.                                      |
-| `title.js`           | Original indexed title composition and palette animation.                                  |
-| `shop.js`            | Shop catalog, item visibility, stock and cart reservations.                                |
-| `sound.js`           | PC Speaker event sequences and AudioWorklet scheduling.                                    |
-| `speaker-worklet.js` | One synthesized PIT speaker channel in the audio rendering thread.                         |
-| `trig.js`            | Numeric helpers used by the translated simulation.                                         |
-| `assets/`            | Extracted or reconstructed images, fonts, palette data, icons and weapon tables.           |
+| File in `dist/`                            | Responsibility                                           |
+| ------------------------------------------ | -------------------------------------------------------- |
+| `app.js`                                   | Screens, input, browser saves and UI/audio coordination. |
+| `engine.js`                                | Turns, physics, weapons, AI, damage and scoring.         |
+| `render.js`, `menu-render.js`              | Game, HUD and menu drawing.                              |
+| `background.js`, `palette.js`, `title.js`  | Backgrounds, colors and title animation.                 |
+| `effects-render.js`, `death.js`            | Explosions and tank destruction.                         |
+| `shop.js`                                  | Catalog, stock and cart.                                 |
+| `sound.js`, `speaker-worklet.js`           | PC Speaker sequences and synthesis.                      |
+| `trig.js`                                  | Simulation math.                                         |
+| `assets-loader.js`, `assets/`              | Asset loading, fonts, images and weapon data.            |
+| `i18n.js`, `translations.js`, `ui-text.js` | Language, UI strings and contextual labels.              |
+| `guide-content.js`, `guide.js`             | Player guide using the shared equipment catalog.         |
+| `document-ui.js`, `accuracy.js`            | Documentation UI and accuracy notes.                     |
 
-See the source for current exports; research notes document original addresses and assumptions behind individual procedures.
+## Simulation and rendering
 
-## Simulation and rendering boundaries
+Simulation runs without a DOM. Rendering reads state; palette animation recolors fixed geometry. Keep random-number draws out of rendering and preserve their simulation order.
 
-The simulation operates without a DOM and is exercised by Node's built-in test runner. Rendering reads game state and draws its current appearance. Generated scenery is retained as indexed pixels and palettes instead of consuming gameplay random numbers during every repaint. Palette animation changes colors over fixed geometry.
+`Game.update()` processes projectiles, chain reactions, explosion completion and turn settling in that order. `advanceDeathAnimation()` consumes delays from `deathEffect()`.
 
-Randomness is part of the game's behavior. Avoid introducing draws into render functions or changing the sequence incidentally when refactoring simulation code. Existing saves need compatible defaults when new state is introduced. Browser saves use the application's serialization format and localStorage; they are not DOS TWS files.
+Drawing follows original BGI coordinate, stroke and alignment rules. Replacing these helpers with standard canvas text or shapes can change pixels.
 
-Rendering helpers reproduce BGI conventions, including inclusive coordinates, outside bevels, stroke baselines, per-glyph integer advancement and the original center alignment offset. A generic canvas text call or standard circle primitive can change many pixels even if it appears visually similar.
+Browser saves use localStorage and the application's serialization format. Add compatible defaults when introducing new state.
 
 ## Audio
 
-Sound effects are synthesized rather than played from recordings. `sound.js` creates timed frequency/gate events; `speaker-worklet.js` models a monophonic PIT output using integer divisors. Browser audio is unlocked by user interaction.
+`sound.js` schedules frequency/gate events; `speaker-worklet.js` synthesizes a monophonic PIT channel. User interaction enables browser audio. DOS loops without explicit delays require CPU timing assumptions.
 
-Explicit DOS delays and frequency writes provide strong evidence for sequence reconstruction. Loops without delays depend on the original CPU and therefore need timing assumptions. The project does not claim an exact physical speaker, DOSBox filter or waveform match merely because the note sequence is correct.
+## Verification
 
-## Verification and provenance
+- Node tests cover simulation and rendering references.
+- Browser QA covers input, layout, animation and audio.
+- `research/` records evidence, extraction details and known differences.
+- `tools/` contains extraction and comparison scripts; some require original files or Python dependencies.
 
-- Simulation tests check translated game rules and transitions.
-- Raster tests compare production drawing with independently recorded original hashes or instruction-level reference results.
-- Browser QA checks input, layout, animation and real audio behavior that a Node test cannot establish.
-- `research/` records binary offsets, formulas, extraction details and remaining uncertainties.
-- `tools/` holds repeatable extraction and comparison utilities. Some require separately supplied originals or optional research dependencies.
-
-A passing test is evidence for its stated case, not proof of complete game equivalence. Read [the accuracy notes](../dist/accuracy.html) and [third-party notices](../THIRD_PARTY_NOTICES.md) before making fidelity or licensing claims.
-
-## Serving and editing
-
-Serve `dist/` through any ordinary static HTTP host. The browser requires no npm dependencies, DOS files, emulator or backend. The root `npm start` script uses `tools/serve.mjs`, a Node.js 18+ static server with no package dependencies. Tests use the same Node runtime. `npm run check` combines tests, formatting and syntax checks. Python is only needed for optional extraction and research scripts. Formatting is a development operation (`npm run format` / `npm run check:format`), not a build requirement.
-
-Keep original installations and local captures in the ignored research locations. Extracted resources are checked-in inputs to the browser application; regenerate them through the documented tools instead of silently replacing their contents. Preserve provenance and keep third-party assets distinct from MIT-licensed implementation code.
-
-## Web interface and documentation
-
-`assets-loader.js` fetches the shared catalog and rendering assets. `i18n.js` owns
-language selection and safe localStorage persistence; `translations.js` holds
-English/Russian UI strings. `ui-text.js` derives instructions and accessible
-labels from the current game state without changing the simulation.
-
-`guide-content.js` holds bilingual descriptions; `guide.js` combines them with
-the authoritative equipment catalog, so prices and radii are not duplicated.
-`document-ui.js` provides text-only DOM helpers shared with `accuracy.js`.
-
-Within `Game.update()`, projectiles, chain reactions, explosion completion and
-turn settling run in that order. `advanceDeathAnimation()` consumes the delays
-yielded by `deathEffect()`. Keep these steps ordered: moving a random-number draw
-or settling terrain before an animation completes can change a later shot.
+Run `npm run check` for tests, formatting and syntax checks. See [Contributing](../CONTRIBUTING.md), [accuracy notes](../dist/accuracy.html) and [asset provenance](../THIRD_PARTY_NOTICES.md).
