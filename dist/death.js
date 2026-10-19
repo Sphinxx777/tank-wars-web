@@ -197,11 +197,21 @@ export function* deathEffect(g, dead, tankPixel, forcedMode) {
     yield;
     const make = () => {
       if (sound) tone(R(500));
-      return { x: dead.x - 11, y: dead.y - 31, vx: 0.5 - U(), vy: 0.1 - U(), stopped: false };
+      const particle = {
+        x: dead.x - 11,
+        y: dead.y - 31,
+        vx: 0.5 - U(),
+        vy: 0.1 - U(),
+        stopped: false,
+      };
+      if (mode === 0) g.sharedProjectilePosition = { x: particle.x, y: particle.y };
+      return particle;
     };
     const step = (p) => {
       p.x += p.vx;
       p.y += p.vy;
+      // Death 0 reuses DS:4796/479c in local viewport coordinates.
+      if (mode === 0) g.sharedProjectilePosition = { x: p.x, y: p.y };
       p.vy += 0.006999999999997897;
       p.vx += g.wind / 5000;
       const x = Math.trunc(p.x),

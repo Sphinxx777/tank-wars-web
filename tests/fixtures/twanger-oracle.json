@@ -1,0 +1,9703 @@
+[
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "994685ad4b69841defcc41a0d28f5bf3bce5e0040803b84d759fde72d035511f",
+      "samplesCount": 1114
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        794,
+        798,
+        730
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 53,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 795,
+      "random": [
+        51
+      ],
+      "samplesSha256": "cdeff402872c8986d36a1d0c8500a180a805384ac0e155f22a9dd5b9dbce7090",
+      "samplesCount": 1125
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        872,
+        898,
+        892
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 53,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 892,
+      "random": [
+        51
+      ],
+      "samplesSha256": "cdeff402872c8986d36a1d0c8500a180a805384ac0e155f22a9dd5b9dbce7090",
+      "samplesCount": 1125
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        514,
+        482,
+        393
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 514,
+      "random": [
+        51
+      ],
+      "samplesSha256": "994685ad4b69841defcc41a0d28f5bf3bce5e0040803b84d759fde72d035511f",
+      "samplesCount": 1114
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        957,
+        960
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "994685ad4b69841defcc41a0d28f5bf3bce5e0040803b84d759fde72d035511f",
+      "samplesCount": 1114
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        998,
+        994,
+        991
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 998,
+      "random": [
+        51
+      ],
+      "samplesSha256": "994685ad4b69841defcc41a0d28f5bf3bce5e0040803b84d759fde72d035511f",
+      "samplesCount": 1114
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        988,
+        984,
+        984
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "994685ad4b69841defcc41a0d28f5bf3bce5e0040803b84d759fde72d035511f",
+      "samplesCount": 1114
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "df0424c66b26d6d89cdc414be02b4d48e2c0b6a722b486a5b2f253e1538e1176",
+      "samplesCount": 1007
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        823,
+        -1,
+        863,
+        802
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 67,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 863,
+      "random": [
+        51
+      ],
+      "samplesSha256": "2e4b6f7e2f7edae5e7f44ac28aa5ab0cdbdcc4bf71e2bb988179115cef1f18db",
+      "samplesCount": 966
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        824,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "target": 2,
+      "angle": 67,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "2e4b6f7e2f7edae5e7f44ac28aa5ab0cdbdcc4bf71e2bb988179115cef1f18db",
+      "samplesCount": 966
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        540,
+        -1,
+        582,
+        492
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 67,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 582,
+      "random": [
+        51
+      ],
+      "samplesSha256": "2e4b6f7e2f7edae5e7f44ac28aa5ab0cdbdcc4bf71e2bb988179115cef1f18db",
+      "samplesCount": 966
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        786,
+        751
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "df0424c66b26d6d89cdc414be02b4d48e2c0b6a722b486a5b2f253e1538e1176",
+      "samplesCount": 1007
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        994,
+        -1,
+        992,
+        994
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 994,
+      "random": [
+        51
+      ],
+      "samplesSha256": "df0424c66b26d6d89cdc414be02b4d48e2c0b6a722b486a5b2f253e1538e1176",
+      "samplesCount": 1007
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        988,
+        -1,
+        988,
+        987
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "df0424c66b26d6d89cdc414be02b4d48e2c0b6a722b486a5b2f253e1538e1176",
+      "samplesCount": 1007
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 113,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "37c1257b525aedb99469b155560f5d9f0c647fccad1bb4d47e3f735388f39022",
+      "samplesCount": 911
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        895,
+        936,
+        -1,
+        903
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 113,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 930,
+      "random": [
+        51
+      ],
+      "samplesSha256": "37c1257b525aedb99469b155560f5d9f0c647fccad1bb4d47e3f735388f39022",
+      "samplesCount": 911
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        957,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 113,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "37c1257b525aedb99469b155560f5d9f0c647fccad1bb4d47e3f735388f39022",
+      "samplesCount": 911
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        569,
+        650,
+        -1,
+        625
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 113,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 642,
+      "random": [
+        51
+      ],
+      "samplesSha256": "37c1257b525aedb99469b155560f5d9f0c647fccad1bb4d47e3f735388f39022",
+      "samplesCount": 911
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        886,
+        892,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 68,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f44111f068e08f71849eb92a92665480f43ff490041a5e4feb1c5fba41c45ae3",
+      "samplesCount": 936
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        991,
+        992,
+        -1,
+        997
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 68,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 997,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f44111f068e08f71849eb92a92665480f43ff490041a5e4feb1c5fba41c45ae3",
+      "samplesCount": 936
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        987,
+        988,
+        -1,
+        988
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 113,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "37c1257b525aedb99469b155560f5d9f0c647fccad1bb4d47e3f735388f39022",
+      "samplesCount": 911
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [],
+    "random": 39,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 112,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "30b86a0b5f3ac98f28ca7b04e93c2e6658c6dfc03f7f8b6b8b61583c4a1d34fc",
+      "samplesCount": 1121
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        695,
+        748,
+        798,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 112,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 792,
+      "random": [
+        51
+      ],
+      "samplesSha256": "30b86a0b5f3ac98f28ca7b04e93c2e6658c6dfc03f7f8b6b8b61583c4a1d34fc",
+      "samplesCount": 1121
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        965,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 112,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "30b86a0b5f3ac98f28ca7b04e93c2e6658c6dfc03f7f8b6b8b61583c4a1d34fc",
+      "samplesCount": 1121
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        352,
+        440,
+        518,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 112,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 510,
+      "random": [
+        51
+      ],
+      "samplesSha256": "30b86a0b5f3ac98f28ca7b04e93c2e6658c6dfc03f7f8b6b8b61583c4a1d34fc",
+      "samplesCount": 1121
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        983,
+        916,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 112,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "30b86a0b5f3ac98f28ca7b04e93c2e6658c6dfc03f7f8b6b8b61583c4a1d34fc",
+      "samplesCount": 1121
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        991,
+        998,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 112,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "30b86a0b5f3ac98f28ca7b04e93c2e6658c6dfc03f7f8b6b8b61583c4a1d34fc",
+      "samplesCount": 1121
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        984,
+        984,
+        988,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 112,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "30b86a0b5f3ac98f28ca7b04e93c2e6658c6dfc03f7f8b6b8b61583c4a1d34fc",
+      "samplesCount": 1121
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 74,
+      "power": 950,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f07e4e123ea79db0847948c44cee9f0ade6f023ba24efed7e4dfc212437d2934",
+      "samplesCount": 760
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 74,
+      "power": 950,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f07e4e123ea79db0847948c44cee9f0ade6f023ba24efed7e4dfc212437d2934",
+      "samplesCount": 760
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        946,
+        889,
+        919
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 74,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 946,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f07e4e123ea79db0847948c44cee9f0ade6f023ba24efed7e4dfc212437d2934",
+      "samplesCount": 760
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        724,
+        678,
+        517
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 74,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 724,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f07e4e123ea79db0847948c44cee9f0ade6f023ba24efed7e4dfc212437d2934",
+      "samplesCount": 760
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        943,
+        988
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 74,
+      "power": 950,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f07e4e123ea79db0847948c44cee9f0ade6f023ba24efed7e4dfc212437d2934",
+      "samplesCount": 760
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        998,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 74,
+      "power": 950,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f07e4e123ea79db0847948c44cee9f0ade6f023ba24efed7e4dfc212437d2934",
+      "samplesCount": 760
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        988,
+        987,
+        979
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 74,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f07e4e123ea79db0847948c44cee9f0ade6f023ba24efed7e4dfc212437d2934",
+      "samplesCount": 760
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "target": 0,
+      "angle": 106,
+      "power": 963,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9f1a5195531bcc25e0ca9dbb26bf1d870dc7bb2632f7f6f1b06a3dc6fb3d780b",
+      "samplesCount": 705
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "target": 0,
+      "angle": 106,
+      "power": 963,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9f1a5195531bcc25e0ca9dbb26bf1d870dc7bb2632f7f6f1b06a3dc6fb3d780b",
+      "samplesCount": 705
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        838,
+        -1,
+        931,
+        964
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 35,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 961,
+      "random": [
+        51
+      ],
+      "samplesSha256": "637ab40df1323143e29cebce4f3512b720d4fd265885d2c715d4e1ca0ea40882",
+      "samplesCount": 803
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        724,
+        -1,
+        707,
+        559
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 106,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 724,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9f1a5195531bcc25e0ca9dbb26bf1d870dc7bb2632f7f6f1b06a3dc6fb3d780b",
+      "samplesCount": 705
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        946,
+        904
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 106,
+      "power": 963,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9f1a5195531bcc25e0ca9dbb26bf1d870dc7bb2632f7f6f1b06a3dc6fb3d780b",
+      "samplesCount": 705
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        992,
+        991
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 106,
+      "power": 963,
+      "weapon": 3,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9f1a5195531bcc25e0ca9dbb26bf1d870dc7bb2632f7f6f1b06a3dc6fb3d780b",
+      "samplesCount": 705
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        988,
+        -1,
+        988,
+        977
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "target": 0,
+      "angle": 106,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9f1a5195531bcc25e0ca9dbb26bf1d870dc7bb2632f7f6f1b06a3dc6fb3d780b",
+      "samplesCount": 705
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 120,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "4482dfb4c422a285eb3a8651dfce591d45459ae7c35b73c4d9dd6859c996a6cd",
+      "samplesCount": 698
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 120,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "4482dfb4c422a285eb3a8651dfce591d45459ae7c35b73c4d9dd6859c996a6cd",
+      "samplesCount": 698
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        964,
+        979,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 50,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "3c4ddcd4a5154ce102d613f36ad4060d321808329442496fc813fcbe68bad393",
+      "samplesCount": 721
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        675,
+        714,
+        -1,
+        675
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 120,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 707,
+      "random": [
+        51
+      ],
+      "samplesSha256": "4482dfb4c422a285eb3a8651dfce591d45459ae7c35b73c4d9dd6859c996a6cd",
+      "samplesCount": 698
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        829,
+        844,
+        -1,
+        952
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 50,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 952,
+      "random": [
+        51
+      ],
+      "samplesSha256": "3c4ddcd4a5154ce102d613f36ad4060d321808329442496fc813fcbe68bad393",
+      "samplesCount": 721
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        994,
+        992,
+        -1,
+        994
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "target": 0,
+      "angle": 130,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 994,
+      "random": [
+        51
+      ],
+      "samplesSha256": "72aea65a14c87cd013c2e5d2cd976da6702fc510c895b250b12f2d2560821773",
+      "samplesCount": 721
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        987,
+        988,
+        -1,
+        987
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 120,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "4482dfb4c422a285eb3a8651dfce591d45459ae7c35b73c4d9dd6859c996a6cd",
+      "samplesCount": 698
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 39,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 130,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "565535709f854e6d548ba8519165c8443ed40713fa15d2b809eb9f42ccc18cce",
+      "samplesCount": 896
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 130,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "565535709f854e6d548ba8519165c8443ed40713fa15d2b809eb9f42ccc18cce",
+      "samplesCount": 896
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        973,
+        987,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 130,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "565535709f854e6d548ba8519165c8443ed40713fa15d2b809eb9f42ccc18cce",
+      "samplesCount": 896
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        508,
+        575,
+        681,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 130,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 675,
+      "random": [
+        51
+      ],
+      "samplesSha256": "565535709f854e6d548ba8519165c8443ed40713fa15d2b809eb9f42ccc18cce",
+      "samplesCount": 896
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        996,
+        964,
+        985,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 150,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 996,
+      "random": [
+        51
+      ],
+      "samplesSha256": "54dc7f6f48423ed2f09d55988c26bef01134cfffe7fc3a3708f7adb87d82baa5",
+      "samplesCount": 988
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        1000,
+        996,
+        998,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 150,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "54dc7f6f48423ed2f09d55988c26bef01134cfffe7fc3a3708f7adb87d82baa5",
+      "samplesCount": 988
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 80,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 100
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        979,
+        977,
+        987,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 130,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 987,
+      "random": [
+        51
+      ],
+      "samplesSha256": "565535709f854e6d548ba8519165c8443ed40713fa15d2b809eb9f42ccc18cce",
+      "samplesCount": 896
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 65,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "26bcc1c71a1a0b8d74675762a3cea20088b17fb2dcb10d73ca0b22c92dfc0ffc",
+      "samplesCount": 728
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        948,
+        1000,
+        875
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 21,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "86a1ab73347a9290a258867ffc4b410739336c29d824437d71fc5962fbed3b23",
+      "samplesCount": 731
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        941,
+        988,
+        970
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 21,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "86a1ab73347a9290a258867ffc4b410739336c29d824437d71fc5962fbed3b23",
+      "samplesCount": 731
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        852,
+        835,
+        721
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 65,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 852,
+      "random": [
+        51
+      ],
+      "samplesSha256": "26bcc1c71a1a0b8d74675762a3cea20088b17fb2dcb10d73ca0b22c92dfc0ffc",
+      "samplesCount": 728
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        957,
+        944
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 65,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "26bcc1c71a1a0b8d74675762a3cea20088b17fb2dcb10d73ca0b22c92dfc0ffc",
+      "samplesCount": 728
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        998
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        0
+      ],
+      "target": 1,
+      "angle": 65,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "26bcc1c71a1a0b8d74675762a3cea20088b17fb2dcb10d73ca0b22c92dfc0ffc",
+      "samplesCount": 728
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        988,
+        969,
+        981
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 65,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "26bcc1c71a1a0b8d74675762a3cea20088b17fb2dcb10d73ca0b22c92dfc0ffc",
+      "samplesCount": 728
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "target": 2,
+      "angle": 63,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "81817625c0fff6e84ec882b4cf5dc9c1752599f0ffb5bac9934814d34d50150f",
+      "samplesCount": 831
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        847,
+        -1,
+        844,
+        758
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 115,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 847,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9a25b63476b060b69825cc7c4523ebe2e133cebb97e1ceb5f101d79a59239e24",
+      "samplesCount": 796
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        820,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "target": 2,
+      "angle": 63,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "81817625c0fff6e84ec882b4cf5dc9c1752599f0ffb5bac9934814d34d50150f",
+      "samplesCount": 831
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        619,
+        -1,
+        589,
+        452
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 115,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 619,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9a25b63476b060b69825cc7c4523ebe2e133cebb97e1ceb5f101d79a59239e24",
+      "samplesCount": 796
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        812,
+        760
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 115,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9a25b63476b060b69825cc7c4523ebe2e133cebb97e1ceb5f101d79a59239e24",
+      "samplesCount": 796
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        994,
+        991
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 115,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9a25b63476b060b69825cc7c4523ebe2e133cebb97e1ceb5f101d79a59239e24",
+      "samplesCount": 796
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        985,
+        -1,
+        985,
+        987
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 56,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 987,
+      "random": [
+        51
+      ],
+      "samplesSha256": "74ae3919dd46f7e7ed047692b961b3e05f11aaba731885a287d14f06b5f14f16",
+      "samplesCount": 973
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 117,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "6cfa0854bfd25d5df4060a2b5f0c51d73077b35a1ab3d5edf59c8caf16e9ebd1",
+      "samplesCount": 724
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        948,
+        -1,
+        920
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 159,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "67b6d7390d2a808f074169e1d98a281f2a6b726a65e4c772a9a8a8e533f05636",
+      "samplesCount": 692
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        964,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 117,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "6cfa0854bfd25d5df4060a2b5f0c51d73077b35a1ab3d5edf59c8caf16e9ebd1",
+      "samplesCount": 724
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        666,
+        752,
+        -1,
+        718
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 117,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 748,
+      "random": [
+        51
+      ],
+      "samplesSha256": "6cfa0854bfd25d5df4060a2b5f0c51d73077b35a1ab3d5edf59c8caf16e9ebd1",
+      "samplesCount": 724
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        868,
+        932,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 62,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "98ba7f0a36387c65c805df08a73a189392f1e55ece50eec0ccf6ac90057414cb",
+      "samplesCount": 756
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        997,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "target": 0,
+      "angle": 159,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "67b6d7390d2a808f074169e1d98a281f2a6b726a65e4c772a9a8a8e533f05636",
+      "samplesCount": 692
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        968,
+        985,
+        -1,
+        985
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 117,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 985,
+      "random": [
+        51
+      ],
+      "samplesSha256": "6cfa0854bfd25d5df4060a2b5f0c51d73077b35a1ab3d5edf59c8caf16e9ebd1",
+      "samplesCount": 724
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [],
+    "random": 39,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 118,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5f2418604b508057222a18e23e13034770114f5bf4f6269749ec7db80b176f74",
+      "samplesCount": 1033
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        625,
+        711,
+        778,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 118,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 766,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5f2418604b508057222a18e23e13034770114f5bf4f6269749ec7db80b176f74",
+      "samplesCount": 1033
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        910,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 118,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5f2418604b508057222a18e23e13034770114f5bf4f6269749ec7db80b176f74",
+      "samplesCount": 1033
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        263,
+        417,
+        509,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 118,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 496,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5f2418604b508057222a18e23e13034770114f5bf4f6269749ec7db80b176f74",
+      "samplesCount": 1033
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        823,
+        925,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 118,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5f2418604b508057222a18e23e13034770114f5bf4f6269749ec7db80b176f74",
+      "samplesCount": 1033
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        988,
+        997,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 118,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5f2418604b508057222a18e23e13034770114f5bf4f6269749ec7db80b176f74",
+      "samplesCount": 1033
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 40
+      },
+      {
+        "x": 100,
+        "y": 150
+      },
+      {
+        "x": 180,
+        "y": 70
+      },
+      {
+        "x": 280,
+        "y": 175
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        977,
+        987,
+        988,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 118,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5f2418604b508057222a18e23e13034770114f5bf4f6269749ec7db80b176f74",
+      "samplesCount": 1033
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fea7cb302beb43e688b57285ef5c5006c169d054d0e2fb9f0f9b3a4bc31563d5",
+      "samplesCount": 983
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        850,
+        803,
+        784
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 850,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fea7cb302beb43e688b57285ef5c5006c169d054d0e2fb9f0f9b3a4bc31563d5",
+      "samplesCount": 983
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        850,
+        835,
+        910
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 38,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 910,
+      "random": [
+        51
+      ],
+      "samplesSha256": "d1c703dd5f9d5e16c81d0462c002a79af3fe46064191e0aec7cfaf7290e3c416",
+      "samplesCount": 1089
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        573,
+        521,
+        390
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 573,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fea7cb302beb43e688b57285ef5c5006c169d054d0e2fb9f0f9b3a4bc31563d5",
+      "samplesCount": 983
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        939,
+        850
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fea7cb302beb43e688b57285ef5c5006c169d054d0e2fb9f0f9b3a4bc31563d5",
+      "samplesCount": 983
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        998,
+        998,
+        994
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 998,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fea7cb302beb43e688b57285ef5c5006c169d054d0e2fb9f0f9b3a4bc31563d5",
+      "samplesCount": 983
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        988,
+        985,
+        980
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 950,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fea7cb302beb43e688b57285ef5c5006c169d054d0e2fb9f0f9b3a4bc31563d5",
+      "samplesCount": 983
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5e637ac0f0efa2188410f08386373e24517142351ea31838eda61f149e07e2f3",
+      "samplesCount": 836
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        949,
+        -1,
+        949,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 38,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "48faff9918644567eee78d9392e5c2425bedc5dacb14d3c1d51ac243a47229b4",
+      "samplesCount": 864
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        838,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "target": 2,
+      "angle": 72,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "1139808f5681bc55e0a9b26767129a1e26b11e99a576b4f0d95469cca1b163f1",
+      "samplesCount": 836
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        670,
+        -1,
+        670,
+        606
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 670,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5e637ac0f0efa2188410f08386373e24517142351ea31838eda61f149e07e2f3",
+      "samplesCount": 836
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        919,
+        853
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5e637ac0f0efa2188410f08386373e24517142351ea31838eda61f149e07e2f3",
+      "samplesCount": 836
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        994,
+        -1,
+        992,
+        991
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 4,
+      "weaponScore": 994,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5e637ac0f0efa2188410f08386373e24517142351ea31838eda61f149e07e2f3",
+      "samplesCount": 836
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        988,
+        -1,
+        988,
+        983
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "target": 0,
+      "angle": 108,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5e637ac0f0efa2188410f08386373e24517142351ea31838eda61f149e07e2f3",
+      "samplesCount": 836
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 108,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "753dedc5f6b6f181129725be9deb4803dc82fc36c7744192cf51925a9fcd55dd",
+      "samplesCount": 902
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        794,
+        859,
+        -1,
+        841
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 108,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 850,
+      "random": [
+        51
+      ],
+      "samplesSha256": "753dedc5f6b6f181129725be9deb4803dc82fc36c7744192cf51925a9fcd55dd",
+      "samplesCount": 902
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        948,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 108,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "753dedc5f6b6f181129725be9deb4803dc82fc36c7744192cf51925a9fcd55dd",
+      "samplesCount": 902
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        509,
+        583,
+        -1,
+        542
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 108,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 573,
+      "random": [
+        51
+      ],
+      "samplesSha256": "753dedc5f6b6f181129725be9deb4803dc82fc36c7744192cf51925a9fcd55dd",
+      "samplesCount": 902
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        805,
+        757,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 58,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "415be7f277b105aa8254e1203440716248aa484443499eb42c4786dbcef1b994",
+      "samplesCount": 927
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        994,
+        992,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 58,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "415be7f277b105aa8254e1203440716248aa484443499eb42c4786dbcef1b994",
+      "samplesCount": 927
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        985,
+        988,
+        -1,
+        988
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 108,
+      "power": 976,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "753dedc5f6b6f181129725be9deb4803dc82fc36c7744192cf51925a9fcd55dd",
+      "samplesCount": 902
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [],
+    "random": 39,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 122,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "73f6d046ad9f121812f15973c271582f4432e6781c155286beed06cbbc41b5d5",
+      "samplesCount": 992
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        928,
+        1000,
+        944,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 142,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "1f11b1ed508f6d35f63dc8095464bcbfe82e4b50598c30603b1cf4c5d1dea07f",
+      "samplesCount": 995
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        970,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 122,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "73f6d046ad9f121812f15973c271582f4432e6781c155286beed06cbbc41b5d5",
+      "samplesCount": 992
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        529,
+        787,
+        651,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 142,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 600,
+      "random": [
+        51
+      ],
+      "samplesSha256": "1f11b1ed508f6d35f63dc8095464bcbfe82e4b50598c30603b1cf4c5d1dea07f",
+      "samplesCount": 995
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        948,
+        955,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 122,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "73f6d046ad9f121812f15973c271582f4432e6781c155286beed06cbbc41b5d5",
+      "samplesCount": 992
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        997,
+        997,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 122,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "73f6d046ad9f121812f15973c271582f4432e6781c155286beed06cbbc41b5d5",
+      "samplesCount": 992
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 40,
+        "y": 150
+      },
+      {
+        "x": 100,
+        "y": 100
+      },
+      {
+        "x": 160,
+        "y": 150
+      },
+      {
+        "x": 280,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        983,
+        987,
+        988,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 122,
+      "power": 989,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "73f6d046ad9f121812f15973c271582f4432e6781c155286beed06cbbc41b5d5",
+      "samplesCount": 992
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140,
+        "alive": false
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [],
+    "expected": {
+      "scores": [
+        -1,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "target": 2,
+      "angle": 53,
+      "power": 975,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "57100763baa7aaa003807443ed20389ecba1bf6f4706230aefd9f78e2995d6ee",
+      "samplesCount": 876
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155,
+        "team": 1
+      },
+      {
+        "x": 110,
+        "y": 140,
+        "alive": true,
+        "team": 1
+      },
+      {
+        "x": 190,
+        "y": 110
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [],
+    "expected": {
+      "scores": [
+        -1,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "target": 2,
+      "angle": 53,
+      "power": 975,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "57100763baa7aaa003807443ed20389ecba1bf6f4706230aefd9f78e2995d6ee",
+      "samplesCount": 876
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155,
+        "ammo": [
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          0,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000
+        ]
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        721
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 47,
+      "power": 975,
+      "weapon": 1,
+      "weaponScore": 721,
+      "random": [
+        51
+      ],
+      "samplesSha256": "31060dbc9c1d38b7e4b1a5bfd6a11d9ad23cadc19e5e8790b5f9dea140b1d897",
+      "samplesCount": 712
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155,
+        "ammo": [
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          100,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000
+        ]
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        721
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 47,
+      "power": 975,
+      "weapon": 1,
+      "weaponScore": 721,
+      "random": [
+        51
+      ],
+      "samplesSha256": "31060dbc9c1d38b7e4b1a5bfd6a11d9ad23cadc19e5e8790b5f9dea140b1d897",
+      "samplesCount": 712
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155,
+        "ammo": [
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          101,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000,
+          1000
+        ]
+      },
+      {
+        "x": 275,
+        "y": 165
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        721
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 47,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 721,
+      "random": [
+        51
+      ],
+      "samplesSha256": "31060dbc9c1d38b7e4b1a5bfd6a11d9ad23cadc19e5e8790b5f9dea140b1d897",
+      "samplesCount": 712
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 40
+      },
+      {
+        "x": 95,
+        "y": 87
+      },
+      {
+        "x": 165,
+        "y": 134
+      },
+      {
+        "x": 235,
+        "y": 181
+      }
+    ],
+    "dirt": [],
+    "random": 0,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 45,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9f0e9cb3b0d26131450976133739533de3e1ddb87a7ce7877162f203873cc59a",
+      "samplesCount": 646
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 71
+      },
+      {
+        "x": 95,
+        "y": 118
+      },
+      {
+        "x": 165,
+        "y": 165
+      },
+      {
+        "x": 235,
+        "y": 67
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 1,
+    "expected": {
+      "scores": [
+        940,
+        -1,
+        880,
+        931
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 118,
+      "power": 951,
+      "weapon": 5,
+      "weaponScore": 940,
+      "random": [
+        51
+      ],
+      "samplesSha256": "66086cda6cb0755f31eca9e4c58130ff83b225850bf3ac4e4402c6611f2eea0e",
+      "samplesCount": 724
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 102
+      },
+      {
+        "x": 95,
+        "y": 149
+      },
+      {
+        "x": 165,
+        "y": 51
+      },
+      {
+        "x": 235,
+        "y": 98
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 2,
+    "expected": {
+      "scores": [
+        970,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 53,
+      "power": 952,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "59c17773aeec80d5dcd517e8aab7d37c328705aa614b8b6268de128acd2e382c",
+      "samplesCount": 559
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 133
+      },
+      {
+        "x": 95,
+        "y": 180
+      },
+      {
+        "x": 165,
+        "y": 82
+      },
+      {
+        "x": 235,
+        "y": 129
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 3,
+    "expected": {
+      "scores": [
+        477,
+        531,
+        666,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 115,
+      "power": 953,
+      "weapon": 5,
+      "weaponScore": 644,
+      "random": [
+        51
+      ],
+      "samplesSha256": "84aaa32f89a4a01c63be8a19a1f8e74e629abf2f04b085bc85ed2f891d855d1e",
+      "samplesCount": 920
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 164
+      },
+      {
+        "x": 95,
+        "y": 66
+      },
+      {
+        "x": 165,
+        "y": 113
+      },
+      {
+        "x": 235,
+        "y": 160
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 4,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        930,
+        967
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 68,
+      "power": 954,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "47c5eec1e29cbff8ead1953dd41f02ca73d273a0303649cc7893d9d58583fc70",
+      "samplesCount": 974
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 50
+      },
+      {
+        "x": 95,
+        "y": 97
+      },
+      {
+        "x": 165,
+        "y": 144
+      },
+      {
+        "x": 235,
+        "y": 46
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 5,
+    "expected": {
+      "scores": [
+        991,
+        -1,
+        992,
+        988
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 69,
+      "power": 955,
+      "weapon": 4,
+      "weaponScore": 992,
+      "random": [
+        51
+      ],
+      "samplesSha256": "6ea75aa2fe237fc2f9456ca80a6f65668cd2b1b8243a79cd52a15224a427c957",
+      "samplesCount": 672
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 81
+      },
+      {
+        "x": 95,
+        "y": 128
+      },
+      {
+        "x": 165,
+        "y": 175
+      },
+      {
+        "x": 235,
+        "y": 77
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 6,
+    "expected": {
+      "scores": [
+        984,
+        988,
+        -1,
+        988
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 106,
+      "power": 956,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "4f963480b7351213ab51fd2a67239a8288391d83efd86e808301a4a1d4fdf610",
+      "samplesCount": 962
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 112
+      },
+      {
+        "x": 95,
+        "y": 159
+      },
+      {
+        "x": 165,
+        "y": 61
+      },
+      {
+        "x": 235,
+        "y": 108
+      }
+    ],
+    "dirt": [],
+    "random": 7,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 122,
+      "power": 957,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fd8ca32fe9cb85799f26fec897892ab07634b9d8ece471f9dd93d7986ffeab0f",
+      "samplesCount": 781
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 143
+      },
+      {
+        "x": 95,
+        "y": 45
+      },
+      {
+        "x": 165,
+        "y": 92
+      },
+      {
+        "x": 235,
+        "y": 139
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 8,
+    "expected": {
+      "scores": [
+        -1,
+        865,
+        859,
+        809
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 62,
+      "power": 958,
+      "weapon": 5,
+      "weaponScore": 865,
+      "random": [
+        51
+      ],
+      "samplesSha256": "6153f469e8e3726a461c781e7f656c6ec392e3d36694bae909f695a6c1b3b5f7",
+      "samplesCount": 830
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 174
+      },
+      {
+        "x": 95,
+        "y": 76
+      },
+      {
+        "x": 165,
+        "y": 123
+      },
+      {
+        "x": 235,
+        "y": 170
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 9,
+    "expected": {
+      "scores": [
+        862,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "target": 2,
+      "angle": 63,
+      "power": 959,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "3192429cf7c005324e15f6c6e7dcbd2472e1823db511c84f04c8e638b096efc3",
+      "samplesCount": 756
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 60
+      },
+      {
+        "x": 95,
+        "y": 107
+      },
+      {
+        "x": 165,
+        "y": 154
+      },
+      {
+        "x": 235,
+        "y": 56
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 10,
+    "expected": {
+      "scores": [
+        518,
+        540,
+        -1,
+        590
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 65,
+      "power": 960,
+      "weapon": 5,
+      "weaponScore": 590,
+      "random": [
+        51
+      ],
+      "samplesSha256": "c9d0845c34da8a096a5cc298e54f68fc30faedcd0ea2d2f4cba54cecd706ac0c",
+      "samplesCount": 762
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 91
+      },
+      {
+        "x": 95,
+        "y": 138
+      },
+      {
+        "x": 165,
+        "y": 40
+      },
+      {
+        "x": 235,
+        "y": 87
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 11,
+    "expected": {
+      "scores": [
+        1000,
+        931,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 135,
+      "power": 961,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "581028a23876ff1f5117028c8c2aa266df6a72e242da2cbf1fd9b28cec13b003",
+      "samplesCount": 656
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 122
+      },
+      {
+        "x": 95,
+        "y": 169
+      },
+      {
+        "x": 165,
+        "y": 71
+      },
+      {
+        "x": 235,
+        "y": 118
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 12,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        997
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        0
+      ],
+      "target": 1,
+      "angle": 73,
+      "power": 962,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "1e05d6c268fa8096515b12a3cd6dfbbf1d801044328575d4c9834a9085199447",
+      "samplesCount": 961
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 153
+      },
+      {
+        "x": 95,
+        "y": 55
+      },
+      {
+        "x": 165,
+        "y": 102
+      },
+      {
+        "x": 235,
+        "y": 149
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 13,
+    "expected": {
+      "scores": [
+        988,
+        -1,
+        987,
+        990
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 46,
+      "power": 963,
+      "weapon": 5,
+      "weaponScore": 984,
+      "random": [
+        51
+      ],
+      "samplesSha256": "d5e866c01c7e6fc30887fb0fd3a0a28ce67b5bcc41001dc92d029046d64942dd",
+      "samplesCount": 692
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 184
+      },
+      {
+        "x": 95,
+        "y": 86
+      },
+      {
+        "x": 165,
+        "y": 133
+      },
+      {
+        "x": 235,
+        "y": 180
+      }
+    ],
+    "dirt": [],
+    "random": 14,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 114,
+      "power": 964,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "2724db713692f3c73c5d0c2237709f2fbbcd9062f782fec66b71c5e25f088a5e",
+      "samplesCount": 915
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 70
+      },
+      {
+        "x": 95,
+        "y": 117
+      },
+      {
+        "x": 165,
+        "y": 164
+      },
+      {
+        "x": 235,
+        "y": 66
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 15,
+    "expected": {
+      "scores": [
+        1000,
+        977,
+        934,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 160,
+      "power": 965,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "82770b2a23491ff1f15faf40c1af401c0fbb7a26521963adea2c27fafa70e567",
+      "samplesCount": 822
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 101
+      },
+      {
+        "x": 95,
+        "y": 148
+      },
+      {
+        "x": 165,
+        "y": 50
+      },
+      {
+        "x": 235,
+        "y": 97
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 16,
+    "expected": {
+      "scores": [
+        -1,
+        926,
+        916,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 34,
+      "power": 966,
+      "weapon": 5,
+      "weaponScore": 913,
+      "random": [
+        51
+      ],
+      "samplesSha256": "10d29fa7821517401097170071bd3740536c395f6412666c75c50d4976381c5f",
+      "samplesCount": 876
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 132
+      },
+      {
+        "x": 95,
+        "y": 179
+      },
+      {
+        "x": 165,
+        "y": 81
+      },
+      {
+        "x": 235,
+        "y": 128
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 17,
+    "expected": {
+      "scores": [
+        448,
+        -1,
+        505,
+        439
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 71,
+      "power": 967,
+      "weapon": 5,
+      "weaponScore": 505,
+      "random": [
+        51
+      ],
+      "samplesSha256": "b3c17f0572539e7af1cb62ca5b448d0004b901efb5b6d6af8bee4d112a4a2a50",
+      "samplesCount": 979
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 163
+      },
+      {
+        "x": 95,
+        "y": 65
+      },
+      {
+        "x": 165,
+        "y": 112
+      },
+      {
+        "x": 235,
+        "y": 159
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 18,
+    "expected": {
+      "scores": [
+        808,
+        817,
+        -1,
+        943
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 71,
+      "power": 968,
+      "weapon": 5,
+      "weaponScore": 943,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fecb57fb73ee0a7ba0fd85590c76f9219000b2e9e499aecb3fa8fe9f39e473a8",
+      "samplesCount": 848
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 49
+      },
+      {
+        "x": 95,
+        "y": 96
+      },
+      {
+        "x": 165,
+        "y": 143
+      },
+      {
+        "x": 235,
+        "y": 45
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 19,
+    "expected": {
+      "scores": [
+        1000,
+        997,
+        998,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 170,
+      "power": 969,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "a98eee398ee8014ef554c80e02904d26761ae2666d6f7b60678ab16d06ff5c8c",
+      "samplesCount": 736
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 80
+      },
+      {
+        "x": 95,
+        "y": 127
+      },
+      {
+        "x": 165,
+        "y": 174
+      },
+      {
+        "x": 235,
+        "y": 76
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 20,
+    "expected": {
+      "scores": [
+        -1,
+        988,
+        984,
+        976
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 65,
+      "power": 970,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "3598ec91524a14069ee3a7733204917d46e7fb303a178a79c89bd5270d429cf6",
+      "samplesCount": 805
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 111
+      },
+      {
+        "x": 95,
+        "y": 158
+      },
+      {
+        "x": 165,
+        "y": 60
+      },
+      {
+        "x": 235,
+        "y": 107
+      }
+    ],
+    "dirt": [],
+    "random": 21,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "target": 0,
+      "angle": 109,
+      "power": 971,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "b5829511fd143296dded5302ab7ebc5376c397a5c4d709ae826384079683a57c",
+      "samplesCount": 872
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 142
+      },
+      {
+        "x": 95,
+        "y": 44
+      },
+      {
+        "x": 165,
+        "y": 91
+      },
+      {
+        "x": 235,
+        "y": 138
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 22,
+    "expected": {
+      "scores": [
+        951,
+        1000,
+        -1,
+        962
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 132,
+      "power": 972,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "71be4c76bc818e8cadb2eb1c81166ff2d8a39efc06ea369f25679ecc2ad6fbe4",
+      "samplesCount": 617
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 173
+      },
+      {
+        "x": 95,
+        "y": 75
+      },
+      {
+        "x": 165,
+        "y": 122
+      },
+      {
+        "x": 235,
+        "y": 169
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 23,
+    "expected": {
+      "scores": [
+        960,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 107,
+      "power": 973,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "c94a4d043d700350c35ed0e66fff41c5fa909edf4e61417e28248bea7f158dfb",
+      "samplesCount": 1076
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 59
+      },
+      {
+        "x": 95,
+        "y": 106
+      },
+      {
+        "x": 165,
+        "y": 153
+      },
+      {
+        "x": 235,
+        "y": 55
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 24,
+    "expected": {
+      "scores": [
+        -1,
+        830,
+        764,
+        616
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 57,
+      "power": 974,
+      "weapon": 5,
+      "weaponScore": 830,
+      "random": [
+        51
+      ],
+      "samplesSha256": "42f95282ab3138cdf52d9c9ae4666279f8159158c4b604f8c44ae5dc09e30f4b",
+      "samplesCount": 684
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 90
+      },
+      {
+        "x": 95,
+        "y": 137
+      },
+      {
+        "x": 165,
+        "y": 184
+      },
+      {
+        "x": 235,
+        "y": 86
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 25,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        919,
+        805
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 113,
+      "power": 975,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "bc03c6a541c5a129f69b485bba77afdc2b7d64803f35ed62b53f37f8ff865fbf",
+      "samplesCount": 857
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 121
+      },
+      {
+        "x": 95,
+        "y": 168
+      },
+      {
+        "x": 165,
+        "y": 70
+      },
+      {
+        "x": 235,
+        "y": 117
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 26,
+    "expected": {
+      "scores": [
+        1000,
+        998,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "target": 3,
+      "angle": 61,
+      "power": 976,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "c4785746761629d09bfd814e186898c0bbfd6f41f1bba3a1a7c9d5db25526b81",
+      "samplesCount": 684
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 152
+      },
+      {
+        "x": 95,
+        "y": 54
+      },
+      {
+        "x": 165,
+        "y": 101
+      },
+      {
+        "x": 235,
+        "y": 148
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 27,
+    "expected": {
+      "scores": [
+        984,
+        981,
+        988,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 110,
+      "power": 977,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "054a0565b3316323903177ed57b689c84b5276eebd3bb8d48f9f281874bb42b9",
+      "samplesCount": 931
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 183
+      },
+      {
+        "x": 95,
+        "y": 85
+      },
+      {
+        "x": 165,
+        "y": 132
+      },
+      {
+        "x": 235,
+        "y": 179
+      }
+    ],
+    "dirt": [],
+    "random": 28,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 71,
+      "power": 978,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "fabddc5984b75b06955138028be810c9b407be75af7c957f6c2ea64e388efaad",
+      "samplesCount": 1109
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 69
+      },
+      {
+        "x": 95,
+        "y": 116
+      },
+      {
+        "x": 165,
+        "y": 163
+      },
+      {
+        "x": 235,
+        "y": 65
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 29,
+    "expected": {
+      "scores": [
+        946,
+        -1,
+        889,
+        940
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 119,
+      "power": 979,
+      "weapon": 5,
+      "weaponScore": 946,
+      "random": [
+        51
+      ],
+      "samplesSha256": "9ddf363c8d8989e502e2175748fc2130e47336e6094e640deeff761a2e71173a",
+      "samplesCount": 711
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 100
+      },
+      {
+        "x": 95,
+        "y": 147
+      },
+      {
+        "x": 165,
+        "y": 49
+      },
+      {
+        "x": 235,
+        "y": 96
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 30,
+    "expected": {
+      "scores": [
+        971,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 51,
+      "power": 980,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "89cf8c32a9340e5a8aed493b324a156bc0d1021bfe1e1f43f544610213e6e0f2",
+      "samplesCount": 547
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 131
+      },
+      {
+        "x": 95,
+        "y": 178
+      },
+      {
+        "x": 165,
+        "y": 80
+      },
+      {
+        "x": 235,
+        "y": 127
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 31,
+    "expected": {
+      "scores": [
+        483,
+        550,
+        671,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 115,
+      "power": 981,
+      "weapon": 5,
+      "weaponScore": 651,
+      "random": [
+        51
+      ],
+      "samplesSha256": "e989176d0235300af07ebdf27331505d31cbece61035e9d3907b63821393df90",
+      "samplesCount": 906
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 162
+      },
+      {
+        "x": 95,
+        "y": 64
+      },
+      {
+        "x": 165,
+        "y": 111
+      },
+      {
+        "x": 235,
+        "y": 158
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 32,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        934,
+        968
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 67,
+      "power": 982,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "60da02330eb9cb654fe5c775de72b0ccc0b3aecc9728b21bda83fb96645cda20",
+      "samplesCount": 960
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 48
+      },
+      {
+        "x": 95,
+        "y": 95
+      },
+      {
+        "x": 165,
+        "y": 142
+      },
+      {
+        "x": 235,
+        "y": 44
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 33,
+    "expected": {
+      "scores": [
+        994,
+        -1,
+        991,
+        991
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 129,
+      "power": 983,
+      "weapon": 4,
+      "weaponScore": 994,
+      "random": [
+        51
+      ],
+      "samplesSha256": "0eac787a4586bfc186c812f0fe69368bd0b9336eaf9959468d0089d64fcb5889",
+      "samplesCount": 577
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 79
+      },
+      {
+        "x": 95,
+        "y": 126
+      },
+      {
+        "x": 165,
+        "y": 173
+      },
+      {
+        "x": 235,
+        "y": 75
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 34,
+    "expected": {
+      "scores": [
+        987,
+        988,
+        -1,
+        988
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 1,
+      "angle": 107,
+      "power": 984,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "acc624ac9013e5357cb50f7a72a6c8b4e09077c87f010676ee1fdabb4d309bc4",
+      "samplesCount": 948
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 110
+      },
+      {
+        "x": 95,
+        "y": 157
+      },
+      {
+        "x": 165,
+        "y": 59
+      },
+      {
+        "x": 235,
+        "y": 106
+      }
+    ],
+    "dirt": [],
+    "random": 35,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        2,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 123,
+      "power": 985,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "2588f8d2d5f5b051fa2e9f924aa7befc72661d0e67dd52ba8ba64db5cb498286",
+      "samplesCount": 768
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 141
+      },
+      {
+        "x": 95,
+        "y": 43
+      },
+      {
+        "x": 165,
+        "y": 90
+      },
+      {
+        "x": 235,
+        "y": 137
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 36,
+    "expected": {
+      "scores": [
+        -1,
+        868,
+        862,
+        814
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 61,
+      "power": 986,
+      "weapon": 5,
+      "weaponScore": 868,
+      "random": [
+        51
+      ],
+      "samplesSha256": "0e5cd6b1487d4ee50ecc8ce181cfdf25e474cd657b843bdce3e2009b6045cc40",
+      "samplesCount": 817
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 172
+      },
+      {
+        "x": 95,
+        "y": 74
+      },
+      {
+        "x": 165,
+        "y": 121
+      },
+      {
+        "x": 235,
+        "y": 168
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 37,
+    "expected": {
+      "scores": [
+        866,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "target": 2,
+      "angle": 63,
+      "power": 987,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "df3216fa0c6107b1faccecb100c73a404a6aa760e5cd7007dbd064249d6a45a0",
+      "samplesCount": 743
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 58
+      },
+      {
+        "x": 95,
+        "y": 105
+      },
+      {
+        "x": 165,
+        "y": 152
+      },
+      {
+        "x": 235,
+        "y": 54
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 38,
+    "expected": {
+      "scores": [
+        517,
+        558,
+        -1,
+        599
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 64,
+      "power": 988,
+      "weapon": 5,
+      "weaponScore": 599,
+      "random": [
+        51
+      ],
+      "samplesSha256": "92afd85962bc618e18f6a8d9246609d5a1f108e0c13292a8bb505007c3016e46",
+      "samplesCount": 750
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 89
+      },
+      {
+        "x": 95,
+        "y": 136
+      },
+      {
+        "x": 165,
+        "y": 183
+      },
+      {
+        "x": 235,
+        "y": 85
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 39,
+    "expected": {
+      "scores": [
+        1000,
+        930,
+        1000,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "target": 2,
+      "angle": 109,
+      "power": 989,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "c59edd38e142acacd4cee26bb3603c8275fd9868e0191df1cf054f63b6c44acc",
+      "samplesCount": 898
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 120
+      },
+      {
+        "x": 95,
+        "y": 167
+      },
+      {
+        "x": 165,
+        "y": 69
+      },
+      {
+        "x": 235,
+        "y": 116
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 40,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        997
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        0
+      ],
+      "target": 1,
+      "angle": 73,
+      "power": 990,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "bef3552c39371b39a42161cb935c6fd9c34d0aa2c7972b8165dd5ba149a19388",
+      "samplesCount": 948
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 151
+      },
+      {
+        "x": 95,
+        "y": 53
+      },
+      {
+        "x": 165,
+        "y": 100
+      },
+      {
+        "x": 235,
+        "y": 147
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 41,
+    "expected": {
+      "scores": [
+        988,
+        -1,
+        987,
+        990
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 45,
+      "power": 991,
+      "weapon": 5,
+      "weaponScore": 984,
+      "random": [
+        51
+      ],
+      "samplesSha256": "8c86dd771bc7a2805bc9dcc20afd712b6e72b968f54d42ecf2640896476bbd91",
+      "samplesCount": 681
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 182
+      },
+      {
+        "x": 95,
+        "y": 84
+      },
+      {
+        "x": 165,
+        "y": 131
+      },
+      {
+        "x": 235,
+        "y": 178
+      }
+    ],
+    "dirt": [],
+    "random": 42,
+    "expected": {
+      "scores": [
+        1000,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        2,
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 114,
+      "power": 992,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f960998ba8876e21ed086dc96f0df34fc6afba80d672a2086cf85a4efea12016",
+      "samplesCount": 899
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 68
+      },
+      {
+        "x": 95,
+        "y": 115
+      },
+      {
+        "x": 165,
+        "y": 162
+      },
+      {
+        "x": 235,
+        "y": 64
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 43,
+    "expected": {
+      "scores": [
+        1000,
+        979,
+        933,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 161,
+      "power": 993,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "abab550f98b0ee1948e805a70043e89991ddf8ea3eb9307107fe940e798993d5",
+      "samplesCount": 812
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 99
+      },
+      {
+        "x": 95,
+        "y": 146
+      },
+      {
+        "x": 165,
+        "y": 48
+      },
+      {
+        "x": 235,
+        "y": 95
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 44,
+    "expected": {
+      "scores": [
+        -1,
+        930,
+        919,
+        970
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 33,
+      "power": 994,
+      "weapon": 5,
+      "weaponScore": 913,
+      "random": [
+        51
+      ],
+      "samplesSha256": "76dada962f48c74adb7f4c33993a02b00daf851ffa95bf8563fc33c99bb590b7",
+      "samplesCount": 868
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 130
+      },
+      {
+        "x": 95,
+        "y": 177
+      },
+      {
+        "x": 165,
+        "y": 79
+      },
+      {
+        "x": 235,
+        "y": 126
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 45,
+    "expected": {
+      "scores": [
+        460,
+        -1,
+        514,
+        443
+      ],
+      "ranking": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 70,
+      "power": 995,
+      "weapon": 5,
+      "weaponScore": 514,
+      "random": [
+        51
+      ],
+      "samplesSha256": "958eac7e4530dcf78e642035b11a42dbe453b3701c3a01fc3aff7889fab0c93e",
+      "samplesCount": 965
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 161
+      },
+      {
+        "x": 95,
+        "y": 63
+      },
+      {
+        "x": 165,
+        "y": 110
+      },
+      {
+        "x": 235,
+        "y": 157
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 46,
+    "expected": {
+      "scores": [
+        802,
+        847,
+        -1,
+        943
+      ],
+      "ranking": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "target": 3,
+      "angle": 71,
+      "power": 996,
+      "weapon": 5,
+      "weaponScore": 943,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f254f1aa65008e2d04eca2c296fe176d653a831357a29039d9751ac8f53cbc70",
+      "samplesCount": 832
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 47
+      },
+      {
+        "x": 95,
+        "y": 94
+      },
+      {
+        "x": 165,
+        "y": 141
+      },
+      {
+        "x": 235,
+        "y": 43
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 47,
+    "expected": {
+      "scores": [
+        1000,
+        997,
+        998,
+        -1
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 171,
+      "power": 997,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "60b27669f92020dd7cedf6f1b821605d7c86126be08a5f86e695465b725b3dff",
+      "samplesCount": 730
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 78
+      },
+      {
+        "x": 95,
+        "y": 125
+      },
+      {
+        "x": 165,
+        "y": 172
+      },
+      {
+        "x": 235,
+        "y": 74
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 48,
+    "expected": {
+      "scores": [
+        -1,
+        988,
+        987,
+        976
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 64,
+      "power": 998,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "f65778ec5fd9b2dc56e00f773af8e577cdbc27692042a5937d5eeba49ed6bb99",
+      "samplesCount": 791
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 109
+      },
+      {
+        "x": 95,
+        "y": 156
+      },
+      {
+        "x": 165,
+        "y": 58
+      },
+      {
+        "x": 235,
+        "y": 105
+      }
+    ],
+    "dirt": [],
+    "random": 49,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        1000,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "target": 0,
+      "angle": 109,
+      "power": 999,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "a4858e32f15a81ae37a8c1ccf392351d7f03ea509803b36cc32c43454bea231b",
+      "samplesCount": 857
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 140
+      },
+      {
+        "x": 95,
+        "y": 42
+      },
+      {
+        "x": 165,
+        "y": 89
+      },
+      {
+        "x": 235,
+        "y": 136
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 50,
+    "expected": {
+      "scores": [
+        952,
+        1000,
+        -1,
+        963
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 134,
+      "power": 1000,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "3b6bc2aba5cd2f040d0f36df6cbf73f7f3262a61201d9f22e38a1869588fe771",
+      "samplesCount": 606
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 171
+      },
+      {
+        "x": 95,
+        "y": 73
+      },
+      {
+        "x": 165,
+        "y": 120
+      },
+      {
+        "x": 235,
+        "y": 167
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 0,
+    "expected": {
+      "scores": [
+        957,
+        1000,
+        1000,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 107,
+      "power": 950,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "7904868c1acfe4d01b856e73cc857694029d7514dc2987bd360b00a37a3672b4",
+      "samplesCount": 1064
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 57
+      },
+      {
+        "x": 95,
+        "y": 104
+      },
+      {
+        "x": 165,
+        "y": 151
+      },
+      {
+        "x": 235,
+        "y": 53
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 1,
+    "expected": {
+      "scores": [
+        -1,
+        835,
+        766,
+        618
+      ],
+      "ranking": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "target": 1,
+      "angle": 56,
+      "power": 951,
+      "weapon": 5,
+      "weaponScore": 835,
+      "random": [
+        51
+      ],
+      "samplesSha256": "1c945aaa5dd160a86f8ce26b8f135680e97bc554d8557ea8eb0bc0c833d2e12e",
+      "samplesCount": 671
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 88
+      },
+      {
+        "x": 95,
+        "y": 135
+      },
+      {
+        "x": 165,
+        "y": 182
+      },
+      {
+        "x": 235,
+        "y": 84
+      }
+    ],
+    "dirt": [
+      [
+        120,
+        50,
+        170,
+        130
+      ]
+    ],
+    "random": 2,
+    "expected": {
+      "scores": [
+        1000,
+        -1,
+        919,
+        796
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 113,
+      "power": 952,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "0dda34eeed31bdc712400f8d1bb91f272beb0e60c2f9c9928a4c64982437143c",
+      "samplesCount": 843
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 119
+      },
+      {
+        "x": 95,
+        "y": 166
+      },
+      {
+        "x": 165,
+        "y": 68
+      },
+      {
+        "x": 235,
+        "y": 115
+      }
+    ],
+    "dirt": [
+      [
+        80,
+        80,
+        200,
+        81
+      ]
+    ],
+    "random": 3,
+    "expected": {
+      "scores": [
+        1000,
+        997,
+        -1,
+        1000
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "target": 3,
+      "angle": 61,
+      "power": 953,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "95fa3611d6b5160abe6c9ec358beb66b0dfb95392a711e776eab23d29d42efdb",
+      "samplesCount": 669
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 150
+      },
+      {
+        "x": 95,
+        "y": 52
+      },
+      {
+        "x": 165,
+        "y": 99
+      },
+      {
+        "x": 235,
+        "y": 146
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        33
+      ]
+    ],
+    "random": 4,
+    "expected": {
+      "scores": [
+        984,
+        988,
+        988,
+        -1
+      ],
+      "ranking": [
+        0,
+        3,
+        3,
+        0
+      ],
+      "target": 2,
+      "angle": 111,
+      "power": 954,
+      "weapon": 5,
+      "weaponScore": 988,
+      "random": [
+        51
+      ],
+      "samplesSha256": "e5f9fe0ff72d702f91f20fa57edf555f88919d01bfe239d68aaf2f9467512450",
+      "samplesCount": 916
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 25,
+        "y": 181
+      },
+      {
+        "x": 95,
+        "y": 83
+      },
+      {
+        "x": 165,
+        "y": 130
+      },
+      {
+        "x": 235,
+        "y": 177
+      }
+    ],
+    "dirt": [],
+    "random": 5,
+    "expected": {
+      "scores": [
+        -1,
+        1000,
+        1000,
+        1000
+      ],
+      "ranking": [
+        0,
+        2,
+        2,
+        2
+      ],
+      "target": 1,
+      "angle": 71,
+      "power": 955,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "dac6129776f84455b4d43217fdb458dd89e03a9816a2e32234b15c64386e4537",
+      "samplesCount": 1095
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 25,
+        "y": 67
+      },
+      {
+        "x": 95,
+        "y": 114
+      },
+      {
+        "x": 165,
+        "y": 161
+      },
+      {
+        "x": 235,
+        "y": 63
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        100,
+        309,
+        189
+      ]
+    ],
+    "random": 6,
+    "expected": {
+      "scores": [
+        958,
+        -1,
+        896,
+        946
+      ],
+      "ranking": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "target": 0,
+      "angle": 120,
+      "power": 956,
+      "weapon": 5,
+      "weaponScore": 958,
+      "random": [
+        51
+      ],
+      "samplesSha256": "d3006a6ec2ffc98d90245e5c8d9aea3b7453d2d0fdb3b9e1b8d4fde15f5aa619",
+      "samplesCount": 697
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 25,
+        "y": 98
+      },
+      {
+        "x": 95,
+        "y": 145
+      },
+      {
+        "x": 165,
+        "y": 47
+      },
+      {
+        "x": 235,
+        "y": 94
+      }
+    ],
+    "dirt": [
+      [
+        65,
+        31,
+        90,
+        189
+      ]
+    ],
+    "random": 7,
+    "expected": {
+      "scores": [
+        972,
+        1000,
+        -1,
+        1000
+      ],
+      "ranking": [
+        0,
+        3,
+        0,
+        3
+      ],
+      "target": 3,
+      "angle": 50,
+      "power": 957,
+      "weapon": 4,
+      "weaponScore": 1000,
+      "random": [
+        51
+      ],
+      "samplesSha256": "5147ca17bf7ab54f999ba4049b4617e116445d4fab8dd45ee0cc58ffa79712c6",
+      "samplesCount": 535
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 25,
+        "y": 129
+      },
+      {
+        "x": 95,
+        "y": 176
+      },
+      {
+        "x": 165,
+        "y": 78
+      },
+      {
+        "x": 235,
+        "y": 125
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "random": 8,
+    "expected": {
+      "scores": [
+        489,
+        553,
+        681,
+        -1
+      ],
+      "ranking": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "target": 2,
+      "angle": 116,
+      "power": 958,
+      "weapon": 5,
+      "weaponScore": 659,
+      "random": [
+        51
+      ],
+      "samplesSha256": "04d0204f152bc2796ef28bb8c5aad02f8913ab65bd4d93883a98ad6ef7922d03",
+      "samplesCount": 892
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 184,
+        "y": 100
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        724
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 45,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 724,
+      "random": [
+        51
+      ],
+      "samplesSha256": "8bf2c1afc7d77bac0fb51426fce3a871b3c3ff50743866056f7a694971fa4761",
+      "samplesCount": 404
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 100,
+        "y": 36
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        760
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 53,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 760,
+      "random": [
+        51
+      ],
+      "samplesSha256": "4d03daa8f0f71f154966ff8f9301a6b849890d067c7da6b5548c93ff6e969735",
+      "samplesCount": 198
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 100
+      },
+      {
+        "x": 88,
+        "y": 68
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        740
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 66,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 740,
+      "random": [
+        51
+      ],
+      "samplesSha256": "96d165c5fa60a4738aaec223abf9f45e594db32f8f9469f1562f4cbfcf4dd4d5",
+      "samplesCount": 242
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 32
+      },
+      {
+        "x": 90,
+        "y": 70
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        944
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 42,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 944,
+      "random": [
+        51
+      ],
+      "samplesSha256": "b7caf332803b2ba38eef3731836da44d4fc46e2ca8dbb517e130ac2e922ef6e7",
+      "samplesCount": 134
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 185
+      },
+      {
+        "x": 290,
+        "y": 170
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        285
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 50,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 285,
+      "random": [
+        51
+      ],
+      "samplesSha256": "cb0a8d0c16f944cfab19682384e40c81af1b785873cfae805cf6c413a1b5b556",
+      "samplesCount": 778
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 40,
+        "y": 90
+      },
+      {
+        "x": 71,
+        "y": 91
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        761
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 76,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 761,
+      "random": [
+        51
+      ],
+      "samplesSha256": "7e7d9d51a77786b4a03e355855b53314e194c66f85d2c0a92438764ff9ebbae2",
+      "samplesCount": 256
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 35,
+        "y": 155
+      },
+      {
+        "x": 110,
+        "y": 140
+      }
+    ],
+    "dirt": [
+      [
+        11,
+        31,
+        309,
+        189
+      ]
+    ],
+    "pixels": [
+      [
+        35,
+        154,
+        20
+      ],
+      [
+        35,
+        153,
+        20
+      ],
+      [
+        36,
+        152,
+        20
+      ],
+      [
+        36,
+        151,
+        20
+      ]
+    ],
+    "expected": {
+      "scores": [
+        -1,
+        523
+      ],
+      "ranking": [
+        0,
+        2
+      ],
+      "target": 1,
+      "angle": 72,
+      "power": 975,
+      "weapon": 5,
+      "weaponScore": 523,
+      "random": [
+        51
+      ],
+      "samplesSha256": "4016d46500b1f9c8b7dc43c307834d84ac67a0af8b81826829b281166cc4ea0a",
+      "samplesCount": 498
+    }
+  }
+]

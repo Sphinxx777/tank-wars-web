@@ -1,3 +1,5 @@
+import { planTwanger } from './ai-twanger.js';
+import { planLobber, recordLobberShot } from './ai-lobber.js';
 import {
   SHOT_SUBDIVISIONS,
   advanceShotCounter,
@@ -319,6 +321,8 @@ export class Game {
     this.turns = 0;
     this.active = 0;
     this.deathQueue = [];
+    this.sharedProjectilePosition = { x: 0, y: 0 };
+    this.pendingShotHistory = null;
   }
   emit(type, data = {}) {
     this.events.push({ type, ...data });
@@ -330,6 +334,7 @@ export class Game {
     if (block) this.blockSimulation = (this.blockSimulation || 0) + sequence.ms / 1000;
   }
   start(roster) {
+    this.sharedProjectilePosition = { x: 0, y: 0 };
     this.players = roster.map((p, i) => ({
       id: i,
       name: p.name || `Player ${i + 1}`,
@@ -376,6 +381,7 @@ export class Game {
     this.audioWait = 0;
     this.blockSimulation = 0;
     this.pendingLaser = null;
+    this.pendingShotHistory = null;
     this.effectAnimation = null;
     this.effectWait = 0;
     this.laserVisual = null;
@@ -506,6 +512,8 @@ export class Game {
       target: p.target,
       guidance: p.armed,
     };
+    // OVR 0x15722 records one history entry after the complete weapon dispatch.
+    this.pendingShotHistory = { owner: p.id, power: p.power };
     if (id === 7) shot.guidance = 0;
     else for (let i = 0; i < 2; i++) if (p.armed & (1 << i)) p.guidance[i]--;
     p.armed = 0;
@@ -821,13 +829,7 @@ export class Game {
         const event = this.stepShot(shot, 1 / (shot.subdivisions ?? SHOT_SUBDIVISIONS));
         delete shot.previousPixel;
         if (event) {
-          if (!shot.mirvChild)
-            this.players[shot.owner].lob.push({
-              x: shot.x,
-              y: shot.y,
-              power: shot.power,
-              angle: this.players[shot.owner].angle,
-            });
+          this.sharedProjectilePosition = { x: shot.x, y: shot.y };
           if (this.options.flySound) this.audio(new SoundSequence().stop());
           if (shot.pixelY < -5000) {
             const tones = new SoundSequence();
@@ -953,6 +955,11 @@ export class Game {
 
   settleTurn() {
     if (!this.shots.length && !this.explosions.length && !this.reaction) {
+      if (this.pendingShotHistory) {
+        const { owner, power } = this.pendingShotHistory;
+        recordLobberShot(this.players[owner], { ...this.sharedProjectilePosition, power });
+        this.pendingShotHistory = null;
+      }
       if (this.deathAnimation || this.deathQueue.length) {
         this.advanceDeathAnimation();
         return;
@@ -1204,23 +1211,21 @@ export class Game {
       }
       p.angle = orient(angle, direction);
     }
-    if (ai === 2 || ai === 5) {
+    if (ai === 2) {
       // Rifleman temporarily draws scoring rays; later rays see the overwritten dirt.
       const overwritten = new Set();
       let best = -Infinity;
       for (const id of this.order) {
         const t = this.players[id];
-        let score = ai === 5 ? -1 : 0;
+        let score = 0;
         if (enemies.includes(t)) {
-          score = ai === 2 && t.y > p.y + 3 ? 100 : 1000;
-          const reflectedY = ai === 5 ? 56 - t.y : t.y,
-            dx = t.x - p.x,
-            dy = reflectedY - p.y,
+          score = t.y > p.y + 3 ? 100 : 1000;
+          const dx = t.x - p.x,
+            dy = t.y - p.y,
             length = Math.hypot(dx, dy);
           for (let k = 1; k <= Math.trunc(length); k++) {
             const x = p.x + Math.trunc((k * dx) / length);
-            let y = p.y + Math.trunc((k * dy) / length);
-            if (ai === 5 && y < 28) y = 56 - y;
+            const y = p.y + Math.trunc((k * dy) / length);
             const key = y * W + x;
             if (this.terrain.solid(x, y) && !overwritten.has(key)) score--;
             overwritten.add(key);
@@ -1241,13 +1246,7 @@ export class Game {
         for (let i = 2; i <= 4; i++)
           if (p.ammo[i] > 0 && this.weapons[i].radius < Math.hypot(dx, dy)) p.weapon = i;
       } else if (p.ammo[5] > 100) p.weapon = 5;
-      if (ai === 5) {
-        p.angle = orient(
-          Math.trunc((Math.atan(Math.abs((p.y + target.y - 56) / dx)) * 180) / Math.PI),
-          Math.sign(dx),
-        );
-        p.power = 950 + this.rng.int(51);
-      } else if (target.y - 4 > p.y) {
+      if (target.y - 4 > p.y) {
         let angle = 10 + this.rng.int(70);
         if (!solid) {
           p.power = 20 + this.rng.int(280);
@@ -1257,41 +1256,12 @@ export class Game {
         p.weapon = 1;
       }
     }
-    if (ai === 1) {
-      const history = p.lob,
-        n = history.length + 1;
-      if (n < 3) {
-        let step = p.angle <= 90 ? 1 : -1;
-        if (n === 1 && this.rng.next() <= 0.5) step = -step;
-        for (let i = 1; i < this.order.length; i++) {
-          const t =
-            this.players[this.order[(ownIndex + step * i + this.order.length) % this.order.length]];
-          if (enemies.includes(t)) {
-            target = t;
-            break;
-          }
-        }
-      } else
-        target = enemies.reduce((a, b) =>
-          Math.abs(b.x - history.at(-1).x) < Math.abs(a.x - history.at(-1).x) ? b : a,
-        );
-      p.angle = target.x > p.x ? 75 : 105;
-      if (n === 1) p.power = 100 + this.rng.int(100);
-      else if (n === 2) p.power = 200 + this.rng.int(200);
-      else {
-        const a = history.at(-2),
-          b = history.at(-1),
-          error = target.x - a.x;
-        const correction =
-          Math.trunc((error * (b.power - a.power || 1)) / (b.x - a.x || 1)) % 32767;
-        let power = ((a.power + correction) << 16) >> 16;
-        if (power < 0) power = -2 * power;
-        p.power = power;
-        p.weapon =
-          Math.abs(error) > 30 ? 4 : Math.abs(error) > 15 ? 3 : Math.abs(error) > 5 ? 2 : 1;
-        while (p.weapon > 0 && !p.ammo[p.weapon])
-          p.weapon = p.weapon === 1 ? 11 : p.weapon === 11 ? 0 : p.weapon - 1;
-      }
+    if (ai === 1 || ai === 5) {
+      const plan = ai === 1 ? planLobber(this, p) : planTwanger(this, p, tankPixel);
+      target = this.players[plan.target];
+      p.angle = plan.angle;
+      p.power = plan.power;
+      p.weapon = plan.weapon;
     }
     if (ai === 3) {
       target = chooseEnemy();
@@ -1397,6 +1367,7 @@ export class Game {
       trailPixels: Array.from(this.trailPixels),
       turns: this.turns,
       roundCycles: this.roundCycles,
+      sharedProjectilePosition: this.sharedProjectilePosition,
       aiAim: this.aiAim,
       aiTimer: this.aiTimer,
       aiWeaponTransition: this.aiWeaponTransition,
@@ -1438,6 +1409,7 @@ export class Game {
       'backgroundElapsed',
     ])
       game[field] = savedState[field];
+    game.sharedProjectilePosition = savedState.sharedProjectilePosition ?? { x: 0, y: 0 };
     if (game.backgroundModel)
       game.backgroundModel.pixels = Uint8Array.from(game.backgroundModel.pixels);
     else game.backgroundModel = createBattleBackground(game.background, new Random(savedState.rng));

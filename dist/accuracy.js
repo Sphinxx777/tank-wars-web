@@ -22,6 +22,7 @@ const content = {
           'Battle HUD: all 8,960 pixels in the reference crop match.',
           'Explosion outlines: 177 rasters match execution of the original instructions, including radii 0–170.',
           'Ordinary shells: 404 original-code cases covering subdivision counters, integration, power-dependent soil collisions, cross-pixel order, walls and termination. Buried barrel restoration and redraw match all 181 integer angles.',
+          'Twanger: 184 complete DOS decisions, including sampled ray pixels, target ranking, weapon selection and Pascal Real rounding. Lobber: 359 decisions and 14 history writes, covering learning, direction resets, ammunition fallback and signed-word overflow.',
           'MIRV: 106 original-code cases covering integration, spreads, collision order, walls and subdivisions. Dirt: 61 BGI circle hashes, 12 full or clipped disks, and 8,779 Explosive Dirt coordinates with sound and RNG checks.',
           'Laser walls: 70 reference cases. Runtime gun trigonometry: all 181 integer angles. Lightning: 3,339 center coordinates across 21 paths, with RNG and sound-call checks.',
         ],
@@ -46,7 +47,7 @@ const content = {
           'Some death flashes read arbitrary bytes from low DOS memory. Those memory-dependent flashes and CPU-dependent timing remain incomplete. Barrel rotation now excavates soil along the old and new gun pixels. Lightning sweeps use explicit browser pacing and clip to the field; victory is checked before another strike to avoid the original endless-strike edge case.',
           'Overlapping tank/projectile/effect framebuffer writes still need further reference checks. Ordinary shots now use the original player-count initial index, inclusive 0..S cycle, last classified collision color and direct damage after radial damage. MIRV flight and dirt drawing use explicit browser pacing for original loops without Delay; Pascal Real boundary rounding can differ from JavaScript.',
           'Some dialogs and transitions, and AI edge cases remain under review.',
-          'Parts of Twanger and Lobber aiming remain approximate. Computer shopping now uses the original four persistent strategies; rejected full-cart purchases end the visit instead of reproducing a DOS no-progress loop.',
+          'Twanger and Lobber decisions now match the checked original cases. Their transient diagnostic graphics have no reproduced CPU-dependent timing; pathological Twanger layouts with no positive path score use an explicit enemy fallback instead of the DOS scratch record. Whole-session shared-coordinate and death-particle arithmetic still need further checks. Computer shopping uses the original four persistent strategies; rejected full-cart purchases end the visit instead of reproducing a DOS no-progress loop.',
           'Custom RAW backgrounds, DOS save import and network multiplayer are not implemented.',
         ],
         paragraphs: [
@@ -82,6 +83,7 @@ const content = {
           'Верхняя панель боя: совпали все 8960 пикселей эталонного фрагмента.',
           'Контуры взрывов: 177 растров совпали с исполнением оригинальных инструкций, включая радиусы 0–170.',
           'Обычные снаряды: 404 исполнения исходного кода — счётчики подшагов, интеграция, пробивание грунта в зависимости от мощности, порядок пикселей столкновения, стены и завершение полёта. Стирание и перерисовка закопанного ствола совпали для всех 181 целочисленных углов.',
+          'Twanger: 184 полных решения DOS, включая пиксели проверочных лучей, порядок целей, выбор оружия и округление Pascal Real. Lobber: 359 решений и 14 записей истории — пристрелка, сброс при смене направления, выбор доступного оружия и 16-битные переполнения.',
           'MIRV: 106 исполнений исходного кода — движение, разлёт, порядок столкновений, стены и подшаги. Земляное оружие: 61 хеш BGI-круга, 12 полных или обрезанных насыпей и 8779 координат Explosive Dirt с проверкой звука и RNG.',
           'Стены для лазера: 70 эталонных случаев. Тригонометрия пушек: все 181 целочисленный угол. Молнии: 3339 центральных координат на 21 траектории, с проверкой вызовов RNG и звука.',
         ],
@@ -106,7 +108,7 @@ const content = {
           'Некоторые вспышки смерти читают случайные байты из низкой DOS-памяти. Эти зависящие от памяти вспышки и CPU-зависимый темп ещё воспроизведены не полностью. Вращение пушки теперь удаляет грунт по старому и новому положению ствола. Для молний задан браузерный темп и отсечение по полю; победа проверяется перед новым ударом, чтобы избежать исходного зацикливания молний.',
           'Перекрывающиеся записи танков, снарядов и эффектов в видеопамять требуют дальнейшей сверки. Обычные снаряды теперь используют исходный начальный индекс по числу игроков, цикл 0..S включительно, последний классифицированный цвет столкновения и прямой урон после радиального. Темп полёта MIRV и рисования земли задан для браузера: исходные циклы не содержат Delay. Округление Pascal Real на границах пикселей может отличаться от JavaScript.',
           'Отдельные диалоги и переходы, крайние случаи AI ещё проверяются.',
-          'Часть прицеливания Twanger и Lobber остаётся приближённой. Закупки используют четыре постоянные стратегии оригинала; при невозможности добавить товар компьютер завершает покупки вместо воспроизведения зацикливания DOS.',
+          'Решения Twanger и Lobber совпадают с проверенными случаями оригинала. CPU-зависимый темп временной диагностической графики не воспроизведён; если у Twanger нет пути с положительной оценкой, выбирается враг вместо чтения служебной записи DOS. Общие координаты за целую игровую сессию и арифметика частиц смерти требуют дальнейшей сверки. Закупки используют четыре постоянные стратегии оригинала; при невозможности добавить товар компьютер завершает покупки вместо воспроизведения зацикливания DOS.',
           'Пользовательские RAW-фоны, импорт DOS-сохранений и сетевой мультиплеер не реализованы.',
         ],
         paragraphs: [

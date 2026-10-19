@@ -1,0 +1,13219 @@
+[
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 115,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 115,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 115,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 1,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 523,
+      "weapon": 4,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 523,
+      "weapon": 4,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 2,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 3,
+      "elevation": 75,
+      "direction": 1,
+      "power": 523,
+      "weapon": 4,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 221,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": -1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 363,
+      "weapon": 3,
+      "historyLength": 4,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 0,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.25,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.5,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 3,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "direction": 1,
+    "random": 0.75,
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 95,
+        "power": 230
+      },
+      {
+        "x": 140,
+        "power": 310
+      },
+      {
+        "x": 185,
+        "power": 390
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": -1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 40,
+        "power": 120
+      },
+      {
+        "x": 40,
+        "power": 120
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 340,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 40,
+        "power": 120
+      },
+      {
+        "x": 40,
+        "power": 120
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 340,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 40,
+        "power": 100
+      },
+      {
+        "x": 40,
+        "power": 900
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 12265,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 40,
+        "power": 100
+      },
+      {
+        "x": 40,
+        "power": 900
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 12265,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 32760,
+        "power": 100
+      },
+      {
+        "x": -32760,
+        "power": 900
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": -26902,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 32760,
+        "power": 100
+      },
+      {
+        "x": -32760,
+        "power": 900
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": -26902,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": -32760,
+        "power": 100
+      },
+      {
+        "x": 32760,
+        "power": 900
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 20317,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": -32760,
+        "power": 100
+      },
+      {
+        "x": 32760,
+        "power": 900
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 20317,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 10,
+        "power": 30000
+      },
+      {
+        "x": 11,
+        "power": -30000
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": -10036,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 10,
+        "power": 30000
+      },
+      {
+        "x": 11,
+        "power": -30000
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": -10036,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 200,
+        "power": 100
+      },
+      {
+        "x": 201,
+        "power": 1000
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 21333,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 200,
+        "power": 100
+      },
+      {
+        "x": 201,
+        "power": 1000
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 21333,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 200,
+        "power": 1000
+      },
+      {
+        "x": 201,
+        "power": 100
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": -25070,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 200,
+        "power": 1000
+      },
+      {
+        "x": 201,
+        "power": 100
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": -25070,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 0,
+        "power": 10
+      },
+      {
+        "x": 3,
+        "power": 11
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 96,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 0,
+        "power": 10
+      },
+      {
+        "x": 3,
+        "power": 11
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 96,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 0,
+        "power": 10
+      },
+      {
+        "x": 7,
+        "power": 11
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 47,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 0,
+        "power": 10
+      },
+      {
+        "x": 7,
+        "power": 11
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 47,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 0,
+        "power": 500
+      },
+      {
+        "x": 100,
+        "power": 501
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 502,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 0,
+        "power": 500
+      },
+      {
+        "x": 100,
+        "power": 501
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 502,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 100,
+        "power": 50
+      },
+      {
+        "x": 110,
+        "power": 100
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 850,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 100,
+        "power": 50
+      },
+      {
+        "x": 110,
+        "power": 100
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 850,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 100,
+        "power": 200
+      },
+      {
+        "x": 200,
+        "power": 100
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": 40,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 100,
+        "power": 200
+      },
+      {
+        "x": 200,
+        "power": 100
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 40,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 45,
+    "history": [
+      {
+        "x": 1,
+        "power": 32767
+      },
+      {
+        "x": 2,
+        "power": -32768
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 45,
+      "direction": 1,
+      "power": -516,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "elevation": 75,
+    "history": [
+      {
+        "x": 1,
+        "power": 32767
+      },
+      {
+        "x": 2,
+        "power": -32768
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": -516,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 160,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 150,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 160,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 150,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 160,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 150,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 160,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 150,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 160,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 150,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 160,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 150,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 155,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 155,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 155,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 155,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 155,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 155,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 154,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 154,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 154,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 154,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 154,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 154,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 145,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 145,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 145,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 145,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 145,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 145,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 144,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 144,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 144,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 144,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 144,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 144,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 130,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 130,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 130,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 130,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 130,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 130,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 129,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 129,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 129,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 129,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 129,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 129,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 165,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 165,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 165,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 165,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 165,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 165,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 166,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 166,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 166,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 166,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 166,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 166,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 175,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 175,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 175,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 175,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 175,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 175,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 176,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 176,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 176,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 176,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 176,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 176,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 190,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 190,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 190,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 190,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 190,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 190,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 191,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 0,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 191,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 1,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 191,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 2,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 191,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 191,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 160
+      }
+    ],
+    "history": [
+      {
+        "x": 191,
+        "power": 150
+      },
+      {
+        "x": 160,
+        "power": 200
+      }
+    ],
+    "ammo": [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      10,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 11,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90,
+        "alive": false
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90,
+        "alive": false
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 150,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 90,
+        "alive": false
+      },
+      {
+        "x": 170
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 150,
+        "power": 150
+      },
+      {
+        "x": 130,
+        "power": 200
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 100,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30,
+        "team": 1
+      },
+      {
+        "x": 90,
+        "team": 1
+      },
+      {
+        "x": 170,
+        "team": 2
+      },
+      {
+        "x": 260,
+        "team": 1
+      }
+    ],
+    "history": [],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30,
+        "team": 1
+      },
+      {
+        "x": 90,
+        "team": 1
+      },
+      {
+        "x": 170,
+        "team": 2
+      },
+      {
+        "x": 260,
+        "team": 1
+      }
+    ],
+    "history": [
+      {
+        "x": 150,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30,
+        "team": 1
+      },
+      {
+        "x": 90,
+        "team": 1
+      },
+      {
+        "x": 170,
+        "team": 2
+      },
+      {
+        "x": 260,
+        "team": 1
+      }
+    ],
+    "history": [
+      {
+        "x": 150,
+        "power": 150
+      },
+      {
+        "x": 130,
+        "power": 200
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 100,
+      "weapon": 3,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 300
+      },
+      {
+        "x": 200
+      },
+      {
+        "x": 100
+      },
+      {
+        "x": 0
+      }
+    ],
+    "history": [],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 117,
+      "weapon": 1,
+      "historyLength": 0,
+      "randomCalls": [
+        "real",
+        100
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 300
+      },
+      {
+        "x": 200
+      },
+      {
+        "x": 100
+      },
+      {
+        "x": 0
+      }
+    ],
+    "history": [
+      {
+        "x": 150,
+        "power": 150
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 217,
+      "weapon": 1,
+      "historyLength": 1,
+      "randomCalls": [
+        200
+      ]
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 300
+      },
+      {
+        "x": 200
+      },
+      {
+        "x": 100
+      },
+      {
+        "x": 0
+      }
+    ],
+    "history": [
+      {
+        "x": 150,
+        "power": 150
+      },
+      {
+        "x": 130,
+        "power": 200
+      }
+    ],
+    "expected": {
+      "target": 2,
+      "elevation": 75,
+      "direction": 1,
+      "power": 275,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 51,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 360,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 51,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1620,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 51,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 5400,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 51,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 16950,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 51,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 9173,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 52,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 255,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 52,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 885,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 52,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2775,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 52,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 8550,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 52,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 21045,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 53,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 220,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 53,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 639,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 53,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1899,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 53,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 5750,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 53,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 14080,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 54,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 202,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 54,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 517,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 54,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1462,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 54,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 4350,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 54,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 10597,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 55,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 192,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 55,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 444,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 55,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1200,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 55,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 3510,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 55,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 8508,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 56,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 185,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 56,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 394,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 56,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1024,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 56,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2950,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 56,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 7115,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 57,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 180,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 57,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 360,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 57,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 900,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 57,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2550,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 57,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 6120,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 58,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 176,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 58,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 333,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 58,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 806,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 58,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2250,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 58,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 5373,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 59,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 173,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 59,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 313,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 59,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 733,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 59,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2016,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 59,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 4793,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 60,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 171,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 60,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 297,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 60,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 675,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 60,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1830,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 60,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 4329,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 61,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 169,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 61,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 283,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 61,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 627,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 61,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1677,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 61,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 3949,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 62,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 167,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 62,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 272,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 62,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 587,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 62,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1550,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 62,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 3632,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 63,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 166,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 63,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 263,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 63,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 553,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 63,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1442,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 63,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 3364,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 64,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 165,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 64,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 255,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 64,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 525,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 64,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1350,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 64,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 3135,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 65,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 164,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 65,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 248,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 65,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 500,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 65,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1270,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 65,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2936,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 66,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 163,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 66,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 241,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 66,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 478,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 66,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1200,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 66,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2761,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 67,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 162,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 67,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 236,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 67,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 458,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 67,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1138,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 67,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2608,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 68,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 161,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 68,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 231,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 68,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 441,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 68,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1083,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 68,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2471,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 69,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 161,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 69,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 227,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 69,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 426,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 69,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1034,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 69,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2349,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 70,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 160,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 70,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 223,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 70,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 412,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 70,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 990,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 70,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2239,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 71,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 160,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 71,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 220,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 71,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 400,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 71,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 950,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 71,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2139,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 72,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 159,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 72,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 216,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 72,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 388,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 72,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 913,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 72,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 2049,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 73,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 159,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 73,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 213,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 73,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 378,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 73,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 880,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 73,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1966,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 74,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 158,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 74,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 211,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 74,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 368,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 74,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 850,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 74,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1891,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 75,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 158,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 75,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 208,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 75,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 360,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 75,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 822,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 75,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1821,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 76,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 158,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 76,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 206,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 76,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 351,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 76,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 796,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 76,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1757,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 77,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 157,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 77,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 204,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 77,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 344,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 77,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 772,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 77,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1697,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 78,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 157,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 78,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 202,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 78,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 337,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 78,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 750,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 78,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1642,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 79,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 157,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 79,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 200,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 79,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 331,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 79,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 729,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 79,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1591,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 80,
+        "power": 151
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 157,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 80,
+        "power": 157
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 199,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 80,
+        "power": 175
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 325,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 80,
+        "power": 230
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 710,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  },
+  {
+    "own": 0,
+    "players": [
+      {
+        "x": 30
+      },
+      {
+        "x": 260
+      }
+    ],
+    "history": [
+      {
+        "x": 50,
+        "power": 150
+      },
+      {
+        "x": 80,
+        "power": 349
+      }
+    ],
+    "expected": {
+      "target": 1,
+      "elevation": 75,
+      "direction": 1,
+      "power": 1543,
+      "weapon": 4,
+      "historyLength": 2,
+      "randomCalls": []
+    }
+  }
+]

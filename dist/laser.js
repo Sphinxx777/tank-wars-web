@@ -163,6 +163,8 @@ export function* laserEffect(game, shot, energy, tankPixel, tankBodyPixel) {
       y = Math.trunc(beam.y);
     if (inside(x, y)) visual.path.set(key(x, y), [x, y]);
   }
+  // Laser shares the DOS projectile coordinates used by the Lobber history writer.
+  game.sharedProjectilePosition = { x: beam.x, y: beam.y };
   for (const [x, y] of visual.path.values()) game.terrain.set(x, y, 0);
   game.terrain.version++;
   game.audio(new SoundSequence().stop());

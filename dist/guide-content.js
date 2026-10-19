@@ -314,7 +314,7 @@ export const guideContent = {
         id: 1,
         name: 'Lobber',
         description:
-          'Uses steep shots and learns from earlier landing positions and power settings. Its first shots establish a rough range; later shots adjust toward a target.',
+          'Starts with steep Incinerator shots at 75 degrees, then uses its two latest impacts to adjust power. It targets the enemy nearest its last impact; switching sides restarts its learning. Larger weapons become available after the first two ranging shots.',
         tips: [
           'Watch its misses: it is gathering information. A major terrain change can make its earlier landing data less useful.',
         ],
@@ -350,7 +350,7 @@ export const guideContent = {
         id: 5,
         name: 'Twanger',
         description:
-          'With rebounding walls, aims for a shot that bounces from the top boundary toward its target. Without those walls, it falls back to the Rifleman style.',
+          'With rebounding walls, compares paths that bounce from the ceiling. Dirt before the bounce counts three times as much as dirt after it; equally clear paths favor the nearest enemy. It checks the chosen path again before selecting a shell or laser. Without rebounding walls, it uses the Rifleman style.',
         tips: [
           'Watch above your tank as well as directly across the terrain. An apparently high shot may be intentional.',
         ],
@@ -714,7 +714,7 @@ export const guideContent = {
         id: 1,
         name: 'Lobber',
         description:
-          'Стреляет по крутой дуге и использует предыдущие места падения и значения мощности. Первые выстрелы дают приблизительную дальность, следующие корректируются в сторону цели.',
+          'Начинает с пристрелочных Incinerator под углом 75 градусов, затем корректирует мощность по двум последним попаданиям. Выбирает врага, ближайшего к последнему попаданию; смена стороны сбрасывает пристрелку. После первых двух выстрелов может выбрать более крупное оружие.',
         tips: [
           'Следите за промахами: он собирает данные. Сильное изменение рельефа может сделать прошлые попадания менее полезными для прицеливания.',
         ],
@@ -748,7 +748,7 @@ export const guideContent = {
         id: 5,
         name: 'Twanger',
         description:
-          'При стенах с отскоком целится с расчётом на отражение от верхней границы в сторону цели. Без таких стен переходит к стилю Rifleman.',
+          'При стенах с отскоком сравнивает пути через верхнюю границу. Земля до отскока мешает втрое сильнее, чем после; при равной оценке предпочитает ближайшего врага. Повторно проверяет выбранный путь перед выбором снаряда или лазера. Без стен с отскоком действует как Rifleman.',
         tips: [
           'Следите не только за прямой линией через холмы, но и за пространством сверху. Очень высокий выстрел может быть намеренным.',
         ],

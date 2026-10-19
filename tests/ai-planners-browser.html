@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Twanger and Lobber — original AI verification</title>
+  <style>
+    body {
+      background: #15121a;
+      color: #eee;
+      font: 16px system-ui;
+      margin: 24px;
+    }
+    #views {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 1150px;
+    }
+    figure {
+      margin: 0;
+    }
+    canvas {
+      width: 100%;
+      aspect-ratio: 4/3;
+      image-rendering: pixelated;
+    }
+    figcaption {
+      line-height: 1.6;
+    }
+    button {
+      padding: 12px 18px;
+      margin: 14px 0;
+    }
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 24px;
+      }
+      canvas {
+        width: 240px;
+        max-width: 100%;
+      }
+      #views {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <h1>Twanger & Lobber: DOS decisions, native controls</h1>
+  <p>Production engine · visible weapon selection, power adjustment and turret rotation.</p>
+  <div id="views"></div>
+  <button id="play">Run both aiming sequences</button>
+  <p id="status">Ready.</p>
+  <script type="module">
+    import { Game } from '../dist/engine.js';
+    import { Renderer } from '../dist/render.js';
+    import { loadGameAssets } from '../dist/assets-loader.js';
+    const { catalog, fonts, bitmap, title } = await loadGameAssets();
+    const views = [];
+    function scene(ai) {
+      const game = new Game(
+        catalog.weapons,
+        { sound: false, wind: 0, walls: 2, crumble: 0, background: 0 },
+        47,
+      );
+      game.start([
+        { name: ai === 5 ? 'Twanger' : 'Lobber', ai },
+        { name: 'Target', ai: -1 },
+      ]);
+      game.falling = null;
+      game.terrain.data.fill(0);
+      for (let x = 11; x <= 309; x++) for (let y = 161; y <= 189; y++) game.terrain.set(x, y, 1);
+      game.players.forEach((p, i) => {
+        Object.assign(p, { x: i ? 270 : 40, y: 160, angle: 45, power: 200, weapon: 1 });
+        p.ammo.fill(20);
+      });
+      if (ai === 1) {
+        game.players[0].lobAim = { elevation: 75, direction: 1 };
+        game.players[0].lob = [
+          { x: 140, y: 160, power: 150 },
+          { x: 180, y: 160, power: 250 },
+        ];
+      }
+      game.order = [0, 1];
+      game.active = 0;
+      game.phase = 'aim';
+      game.aiTimer = 0;
+      return game;
+    }
+    for (const ai of [5, 1]) {
+      const figure = document.createElement('figure'),
+        canvas = document.createElement('canvas'),
+        caption = document.createElement('figcaption');
+      canvas.width = 320;
+      canvas.height = 200;
+      figure.append(canvas, caption);
+      document.querySelector('#views').append(figure);
+      views.push({
+        ai,
+        game: scene(ai),
+        renderer: new Renderer(canvas, fonts, bitmap, title),
+        caption,
+      });
+    }
+    function draw() {
+      for (const view of views) {
+        const { game, renderer, caption } = view,
+          p = game.current;
+        renderer.render({ screen: 'battle', options: game.options, game }, 0);
+        caption.textContent = `${p.name} · ${catalog.weapons[p.weapon].name} · Power ${p.power} · Angle ${p.angle}° · ${p.shots ? 'Fired' : 'Aiming'}${view.ai === 1 ? ' · Learning from impacts x140 / x180' : ''}`;
+      }
+    }
+    draw();
+    let run = 0;
+    document.querySelector('#play').onclick = () => {
+      const token = ++run;
+      for (const view of views) view.game = scene(view.ai);
+      document.querySelector('#status').textContent = 'Running…';
+      let previous;
+      function frame(time) {
+        if (token !== run) return;
+        for (const view of views)
+          if (view.game.phase === 'aim' && previous)
+            view.game.update(Math.min(0.05, (time - previous) / 1000));
+        previous = time;
+        draw();
+        if (views.some((view) => view.game.phase === 'aim')) requestAnimationFrame(frame);
+        else {
+          const [twanger, lobber] = views.map((view) => view.game.current);
+          const pass =
+            twanger.angle === 48 &&
+            twanger.power >= 950 &&
+            twanger.power <= 1000 &&
+            twanger.weapon === 4 &&
+            lobber.angle === 75 &&
+            lobber.power === 475 &&
+            lobber.weapon === 4;
+          document.querySelector('#status').textContent =
+            (pass ? 'PASS' : 'FAIL') +
+            ': both plans completed through visible controls; one shot each.';
+        }
+      }
+      requestAnimationFrame(frame);
+    };
+  </script>
+</html>
